@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0b3c49"/><stop offset="100%" stop-color="#1b4f91"/></linearGradient></defs>
+  <rect width="640" height="380" rx="16" fill="url(#bg)"/>
+  <circle cx="110" cy="95" r="72" fill="#e11d48" opacity=".82"/>
+  <circle cx="530" cy="290" r="88" fill="#10b981" opacity=".78"/>
+  <rect x="210" y="34" width="220" height="312" rx="110" fill="#f5b82e" opacity=".18"/>
+  <path d="M180 55 C280 115, 360 115, 460 55 M180 155 C280 215, 360 215, 460 155 M180 255 C280 315, 360 315, 460 255" stroke="#f5b82e" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M180 115 C280 55, 360 55, 460 115 M180 215 C280 155, 360 155, 460 215 M180 315 C280 255, 360 255, 460 315" stroke="#38bdf8" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <rect x="44" y="250" width="165" height="86" rx="12" fill="#0b2833" opacity=".92"/>
+  <text x="60" y="286" fill="#f5b82e" font-family="Inter,sans-serif" font-size="24" font-weight="800">0.9839</text>
+  <text x="60" y="314" fill="#e2f0f5" font-family="Inter,sans-serif" font-size="13">118-Gene OOF AUROC</text>
+  <rect x="424" y="44" width="176" height="82" rx="12" fill="#0b2833" opacity=".92"/>
+  <text x="440" y="80" fill="#4ade80" font-family="Inter,sans-serif" font-size="22" font-weight="800">-82.2% ECE</text>
+  <text x="440" y="106" fill="#e2f0f5" font-family="Inter,sans-serif" font-size="13">SAS -43.5% | AFR -63.4%</text>
+</svg>

@@ -1,22 +1,23 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Deploy — Genomic Equity Conformal (v1.0.0)</title><meta name="description" content="6-stage Codespaces commands &amp; Docker"><meta name="theme-color" content="#0b3c49">
+<title>Deploy — Genomic Equity Conformal (v1.0.0)</title><meta name="theme-color" content="#0b3c49">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css"></head><body>
 <div id="progress-bar"></div>
-<header class="navbar"><div class="nav-inner"><a class="brand" href="index.html"><img src="assets/favicon.svg" width="26" height="26" alt="Logo"><span>Genomic Equity v1.0.0</span></a>
-<nav id="nav-links" class="nav-links"><a href="index.html" class="">Home</a>
-<a href="overview.html" class="">Overview</a>
-<a href="architecture.html" class="">Architecture</a>
-<a href="results.html" class="">Results</a>
-<a href="mavedb.html" class="">MaveDB</a>
-<a href="audit.html" class="">Audit Log</a>
-<a href="deploy.html" class="active">Deploy</a>
-<a href="provenance.html" class="">Provenance</a>
-<a href="code.html" class="">Source Code</a></nav>
-<div class="nav-controls"><div class="search-wrap"><input id="site-search" class="search-input" type="search" placeholder="Search site..."><div id="search-results" class="search-results"></div></div>
-<button id="theme-toggle" class="icon-btn" type="button">☾ Dark</button><button id="menu-toggle" class="icon-btn hamburger" type="button">☰</button></div></div></header>
-<div class="page-shell"><aside class="toc-sidebar"><div class="toc-title">On This Page</div><ul class="toc-list"><li><a href="#cmds">Commands</a></li></ul></aside><main id="main-content"><section class="hero"><div class="hero-eyebrow">Section 5 &bull; Reproducible Execution</div><h1>Codespaces Commands &amp; Air-Gapped Docker</h1><p>Copy any stage below to reproduce v1.0.0 on GitHub Codespaces Free Tier.</p></section><section id="cmds" class="card"><h2>6-Stage Commands</h2><div class="code-box"><div class="code-bar"><strong>Stage 1: Environment & Tests</strong><button class="btn" type="button" data-copy="#s1">Copy</button></div><pre><code id="s1">python3 -m pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
+<header class="who-header"><div class="header-inner">
+  <a class="who-brand" href="index.html"><img src="assets/favicon.svg" alt="Logo"><div class="brand-text"><strong>Genomic Equity</strong><span>Conformal QA v1.0.0</span></div></a>
+  <nav class="desktop-nav" aria-label="Primary"><a href="index.html" class="">Home</a><a href="overview.html" class="">Overview & Equity</a><a href="architecture.html" class="">Architecture</a><a href="results.html" class="">Live Results</a><a href="mavedb.html" class="">MaveDB Wet-Lab</a><a href="audit.html" class="">Audit Log</a></nav>
+  <div class="header-actions"><a class="pill-cta" href="code.html">33 Source Files</a><button id="menu-open" class="who-burger" type="button" aria-label="Open menu">☰</button></div>
+</div></header>
+
+<div id="who-drawer" class="who-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="drawer-top"><a class="drawer-brand" href="index.html"><img src="assets/favicon.svg" width="30" height="30" alt="Logo"><span>Genomic Equity v1.0.0</span></a><button id="menu-close" class="drawer-close" type="button" aria-label="Close menu">&times;</button></div>
+  <div class="drawer-tools"><input id="drawer-search" class="drawer-search" type="search" placeholder="Search research portal..."><button id="theme-toggle" class="drawer-theme" type="button">☾ Dark</button></div>
+  <div id="drawer-results" class="drawer-results"></div>
+  <nav class="drawer-links"><a href="index.html" class=""><span>Home</span><span class="chev">›</span></a><a href="overview.html" class=""><span>Overview & Equity</span><span class="chev">›</span></a><a href="architecture.html" class=""><span>Architecture</span><span class="chev">›</span></a><a href="results.html" class=""><span>Live Results</span><span class="chev">›</span></a><a href="mavedb.html" class=""><span>MaveDB Wet-Lab</span><span class="chev">›</span></a><a href="audit.html" class=""><span>Audit Log</span><span class="chev">›</span></a><a href="deploy.html" class="active"><span>Codespaces & Docker</span><span class="chev">›</span></a><a href="provenance.html" class=""><span>Provenance & Funding</span><span class="chev">›</span></a><a href="code.html" class=""><span>Source Code</span><span class="chev">›</span></a></nav>
+</div>
+
+<div class="container"><section class="hero"><div class="hero-eyebrow">Section 5 &bull; Reproducible Execution</div><h1>Codespaces Commands &amp; Air-Gapped Docker</h1><p>Copy any stage below to reproduce v1.0.0 on GitHub Codespaces Free Tier.</p></section><section id="cmds" class="card"><h2>6-Stage Commands</h2><div class="code-box"><div class="code-bar"><strong>Stage 1: Environment & Tests</strong><button class="btn" type="button" data-copy="#s1">Copy</button></div><pre><code id="s1">python3 -m pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
 python3 -m pip install --no-cache-dir -r requirements.txt
 python3 -m pytest tests/test_pipeline.py tests/test_v10_regression.py -v</code></pre></div><div class="code-box"><div class="code-bar"><strong>Stage 2: 20-Gene Pilot & v1.0-Clean</strong><button class="btn" type="button" data-copy="#s2">Copy</button></div><pre><code id="s2">python3 src/data_curate_clinvar.py
 python3 src/run_pilot_benchmark.py
@@ -31,8 +32,11 @@ python3 src/v1_mavedb_5gene_suite.py --max-per-gene 150
 python3 src/v1_esm2_35m_poscache.py --limit-positions 200</code></pre></div><div class="code-box"><div class="code-bar"><strong>Stage 5: Raw VCF 4.2, CLI & RO-Crate 1.1</strong><button class="btn" type="button" data-copy="#s5">Copy</button></div><pre><code id="s5">python3 src/audit_vcf.py --vcf data/raw_hospital_sample.vcf --default-ancestry SAS
 python3 src/predict_variant.py --gene HBB --variant E7V --ancestry AFR --af-afr 0.047
 python3 src/generate_rocrate.py</code></pre></div><div class="code-box"><div class="code-bar"><strong>Stage 6: Air-Gapped Docker & GitHub Launch</strong><button class="btn" type="button" data-copy="#s6">Copy</button></div><pre><code id="s6">docker build -t genomic-equity:1.0.0 .
-docker run --network=none -p 8080:8080 genomic-equity:1.0.0</code></pre></div></section></main></div>
+docker run --network=none -p 8080:8080 genomic-equity:1.0.0</code></pre></div></section></div>
+
 <button id="back-to-top" type="button" aria-label="Back to top">↑</button>
-<footer><div class="footer-inner"><div><strong>Genomic Equity Conformal (v1.0.0)</strong> &bull; Nikhil Bharti (@Nikhilbharti284) &bull; MIT + CC BY 4.0 &bull; Built November 2026</div>
-<div style="display:flex;gap:14px"><a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub Repo</a><a href="code.html">Source Code</a><a href="provenance.html">SHA-256 Ledger</a></div></div></footer>
+<footer><div class="footer-inner">
+  <div><strong>Genomic Equity Conformal (v1.0.0)</strong> &bull; Nikhil Bharti (@Nikhilbharti284) &bull; MIT + CC BY 4.0 &bull; Built November 2026</div>
+  <div style="display:flex;gap:14px"><a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub Repo</a><a href="code.html">Source Code</a><a href="provenance.html">SHA-256 Ledger</a></div>
+</div></footer>
 <script src="js/main.js"></script></body></html>

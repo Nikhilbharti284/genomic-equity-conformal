@@ -1,29 +1,33 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Overview — Genomic Equity Conformal (v1.0.0)</title><meta name="description" content="Equity problem &amp; blueprint selection"><meta name="theme-color" content="#0b3c49">
+<title>Overview — Genomic Equity Conformal (v1.0.0)</title><meta name="theme-color" content="#0b3c49">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css"></head><body>
 <div id="progress-bar"></div>
-<header class="navbar"><div class="nav-inner"><a class="brand" href="index.html"><img src="assets/favicon.svg" width="26" height="26" alt="Logo"><span>Genomic Equity v1.0.0</span></a>
-<nav id="nav-links" class="nav-links"><a href="index.html" class="">Home</a>
-<a href="overview.html" class="active">Overview</a>
-<a href="architecture.html" class="">Architecture</a>
-<a href="results.html" class="">Results</a>
-<a href="mavedb.html" class="">MaveDB</a>
-<a href="audit.html" class="">Audit Log</a>
-<a href="deploy.html" class="">Deploy</a>
-<a href="provenance.html" class="">Provenance</a>
-<a href="code.html" class="">Source Code</a></nav>
-<div class="nav-controls"><div class="search-wrap"><input id="site-search" class="search-input" type="search" placeholder="Search site..."><div id="search-results" class="search-results"></div></div>
-<button id="theme-toggle" class="icon-btn" type="button">☾ Dark</button><button id="menu-toggle" class="icon-btn hamburger" type="button">☰</button></div></div></header>
-<div class="page-shell"><aside class="toc-sidebar"><div class="toc-title">On This Page</div><ul class="toc-list"><li><a href="#problem">Problem</a></li><li><a href="#blueprints">Blueprints</a></li></ul></aside><main id="main-content"><section class="hero"><div class="hero-eyebrow">Section 1 &bull; Executive Overview</div><h1>Why Genomic Equity Matters &amp; Blueprint Selection</h1><p>Fixing EUR-biased calibration, SAS/AFR VUS burden, HBB_E7V sickle-cell false-benign traps, and DPDP Act 2023/2025 hospital data sovereignty.</p></section>
+<header class="who-header"><div class="header-inner">
+  <a class="who-brand" href="index.html"><img src="assets/favicon.svg" alt="Logo"><div class="brand-text"><strong>Genomic Equity</strong><span>Conformal QA v1.0.0</span></div></a>
+  <nav class="desktop-nav" aria-label="Primary"><a href="index.html" class="">Home</a><a href="overview.html" class="active">Overview & Equity</a><a href="architecture.html" class="">Architecture</a><a href="results.html" class="">Live Results</a><a href="mavedb.html" class="">MaveDB Wet-Lab</a><a href="audit.html" class="">Audit Log</a></nav>
+  <div class="header-actions"><a class="pill-cta" href="code.html">33 Source Files</a><button id="menu-open" class="who-burger" type="button" aria-label="Open menu">☰</button></div>
+</div></header>
+
+<div id="who-drawer" class="who-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="drawer-top"><a class="drawer-brand" href="index.html"><img src="assets/favicon.svg" width="30" height="30" alt="Logo"><span>Genomic Equity v1.0.0</span></a><button id="menu-close" class="drawer-close" type="button" aria-label="Close menu">&times;</button></div>
+  <div class="drawer-tools"><input id="drawer-search" class="drawer-search" type="search" placeholder="Search research portal..."><button id="theme-toggle" class="drawer-theme" type="button">☾ Dark</button></div>
+  <div id="drawer-results" class="drawer-results"></div>
+  <nav class="drawer-links"><a href="index.html" class=""><span>Home</span><span class="chev">›</span></a><a href="overview.html" class="active"><span>Overview & Equity</span><span class="chev">›</span></a><a href="architecture.html" class=""><span>Architecture</span><span class="chev">›</span></a><a href="results.html" class=""><span>Live Results</span><span class="chev">›</span></a><a href="mavedb.html" class=""><span>MaveDB Wet-Lab</span><span class="chev">›</span></a><a href="audit.html" class=""><span>Audit Log</span><span class="chev">›</span></a><a href="deploy.html" class=""><span>Codespaces & Docker</span><span class="chev">›</span></a><a href="provenance.html" class=""><span>Provenance & Funding</span><span class="chev">›</span></a><a href="code.html" class=""><span>Source Code</span><span class="chev">›</span></a></nav>
+</div>
+
+<div class="container"><section class="hero"><div class="hero-eyebrow">Section 1 &bull; Executive Overview</div><h1>Why Genomic Equity Matters &amp; Blueprint Selection</h1><p>Fixing EUR-biased calibration, SAS/AFR VUS burden, HBB_E7V sickle-cell false-benign traps, and DPDP Act 2023/2025 hospital data sovereignty.</p></section>
 <section id="problem" class="card"><h2>Clinical &amp; Regulatory Problem</h2><p>Clinical VEPs trained on European cohorts miscalibrate South Asian (SAS) and African (AFR) patients and falsely call balancing-selection alleles like Sickle Cell (<code>HBB_E7V</code>) benign. Cloud SaaS suites also conflict with India's <strong>DPDP Act 2023/2025</strong>. Genomic Equity Conformal runs 100% air-gapped on free CPU.</p></section>
 <section id="blueprints" class="card"><h2>Why Track 7 Was Selected Over 3 Competing Blueprints</h2><div class="table-wrap"><table><thead><tr><th>Blueprint</th><th>Core Scope</th><th>Free-Tier Fit</th><th>Decision</th></tr></thead><tbody>
 <tr><td><strong>Track 7 (Genomic Equity)</strong></td><td>Frozen ESM-2 + AlphaMissense CC BY 4.0 + Nested OOF Platt + Non-Empty Mondrian</td><td>~10 core-h/mo, 507&ndash;629 MB RAM, $0 validation</td><td><span class="chip chip-pass">BUILT (v1.0.0)</span></td></tr>
 <tr><td><strong>Track 2 (AMR Gram-Neg)</strong></td><td>Multi-task Chemprop D-MPNN + Mondrian + Vina</td><td>~18 core-h/mo; needs $1.5k&ndash;$2k wet-lab grant</td><td><span class="chip chip-warn">BACKUP TRACK</span></td></tr>
 <tr><td><strong>OpenRepurpose-CPU</strong></td><td>AlphaFold v6 + ProDy + fpocket/P2Rank + Vina + RO-Crate</td><td>~11.6 core-h/target; lighter ML/DL depth</td><td><span class="chip chip-warn">HYBRID ADD-ON</span></td></tr>
-<tr><td><strong>Fungal Pma1 &amp; OpenStax</strong></td><td>Unaudited Pma1 draft; Biology 2e review</td><td>Assumed 8-core/16 GB; biophysical/patent flaws</td><td><span class="chip chip-danger">REJECTED</span></td></tr></tbody></table></div></section></main></div>
+<tr><td><strong>Fungal Pma1 &amp; OpenStax</strong></td><td>Unaudited Pma1 draft; Biology 2e review</td><td>Assumed 8-core/16 GB; biophysical/patent flaws</td><td><span class="chip chip-danger">REJECTED</span></td></tr></tbody></table></div></section></div>
+
 <button id="back-to-top" type="button" aria-label="Back to top">↑</button>
-<footer><div class="footer-inner"><div><strong>Genomic Equity Conformal (v1.0.0)</strong> &bull; Nikhil Bharti (@Nikhilbharti284) &bull; MIT + CC BY 4.0 &bull; Built November 2026</div>
-<div style="display:flex;gap:14px"><a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub Repo</a><a href="code.html">Source Code</a><a href="provenance.html">SHA-256 Ledger</a></div></div></footer>
+<footer><div class="footer-inner">
+  <div><strong>Genomic Equity Conformal (v1.0.0)</strong> &bull; Nikhil Bharti (@Nikhilbharti284) &bull; MIT + CC BY 4.0 &bull; Built November 2026</div>
+  <div style="display:flex;gap:14px"><a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub Repo</a><a href="code.html">Source Code</a><a href="provenance.html">SHA-256 Ledger</a></div>
+</div></footer>
 <script src="js/main.js"></script></body></html>

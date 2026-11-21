@@ -1,22 +1,23 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Architecture — Genomic Equity Conformal (v1.0.0)</title><meta name="description" content="Interactive 5-stage pipeline &amp; rejected approaches"><meta name="theme-color" content="#0b3c49">
+<title>Architecture — Genomic Equity Conformal (v1.0.0)</title><meta name="theme-color" content="#0b3c49">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css"></head><body>
 <div id="progress-bar"></div>
-<header class="navbar"><div class="nav-inner"><a class="brand" href="index.html"><img src="assets/favicon.svg" width="26" height="26" alt="Logo"><span>Genomic Equity v1.0.0</span></a>
-<nav id="nav-links" class="nav-links"><a href="index.html" class="">Home</a>
-<a href="overview.html" class="">Overview</a>
-<a href="architecture.html" class="active">Architecture</a>
-<a href="results.html" class="">Results</a>
-<a href="mavedb.html" class="">MaveDB</a>
-<a href="audit.html" class="">Audit Log</a>
-<a href="deploy.html" class="">Deploy</a>
-<a href="provenance.html" class="">Provenance</a>
-<a href="code.html" class="">Source Code</a></nav>
-<div class="nav-controls"><div class="search-wrap"><input id="site-search" class="search-input" type="search" placeholder="Search site..."><div id="search-results" class="search-results"></div></div>
-<button id="theme-toggle" class="icon-btn" type="button">☾ Dark</button><button id="menu-toggle" class="icon-btn hamburger" type="button">☰</button></div></div></header>
-<div class="page-shell"><aside class="toc-sidebar"><div class="toc-title">On This Page</div><ul class="toc-list"><li><a href="#pipeline">5-Stage Pipeline</a></li><li><a href="#rejected">Rejected</a></li></ul></aside><main id="main-content"><section class="hero"><div class="hero-eyebrow">Section 2 &bull; Architecture &amp; Algorithms</div><h1>Complete v1.0.0 Architecture &amp; Rejected Approaches</h1><p>Click any stage in the 5-stage pipeline to inspect its exact verified metrics and algorithms.</p></section>
+<header class="who-header"><div class="header-inner">
+  <a class="who-brand" href="index.html"><img src="assets/favicon.svg" alt="Logo"><div class="brand-text"><strong>Genomic Equity</strong><span>Conformal QA v1.0.0</span></div></a>
+  <nav class="desktop-nav" aria-label="Primary"><a href="index.html" class="">Home</a><a href="overview.html" class="">Overview & Equity</a><a href="architecture.html" class="active">Architecture</a><a href="results.html" class="">Live Results</a><a href="mavedb.html" class="">MaveDB Wet-Lab</a><a href="audit.html" class="">Audit Log</a></nav>
+  <div class="header-actions"><a class="pill-cta" href="code.html">33 Source Files</a><button id="menu-open" class="who-burger" type="button" aria-label="Open menu">☰</button></div>
+</div></header>
+
+<div id="who-drawer" class="who-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="drawer-top"><a class="drawer-brand" href="index.html"><img src="assets/favicon.svg" width="30" height="30" alt="Logo"><span>Genomic Equity v1.0.0</span></a><button id="menu-close" class="drawer-close" type="button" aria-label="Close menu">&times;</button></div>
+  <div class="drawer-tools"><input id="drawer-search" class="drawer-search" type="search" placeholder="Search research portal..."><button id="theme-toggle" class="drawer-theme" type="button">☾ Dark</button></div>
+  <div id="drawer-results" class="drawer-results"></div>
+  <nav class="drawer-links"><a href="index.html" class=""><span>Home</span><span class="chev">›</span></a><a href="overview.html" class=""><span>Overview & Equity</span><span class="chev">›</span></a><a href="architecture.html" class="active"><span>Architecture</span><span class="chev">›</span></a><a href="results.html" class=""><span>Live Results</span><span class="chev">›</span></a><a href="mavedb.html" class=""><span>MaveDB Wet-Lab</span><span class="chev">›</span></a><a href="audit.html" class=""><span>Audit Log</span><span class="chev">›</span></a><a href="deploy.html" class=""><span>Codespaces & Docker</span><span class="chev">›</span></a><a href="provenance.html" class=""><span>Provenance & Funding</span><span class="chev">›</span></a><a href="code.html" class=""><span>Source Code</span><span class="chev">›</span></a></nav>
+</div>
+
+<div class="container"><section class="hero"><div class="hero-eyebrow">Section 2 &bull; Architecture &amp; Algorithms</div><h1>Complete v1.0.0 Architecture &amp; Rejected Approaches</h1><p>Click any stage in the 5-stage pipeline to inspect its exact verified metrics and algorithms.</p></section>
 <section id="pipeline" class="card"><h2>Interactive 5-Stage v1.0.0 Pipeline</h2><div class="pipeline">
 <button class="pipe-stage active" type="button" data-detail="<strong>Stage 1 — 118-Gene Ingest:</strong> ClinVar &ge;2-star stream (max_per_gene=85) + 71M-row CC BY 4.0 AlphaMissense gzip stream (55.25 MB RAM) &rarr; 9,142 matched variants (7,420 post-2023)."><strong>1. 118-Gene Ingest</strong><br><small>9,142 Variants</small></button>
 <button class="pipe-stage" type="button" data-detail="<strong>Stage 2 — Anti-Leakage + 3D:</strong> 5-mer + Union-Find clusters 119 genes into 101 homology clusters (45 paralogs merged) + ESM2-35M SQLite WAL (629 MB RAM) + AlphaFold DB v6 pLDDT."><strong>2. Anti-Leakage + 3D</strong><br><small>100 Clusters</small></button>
@@ -28,8 +29,11 @@
 <tr><td><strong>REVEL, SpliceAI, CADD v1.7</strong></td><td><span class="chip chip-danger">REMOVED</span></td><td>Non-commercial licenses create B2B liability; CADD/SpliceAI returned 0/1206 on hg38. Replaced by CC BY 4.0 AlphaMissense.</td></tr>
 <tr><td><strong>Isotonic Regression</strong></td><td><span class="chip chip-danger">REJECTED</span></td><td>Overfit V1 splits (overall ECE 0.0817 &rarr; 0.0982). Replaced by Nested OOF Platt Scaling.</td></tr>
 <tr><td><strong>In-Sample Platt Double-Dipping</strong></td><td><span class="chip chip-danger">ELIMINATED</span></td><td>Caused EUR undercoverage (0.8424). Fixed via nested OOF Platt + 100 homology clusters (EUR 0.9086).</td></tr>
-<tr><td><strong>AF-Free Nonlinear MLP on DMS</strong></td><td><span class="chip chip-danger">REJECTED</span></td><td>Collapsed to |&rho;| = 0.0082 on unseen TP53 MaveDB; replaced with zero-label AlphaFold DB v6 attenuation (4/5 wins).</td></tr></tbody></table></div></section></main></div>
+<tr><td><strong>AF-Free Nonlinear MLP on DMS</strong></td><td><span class="chip chip-danger">REJECTED</span></td><td>Collapsed to |&rho;| = 0.0082 on unseen TP53 MaveDB; replaced with zero-label AlphaFold DB v6 attenuation (4/5 wins).</td></tr></tbody></table></div></section></div>
+
 <button id="back-to-top" type="button" aria-label="Back to top">↑</button>
-<footer><div class="footer-inner"><div><strong>Genomic Equity Conformal (v1.0.0)</strong> &bull; Nikhil Bharti (@Nikhilbharti284) &bull; MIT + CC BY 4.0 &bull; Built November 2026</div>
-<div style="display:flex;gap:14px"><a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub Repo</a><a href="code.html">Source Code</a><a href="provenance.html">SHA-256 Ledger</a></div></div></footer>
+<footer><div class="footer-inner">
+  <div><strong>Genomic Equity Conformal (v1.0.0)</strong> &bull; Nikhil Bharti (@Nikhilbharti284) &bull; MIT + CC BY 4.0 &bull; Built November 2026</div>
+  <div style="display:flex;gap:14px"><a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub Repo</a><a href="code.html">Source Code</a><a href="provenance.html">SHA-256 Ledger</a></div>
+</div></footer>
 <script src="js/main.js"></script></body></html>
