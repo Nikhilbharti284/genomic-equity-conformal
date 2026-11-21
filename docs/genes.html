@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gene & BA1 Explorer — Genomic Equity Conformal (v1.0.0)</title><meta name="theme-color" content="#0b3c49">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"></head><body>
+<div id="progress-bar"></div>
+<div class="author-ribbon">Created &amp; Engineered by <strong>Nikhil Bharti</strong> (<code>@Nikhilbharti284</code>) &bull; Genomic Equity Conformal v1.0.0 <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub &nearr;</a></div>
+<header class="who-header"><div class="header-inner">
+  <a class="who-brand" href="index.html"><img src="assets/favicon.svg" alt="Logo"><div class="brand-text"><strong>Genomic Equity</strong><span>Conformal QA v1.0.0</span></div></a>
+  <nav class="desktop-nav" aria-label="Primary"><a href="index.html" class="">Home</a><a href="lab.html"><span>Live Testing Lab</span><span class="chev">›</span></a><a href="overview.html" class="active">Overview & Equity</a><a href="architecture.html" class="">Architecture</a><a href="results.html" class="">Live Results</a><a href="mavedb.html" class="">MaveDB Wet-Lab</a><a href="audit.html" class="">Audit Log</a></nav>
+  <div class="header-actions"><a class="pill-cta" href="lab.html">Live Testing Lab</a><button id="menu-open" class="who-burger" type="button" aria-label="Open menu">☰</button></div>
+</div></header>
+
+<div id="who-drawer" class="who-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="drawer-top"><a class="drawer-brand" href="index.html"><img src="assets/favicon.svg" width="30" height="30" alt="Logo"><span>Genomic Equity v1.0.0</span></a><button id="menu-close" class="drawer-close" type="button" aria-label="Close menu">&times;</button></div>
+  <div class="drawer-tools"><input id="drawer-search" class="drawer-search" type="search" placeholder="Search research portal..."><button id="theme-toggle" class="drawer-theme" type="button">☾ Dark</button></div>
+  <div id="drawer-results" class="drawer-results"></div>
+  <nav class="drawer-links"><a href="index.html" class=""><span>Home</span><span class="chev">›</span></a><a href="overview.html" class="active"><span>Overview & Equity</span><span class="chev">›</span></a><a href="architecture.html" class=""><span>Architecture</span><span class="chev">›</span></a><a href="results.html" class=""><span>Live Results</span><span class="chev">›</span></a><a href="mavedb.html" class=""><span>MaveDB Wet-Lab</span><span class="chev">›</span></a><a href="audit.html" class=""><span>Audit Log</span><span class="chev">›</span></a><a href="deploy.html" class=""><span>Codespaces & Docker</span><span class="chev">›</span></a><a href="provenance.html" class=""><span>Provenance & Funding</span><span class="chev">›</span></a><a href="code.html" class=""><span>Source Code</span><span class="chev">›</span></a></nav>
+</div>
+
+<section class="who-hero"><div class="who-hero-inner" style="grid-template-columns:1fr">
+  <div>
+    <span class="hero-tag">118-Gene Clinical Scope &bull; 100 Homology Clusters &bull; ClinGen BA1/BS1 Registry</span>
+    <h1>Interactive Clinical Gene &amp; BA1 Threshold Explorer</h1>
+    <p>Search verified clinical genes, mode-of-inheritance (AD/AR/XL) cutoffs, balancing-selection protections, MaveDB wet-lab outcomes, and Union-Find paralog cluster merges.</p>
+  </div>
+</div></section>
+<div class="container">
+  <section class="card">
+    <h2>Filter Clinical Genes &amp; Thresholds</h2>
+    <input id="gene-search" class="filter-input" type="search" placeholder="Search gene, MOI (AD/AR/XL), BA1, MaveDB, or Paralog...">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+      <button class="btn gflt" data-f="" type="button">All Genes</button>
+      <button class="btn gflt" data-f="ba1" type="button">BA1 Protected</button>
+      <button class="btn gflt" data-f="mavedb" type="button">MaveDB Wet-Lab</button>
+      <button class="btn gflt" data-f="paralog" type="button">Paralog Clusters</button>
+    </div>
+    <div class="table-wrap"><table><thead><tr><th>Gene(s)</th><th>MOI</th><th class="num">BA1</th><th class="num">BS1</th><th>Category</th><th>Verified v1.0.0 Role</th><th>Action</th></tr></thead><tbody id="gene-tbody"><tr data-tag="ba1 protected ar"><td><strong>HBB</strong></td><td><code>AR</code></td><td class="num">0.050</td><td class="num">0.0100</td><td><span class="chip chip-warn">BA1 Protected</span></td><td>HBB_E7V (Sickle Cell) & HBB_E7K protected from false-benign suppression in AFR/SAS.</td><td><a class="btn" href="lab.html">Test &rarr;</a></td></tr>
+<tr data-tag="ba1 protected ar"><td><strong>GJB2</strong></td><td><code>AR</code></td><td class="num">0.050</td><td class="num">0.0100</td><td><span class="chip chip-warn">BA1 Protected</span></td><td>GJB2_V37I (8.345% EAS AF) protected via ClinGen Layer-1 BA1 Exception Registry.</td><td><a class="btn" href="lab.html">Test &rarr;</a></td></tr>
+<tr data-tag="ba1 protected xl"><td><strong>G6PD</strong></td><td><code>XL</code></td><td class="num">0.050</td><td class="num">0.0100</td><td><span class="chip chip-warn">BA1 Protected</span></td><td>G6PD_V68M malaria balancing-selection variant protected from false-benign calls.</td><td><a class="btn" href="lab.html">Test &rarr;</a></td></tr>
+<tr data-tag="ba1 protected ar"><td><strong>CFTR</strong></td><td><code>AR</code></td><td class="num">0.020</td><td class="num">0.0050</td><td><span class="chip chip-warn">BA1 Protected</span></td><td>CFTR_R117H variable-penetrance cystic fibrosis allele protected via Layer-1 registry.</td><td><a class="btn" href="lab.html">Test &rarr;</a></td></tr>
+<tr data-tag="ba1 protected ar"><td><strong>MEFV</strong></td><td><code>AR</code></td><td class="num">0.050</td><td class="num">0.0100</td><td><span class="chip chip-warn">BA1 Protected</span></td><td>MEFV_M694V Familial Mediterranean Fever variant protected via Layer-1 registry.</td><td><a class="btn" href="lab.html">Test &rarr;</a></td></tr>
+<tr data-tag="mavedb + vcf ad"><td><strong>TP53</strong></td><td><code>AD</code></td><td class="num">0.001</td><td class="num">0.0003</td><td><span class="chip chip-pass">MaveDB + VCF</span></td><td>TP53_R175H (Pathogenic_90pct) & TP53_P72R (Benign_90pct) verified in raw VCF 4.2; MaveDB honest miss.</td><td><a class="btn" href="lab.html">Test &rarr;</a></td></tr>
+<tr data-tag="mavedb win ad"><td><strong>PTEN</strong></td><td><code>AD</code></td><td class="num">0.010</td><td class="num">0.0010</td><td><span class="chip chip-pass">MaveDB WIN</span></td><td>MaveDB wet-lab WIN: ESM2-35M + AFDB v6 pLDDT lifted |rho| 0.4276 -> 0.4497 (p=7.75e-09).</td><td><a class="btn" href="lab.html">Test &rarr;</a></td></tr>
+<tr data-tag="mavedb win ad"><td><strong>MSH2</strong></td><td><code>AD</code></td><td class="num">0.001</td><td class="num">0.0002</td><td><span class="chip chip-pass">MaveDB WIN</span></td><td>MaveDB wet-lab WIN: |rho| 0.3727 -> 0.3767 (p=2.03e-06).</td><td><a class="btn" href="lab.html">Test &rarr;</a></td></tr>
+<tr data-tag="mavedb win ad"><td><strong>LDLR</strong></td><td><code>AD</code></td><td class="num">0.001</td><td class="num">0.0002</td><td><span class="chip chip-pass">MaveDB WIN</span></td><td>MaveDB wet-lab WIN: |rho| 0.2902 -> 0.2920 (p=2.88e-04).</td><td><a class="btn" href="lab.html">Test &rarr;</a></td></tr>
+<tr data-tag="mavedb win ad"><td><strong>BRCA1</strong></td><td><code>AD</code></td><td class="num">0.001</td><td class="num">0.0001</td><td><span class="chip chip-pass">MaveDB WIN</span></td><td>MaveDB wet-lab WIN: |rho| 0.0101 -> 0.0174; strict AD BS1=0.0001 threshold.</td><td><a class="btn" href="lab.html">Test &rarr;</a></td></tr>
+<tr data-tag="core panel ad"><td><strong>BRCA2</strong></td><td><code>AD</code></td><td class="num">0.001</td><td class="num">0.0001</td><td><span class="chip chip-pass">Core Panel</span></td><td>Strict AD BS1=0.0001 threshold in ClinGen BA1/BS1 gene registry.</td><td><a class="btn" href="lab.html">Test &rarr;</a></td></tr>
+<tr data-tag="core panel ad"><td><strong>MYH7</strong></td><td><code>AD</code></td><td class="num">0.001</td><td class="num">0.0002</td><td><span class="chip chip-pass">Core Panel</span></td><td>Cardiomyopathy AD gene with strict BA1=0.001 / BS1=0.0002 cutoffs.</td><td><a class="btn" href="lab.html">Test &rarr;</a></td></tr>
+<tr data-tag="core panel ar"><td><strong>PAH</strong></td><td><code>AR</code></td><td class="num">0.015</td><td class="num">0.0020</td><td><span class="chip chip-pass">Core Panel</span></td><td>Phenylketonuria AR gene with BA1=0.015 / BS1=0.0020 cutoffs.</td><td><a class="btn" href="lab.html">Test &rarr;</a></td></tr>
+<tr data-tag="paralog cluster ad"><td><strong>ARID1A / ARID1B</strong></td><td><code>AD</code></td><td class="num">0.001</td><td class="num">0.0002</td><td><span class="chip chip-danger">Paralog Cluster</span></td><td>Merged into a single <30% homology cluster by 5-mer Union-Find to prevent train/test leakage.</td><td><a class="btn" href="lab.html">Test &rarr;</a></td></tr>
+<tr data-tag="paralog cluster ad"><td><strong>CACNA1A / CACNA1E</strong></td><td><code>AD</code></td><td class="num">0.001</td><td class="num">0.0002</td><td><span class="chip chip-danger">Paralog Cluster</span></td><td>Merged into a single <30% homology cluster by 5-mer Union-Find (45 paralog pairs caught).</td><td><a class="btn" href="lab.html">Test &rarr;</a></td></tr>
+<tr data-tag="paralog cluster ad/ar"><td><strong>COL1A1 - COL7A1</strong></td><td><code>AD/AR</code></td><td class="num">0.001</td><td class="num">0.0002</td><td><span class="chip chip-danger">Paralog Cluster</span></td><td>Collagen paralog family merged into shared homology cluster in 118-gene Track B benchmark.</td><td><a class="btn" href="lab.html">Test &rarr;</a></td></tr></tbody></table></div>
+  </section>
+</div>
+<script>
+(function(){
+  const inp=document.getElementById("gene-search"), rows=[...document.querySelectorAll("#gene-tbody tr")];
+  function flt(q){q=q.trim().toLowerCase();rows.forEach(r=>r.style.display=(!q||r.textContent.toLowerCase().includes(q)||(r.dataset.tag||"").includes(q))?"":"none");}
+  if(inp)inp.addEventListener("input",()=>flt(inp.value));
+  document.querySelectorAll(".gflt").forEach(b=>b.addEventListener("click",()=>{inp.value=b.dataset.f;flt(b.dataset.f);}));
+})();
+</script><button id="back-to-top" type="button" aria-label="Back to top">↑</button>
+<footer><div class="footer-inner">
+  <div><strong>Genomic Equity Conformal (v1.0.0)</strong> &bull; Nikhil Bharti (@Nikhilbharti284) &bull; MIT + CC BY 4.0 &bull; Built November 2026</div>
+  <div style="display:flex;gap:14px"><a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub Repo</a><a href="code.html">Source Code</a><a href="provenance.html">SHA-256 Ledger</a></div>
+</div></footer>
+<script src="js/main.js"></script></body></html>

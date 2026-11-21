@@ -58,5 +58,11 @@
     "title": "Source Code",
     "snippet": "Complete verbatim source code appendix",
     "text": "Section 7 &bull; Complete Verbatim Source Code All Verbatim v1.0.0 &amp; Foundational Modules Loaded dynamically from docs/code/*.txt with syntax highlighting, line numbers, copy, and download buttons. Search &amp; Inspect Source Files"
+  },
+  {
+    "url": "genes.html",
+    "title": "Clinical Gene & BA1 Explorer",
+    "snippet": "Searchable directory of BA1/BS1 thresholds, MOI, MaveDB wins & paralog clusters.",
+    "text": "HBB GJB2 G6PD CFTR MEFV TP53 PTEN MSH2 LDLR BRCA1 BRCA2 MYH7 PAH ARID1A CACNA1A COL1A1 BA1 BS1 AD AR XL"
   }
 ]

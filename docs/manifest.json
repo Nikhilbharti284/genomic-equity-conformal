@@ -1,0 +1,16 @@
+{
+  "name": "Genomic Equity Conformal (v1.0.0) \u2014 Nikhil Bharti",
+  "short_name": "Genomic Equity",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b3c49",
+  "theme_color": "#0b3c49",
+  "description": "Air-gapped zero-GPU clinical calibration, ancestry equity & regulatory QA sidecar by Nikhil Bharti.",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
