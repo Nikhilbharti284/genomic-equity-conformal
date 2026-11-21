@@ -141,3 +141,4 @@ footer{background:#152832;color:#dbe9ee;border-top:4px solid var(--gold);padding
   .who-hero-inner{padding:24px 16px 28px}
   .card{padding:15px}
 }
+@media print{.who-header,.who-drawer,#back-to-top,#progress-bar,footer,button,input[type=file]{display:none!important}body{background:#fff;color:#000}.card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}}
