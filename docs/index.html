@@ -4,6 +4,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css"></head><body>
 <div id="progress-bar"></div>
+<div class="author-ribbon">Created &amp; Engineered by <strong>Nikhil Bharti</strong> (<code>@Nikhilbharti284</code>) &bull; Genomic Equity Conformal v1.0.0 <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub &nearr;</a></div>
 <header class="who-header"><div class="header-inner">
   <a class="who-brand" href="index.html"><img src="assets/favicon.svg" alt="Logo"><div class="brand-text"><strong>Genomic Equity</strong><span>Conformal QA v1.0.0</span></div></a>
   <nav class="desktop-nav" aria-label="Primary"><a href="index.html" class="active">Home</a><a href="lab.html"><span>Live Testing Lab</span><span class="chev">›</span></a><a href="overview.html" class="">Overview & Equity</a><a href="architecture.html" class="">Architecture</a><a href="results.html" class="">Live Results</a><a href="mavedb.html" class="">MaveDB Wet-Lab</a><a href="audit.html" class="">Audit Log</a></nav>
@@ -24,7 +25,7 @@
     <p>Air-gapped clinical calibration, South Asian (SAS) &amp; African (AFR) ancestry equity, ClinGen Pejaver PP3/BP4 mapping, and 3-Layer BA1 balancing-selection safeguard verified on 9,142 &ge;2-star ClinVar variants.</p>
     <div class="hero-btns"><a class="btn-gold" href="lab.html">Try Live Testing Lab &rarr;</a><a class="btn-outline" href="code.html">Inspect 33 Verbatim Files</a></div>
   </div>
-  <img class="hero-art" src="assets/hero-illustration.svg" alt="Genomic Equity Conformal DNA helix and benchmark artwork">
+  <img class="hero-art" src="assets/photos/dna_helix.png" alt="Genomic Equity Conformal DNA helix and benchmark artwork">
 </div></section>
 
 <div class="container">
@@ -39,12 +40,25 @@
 
   <div class="section-head"><h2>Research Highlights</h2><a href="results.html">All Results &rarr;</a></div>
   <section class="editorial-grid">
-    <a class="ed-card" href="overview.html"><img class="ed-thumb" src="assets/card-equity.svg" alt="Ancestry equity cohorts"><div class="ed-body"><div class="ed-meta">Section 1 &bull; Clinical Equity</div><h3>Fixing EUR-Biased VEPs &amp; DPDP Act Data Sovereignty</h3><p>Why Track 7 was selected over 3 competing blueprints to reduce SAS/AFR VUS burden without cloud egress.</p></div></a>
-    <a class="ed-card" href="results.html"><img class="ed-thumb" src="assets/card-results.svg" alt="AUROC and ECE benchmark charts"><div class="ed-body"><div class="ed-meta">Section 3 &bull; Live Benchmarks</div><h3>0.9839 AUROC, 0.9846 Post-2023 Holdout &amp; Raw VCF 4.2</h3><p>Interactive Chart.js figures, subgroup coverage (&ge;0.90 across all 4 cohorts, 0 empty sets), and 3/3 VCF checks.</p></div></a>
-    <a class="ed-card" href="mavedb.html"><img class="ed-thumb" src="assets/card-mavedb.svg" alt="MaveDB wet-lab validation"><div class="ed-body"><div class="ed-meta">Wet-Lab Suite &bull; Zero ClinVar Labels</div><h3>5-Gene MaveDB DMS: 4/5 Wins &amp; Honest TP53 Reporting</h3><p>AlphaFold DB v6 pLDDT structural modulation beats raw ESM2-35M on PTEN, MSH2, LDLR, and BRCA1.</p></div></a>
+    <a class="ed-card" href="overview.html"><img class="ed-thumb" src="assets/photos/lab_sequencing.jpg" alt="Ancestry equity cohorts"><div class="ed-body"><div class="ed-meta">Section 1 &bull; Clinical Equity</div><h3>Fixing EUR-Biased VEPs &amp; DPDP Act Data Sovereignty</h3><p>Why Track 7 was selected over 3 competing blueprints to reduce SAS/AFR VUS burden without cloud egress.</p></div></a>
+    <a class="ed-card" href="results.html"><img class="ed-thumb" src="assets/photos/sequencers.jpg" alt="AUROC and ECE benchmark charts"><div class="ed-body"><div class="ed-meta">Section 3 &bull; Live Benchmarks</div><h3>0.9839 AUROC, 0.9846 Post-2023 Holdout &amp; Raw VCF 4.2</h3><p>Interactive Chart.js figures, subgroup coverage (&ge;0.90 across all 4 cohorts, 0 empty sets), and 3/3 VCF checks.</p></div></a>
+    <a class="ed-card" href="mavedb.html"><img class="ed-thumb" src="assets/photos/nanopore_dna.jpg" alt="MaveDB wet-lab validation"><div class="ed-body"><div class="ed-meta">Wet-Lab Suite &bull; Zero ClinVar Labels</div><h3>5-Gene MaveDB DMS: 4/5 Wins &amp; Honest TP53 Reporting</h3><p>AlphaFold DB v6 pLDDT structural modulation beats raw ESM2-35M on PTEN, MSH2, LDLR, and BRCA1.</p></div></a>
     <a class="ed-card" href="architecture.html"><img class="ed-thumb" src="assets/card-shield.svg" alt="BA1 safeguard and Docker"><div class="ed-body"><div class="ed-meta">Section 2 &bull; Architecture</div><h3>Interactive 5-Stage Pipeline &amp; 3-Layer BA1 Safeguard</h3><p>Explore Union-Find 100-cluster homology splitting, Nested OOF Platt, and Sickle Cell (HBB_E7V) protection.</p></div></a>
-    <a class="ed-card" href="audit.html"><img class="ed-thumb" src="assets/card-results.svg" alt="Forensic audit log"><div class="ed-body"><div class="ed-meta">Section 4 &bull; Engineering Audit</div><h3>All 10 Real Bugs Caught &amp; Fixed Live</h3><p>Searchable accordion covering REVEL removal, EUR undercoverage fix, hg38 restoration, and mobile tables.</p></div></a>
-    <a class="ed-card" href="provenance.html"><img class="ed-thumb" src="assets/card-equity.svg" alt="Provenance and funding"><div class="ed-body"><div class="ed-meta">Section 6 &bull; Provenance &amp; Grants</div><h3>42 SHA-256 RO-Crate Files &amp; 2026&ndash;2027 Roadmap</h3><p>Cryptographic verification digests plus Mozilla Fellowship ($125k), NLnet, Emergent Ventures &amp; B2B lab wedge.</p></div></a>
+    <a class="ed-card" href="audit.html"><img class="ed-thumb" src="assets/photos/sequencers.jpg" alt="Forensic audit log"><div class="ed-body"><div class="ed-meta">Section 4 &bull; Engineering Audit</div><h3>All 10 Real Bugs Caught &amp; Fixed Live</h3><p>Searchable accordion covering REVEL removal, EUR undercoverage fix, hg38 restoration, and mobile tables.</p></div></a>
+    <a class="ed-card" href="provenance.html"><img class="ed-thumb" src="assets/photos/lab_sequencing.jpg" alt="Provenance and funding"><div class="ed-body"><div class="ed-meta">Section 6 &bull; Provenance &amp; Grants</div><h3>42 SHA-256 RO-Crate Files &amp; 2026&ndash;2027 Roadmap</h3><p>Cryptographic verification digests plus Mozilla Fellowship ($125k), NLnet, Emergent Ventures &amp; B2B lab wedge.</p></div></a>
+  </section>
+
+  
+  <section class="card" id="creator">
+    <h2>Created By Nikhil Bharti (@Nikhilbharti284) &bull; Cite This Research</h2>
+    <p><strong>Genomic Equity Conformal (v1.0.0)</strong> was architected, coded, benchmarked, and live-verified end-to-end by <strong>Nikhil Bharti</strong> on $0-cost GitHub Codespaces Free Tier (MIT Code + CC BY 4.0 Data).</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+      <a class="btn-gold" href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub Repository</a>
+      <a class="btn" href="lab.html">Open 8-Tool Live Testing Lab</a>
+      <button class="btn" type="button" data-copy="@software{bharti2026genomicequity, author={Bharti, Nikhil}, title={Genomic Equity Conformal (v1.0.0): Air-Gapped Ancestry-Calibrated Clinical VUS Conformal QA Sidecar}, year={2026}, url={https://github.com/Nikhilbharti284/genomic-equity-conformal}}">Copy BibTeX</button>
+      <button class="btn" type="button" data-copy="Bharti, N. (2026). Genomic Equity Conformal (v1.0.0): Air-Gapped Ancestry-Calibrated Clinical VUS Conformal QA Sidecar. GitHub. https://github.com/Nikhilbharti284/genomic-equity-conformal">Copy APA Citation</button>
+    </div>
+    <p style="font-size:.82rem;color:var(--muted);margin:0">Scientific photography: National Cancer Institute (Public Domain), NIST (Public Domain), and Wikimedia Commons (CC BY 2.0).</p>
   </section>
 
   <section class="card"><h2>Version Journey (v0.1.0 &rarr; v1.0.0)</h2><div class="timeline">
