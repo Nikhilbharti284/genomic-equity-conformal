@@ -146,3 +146,13 @@ footer{background:#152832;color:#dbe9ee;border-top:4px solid var(--gold);padding
 .author-ribbon{background:#0b3c49;color:#e6f4f8;font-size:.76rem;font-weight:700;text-align:center;padding:6px 12px;border-bottom:2px solid #f5b82e;letter-spacing:.02em}.author-ribbon a{color:#f5b82e;text-decoration:none;margin-left:6px}.author-ribbon a:hover{text-decoration:underline}
 
 .author-ribbon code{background:rgba(255,255,255,.16)!important;color:#f5b82e!important;padding:1px 6px;border-radius:4px}
+
+/* v3 Author Ribbon High-Contrast Fix */
+.author-ribbon code, .author-ribbon .author-handle {
+  background: rgba(255,255,255,0.14) !important;
+  color: #f6c453 !important;
+  border: 1px solid rgba(246,196,83,0.45) !important;
+  padding: 1px 6px !important;
+  border-radius: 4px !important;
+  font-weight: 700 !important;
+}
