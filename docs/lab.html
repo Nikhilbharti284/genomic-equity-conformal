@@ -3,7 +3,7 @@
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3"></head><body>
+<link rel="stylesheet" href="css/style.css?v=4"></head><body>
 <div id="progress-bar"></div>
 <div class="author-ribbon">Created &amp; Engineered by <strong>Nikhil Bharti</strong> (<span class="author-handle" style="background:rgba(255,255,255,0.14);color:#f6c453;border:1px solid rgba(246,196,83,0.45);padding:1px 6px;border-radius:4px;font-weight:700">@Nikhilbharti284</span>) &bull; Genomic Equity Conformal v1.0.0 <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub &nearr;</a></div>
 <header class="who-header"><div class="header-inner">
@@ -28,7 +28,12 @@
 </div></section>
 
 <div class="container">
-  <section class="card">
+  <section class="card" id="demo-walkthrough">
+  <h2>60-Second Interactive Raw VCF 4.2 Walkthrough</h2>
+  <p>No upload required &#8212; press Play to watch a raw hospital VCF (<code>TP53_R175H</code>, <code>HBB_E7V</code>, <code>TP53_P72R</code>) run through all 5 stages of <strong>Genomic Equity Conformal v1.0.0</strong>.</p>
+  <div id="vcf-demo-mount"></div>
+</section>
+<section class="card">
     <h2>1. Single-Variant Conformal + Pejaver PP3/BP4 + 3-Layer BA1 Tester</h2>
     <p style="font-size:.89rem;color:var(--muted)">Tap any clinical preset or adjust sliders to watch how Ancestry Mondrian Conformal Prediction and the 3-Layer BA1 Safeguard respond in real time:</p>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
@@ -95,4 +100,5 @@
   <div><strong>Genomic Equity Conformal (v1.0.0)</strong> &bull; Nikhil Bharti (@Nikhilbharti284) &bull; MIT + CC BY 4.0 &bull; Built November 2026</div>
   <div style="display:flex;gap:14px"><a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub Repo</a><a href="code.html">Source Code</a><a href="provenance.html">SHA-256 Ledger</a></div>
 </div></footer>
-<script src="js/main.js"></script><script src="js/lab.js"></script><script src="js/lab-extra.js"></script></body></html>
+<script src="js/main.js"></script><script src="js/lab.js"></script><script src="js/lab-extra.js"></script><script src="js/lab-demo.js?v=4"></script>
+</body></html>

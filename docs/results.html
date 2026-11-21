@@ -3,7 +3,7 @@
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3"><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js" defer></script></head><body>
+<link rel="stylesheet" href="css/style.css?v=4"><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js" defer></script></head><body>
 <div id="progress-bar"></div>
 <div class="author-ribbon">Created &amp; Engineered by <strong>Nikhil Bharti</strong> (<span class="author-handle" style="background:rgba(255,255,255,0.14);color:#f6c453;border:1px solid rgba(246,196,83,0.45);padding:1px 6px;border-radius:4px;font-weight:700">@Nikhilbharti284</span>) &bull; Genomic Equity Conformal v1.0.0 <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub &nearr;</a></div>
 <header class="who-header"><div class="header-inner">
@@ -20,15 +20,15 @@
 </div>
 
 <div class="container"><section class="hero"><div class="hero-eyebrow">Section 3 &bull; Live-Verified Results</div><h1>Interactive Charts, Subgroup Table &amp; Raw VCF 4.2</h1><p>All numbers loaded directly from centralized <code>data/results.json</code> matching the 66-page Master Documentation verbatim.</p></section>
-<section id="auroc" class="card"><h2>Figure 2: AUROC Progression (0.6673 &rarr; 0.9839; Post-2023: 0.9846)</h2><img src="assets/figures/fig2_auroc.svg?v=3" alt="AUROC Progression Chart" style="width:100%;height:auto;display:block"></section>
-<section id="ece" class="card"><h2>Figure 3: Expected Calibration Error (&minus;82.2% Overall)</h2><img src="assets/figures/fig3_ece.svg?v=3" alt="Expected Calibration Error Chart" style="width:100%;height:auto;display:block"></section>
+<section id="auroc" class="card"><h2>Figure 2: AUROC Progression (0.6673 &rarr; 0.9839; Post-2023: 0.9846)</h2><img src="assets/figures/fig2_auroc.svg?v=4" alt="AUROC Progression Chart" style="width:100%;height:auto;display:block"></section>
+<section id="ece" class="card"><h2>Figure 3: Expected Calibration Error (&minus;82.2% Overall)</h2><img src="assets/figures/fig3_ece.svg?v=4" alt="Expected Calibration Error Chart" style="width:100%;height:auto;display:block"></section>
 <section id="subgroups" class="card"><h2>Subgroup Calibration &amp; Coverage Table (118 Genes, 100 Clusters, n = 9,142)</h2><div class="table-wrap"><table><thead><tr><th>Cohort</th><th class="num">n</th><th class="num">Raw AM ECE</th><th class="num">v1.0.0 ECE</th><th class="num">Drop</th><th class="num">Cov.</th><th class="num">Singletons</th><th class="num">Empty</th></tr></thead><tbody>
 <tr><td><strong>EUR (European)</strong></td><td class="num">2,209</td><td class="num">0.0622</td><td class="num"><strong>0.0343</strong></td><td class="num">&minus;44.9%</td><td class="num"><strong>0.9086</strong></td><td class="num">92.6%</td><td class="num">0</td></tr>
 <tr><td><strong>SAS (South Asian)</strong></td><td class="num">1,098</td><td class="num">0.0527</td><td class="num"><strong>0.0298</strong></td><td class="num">&minus;43.5%</td><td class="num"><strong>0.9144</strong></td><td class="num">97.9%</td><td class="num">0</td></tr>
 <tr><td><strong>AFR (African)</strong></td><td class="num">1,412</td><td class="num">0.0637</td><td class="num"><strong>0.0233</strong></td><td class="num"><strong>&minus;63.4%</strong></td><td class="num"><strong>0.9334</strong></td><td class="num">100.0%</td><td class="num">0</td></tr>
 <tr><td><strong>ULTRA_RARE</strong></td><td class="num">4,423</td><td class="num">0.1192</td><td class="num"><strong>0.0072</strong></td><td class="num"><strong>&minus;94.0%</strong></td><td class="num"><strong>0.9767</strong></td><td class="num">100.0%</td><td class="num">0</td></tr></tbody></table></div></section>
-<section id="conformal" class="card"><h2>Figure 4: Non-Empty Mondrian Coverage &amp; Singletons</h2><img src="assets/figures/fig4_conformal.svg?v=3" alt="Mondrian Coverage Chart" style="width:100%;height:auto;display:block"></section>
-<section id="mavedb-c" class="card"><h2>Figure 5: 5-Gene Wet-Lab MaveDB DMS (TP53 = HONEST MISS)</h2><img src="assets/figures/fig5_mavedb.svg?v=3" alt="MaveDB 5-Gene Chart" style="width:100%;height:auto;display:block"></section>
+<section id="conformal" class="card"><h2>Figure 4: Non-Empty Mondrian Coverage &amp; Singletons</h2><img src="assets/figures/fig4_conformal.svg?v=4" alt="Mondrian Coverage Chart" style="width:100%;height:auto;display:block"></section>
+<section id="mavedb-c" class="card"><h2>Figure 5: 5-Gene Wet-Lab MaveDB DMS (TP53 = HONEST MISS)</h2><img src="assets/figures/fig5_mavedb.svg?v=4" alt="MaveDB 5-Gene Chart" style="width:100%;height:auto;display:block"></section>
 <section id="vcf" class="card"><h2>Live Raw Hospital VCF 4.2 Auto-Annotation Results (3/3 Verified)</h2><div class="table-wrap"><table><thead><tr><th>GRCh38 Coord</th><th>Resolved</th><th class="num">SAS AF</th><th class="num">AFR AF</th><th class="num">Platt Prob</th><th>Final Tier</th></tr></thead><tbody>
 <tr><td><code>chr17:g.7675088C&gt;T</code></td><td><strong>TP53_R175H</strong></td><td class="num">0.000000</td><td class="num">0.000000</td><td class="num">0.9202</td><td><span class="chip chip-danger">Pathogenic_90pct</span></td></tr>
 <tr><td><code>chr11:g.5227002T&gt;A</code></td><td><strong>HBB_E7V</strong></td><td class="num">0.000621</td><td class="num">0.046998</td><td class="num">0.0195</td><td><span class="chip chip-warn">VUS (Layer-1 BA1 Exception)</span></td></tr>

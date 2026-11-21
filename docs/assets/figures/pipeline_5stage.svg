@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 270" width="100%" height="auto" font-family="system-ui,-apple-system,sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#c5942f"/>
+    </marker>
+  </defs>
+  <rect width="940" height="270" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="470" y="30" text-anchor="middle" font-size="16" font-weight="800" fill="#0d3b46">Genomic Equity Conformal v1.0.0 &#8212; 5-Stage Air-Gapped Clinical QA Pipeline</text>
+  <text x="470" y="49" text-anchor="middle" font-size="11.5" fill="#475569">Zero-GPU CPU Sidecar &#8226; 118 Genes, 100 Clusters, 9,142 ClinVar Variants &#8226; 0.9839 OOF AUROC &#8226; -82.2% ECE</text>
+
+  <!-- Stage 1 -->
+  <rect x="18" y="72" width="160" height="122" rx="10" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.6"/>
+  <rect x="18" y="72" width="160" height="26" rx="10" fill="#0284c7"/>
+  <text x="98" y="89" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">1. RAW VCF 4.2 INPUT</text>
+  <text x="98" y="118" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f172a">GRCh38 Variants</text>
+  <text x="98" y="136" text-anchor="middle" font-size="10.5" fill="#334155">AlphaMissense (CC BY 4.0)</text>
+  <text x="98" y="152" text-anchor="middle" font-size="10.5" fill="#334155">+ ESM-2 + gnomAD v4</text>
+  <text x="98" y="176" text-anchor="middle" font-size="10" font-weight="700" fill="#0369a1">55.25 MB Streamed RAM</text>
+
+  <line x1="178" y1="133" x2="202" y2="133" stroke="#c5942f" stroke-width="2.4" marker-end="url(#arr)"/>
+
+  <!-- Stage 2 -->
+  <rect x="204" y="72" width="160" height="122" rx="10" fill="#f0fdf4" stroke="#0f766e" stroke-width="1.6"/>
+  <rect x="204" y="72" width="160" height="26" rx="10" fill="#0f766e"/>
+  <text x="284" y="89" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">2. HOMOLOGY SPLIT</text>
+  <text x="284" y="118" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f172a">Zero Leakage CV</text>
+  <text x="284" y="136" text-anchor="middle" font-size="10.5" fill="#334155">100 Homology Clusters</text>
+  <text x="284" y="152" text-anchor="middle" font-size="10.5" fill="#334155">118 Clinical Genes</text>
+  <text x="284" y="176" text-anchor="middle" font-size="10" font-weight="700" fill="#0f766e">No Gene/Paralog Overlap</text>
+
+  <line x1="364" y1="133" x2="388" y2="133" stroke="#c5942f" stroke-width="2.4" marker-end="url(#arr)"/>
+
+  <!-- Stage 3 -->
+  <rect x="390" y="72" width="160" height="122" rx="10" fill="#fefce8" stroke="#ca8a04" stroke-width="1.6"/>
+  <rect x="390" y="72" width="160" height="26" rx="10" fill="#b45309"/>
+  <text x="470" y="89" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">3. NESTED OOF PLATT</text>
+  <text x="470" y="118" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f172a">True Probability Fix</text>
+  <text x="470" y="136" text-anchor="middle" font-size="10.5" fill="#334155">ECE: 0.0686 &#8594; 0.0122</text>
+  <text x="470" y="152" text-anchor="middle" font-size="10.5" fill="#334155">SAS -43.5% | AFR -63.4%</text>
+  <text x="470" y="176" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">OOF AUROC 0.9839</text>
+
+  <line x1="550" y1="133" x2="574" y2="133" stroke="#c5942f" stroke-width="2.4" marker-end="url(#arr)"/>
+
+  <!-- Stage 4 -->
+  <rect x="576" y="72" width="160" height="122" rx="10" fill="#f0fdfa" stroke="#0d3b46" stroke-width="1.6"/>
+  <rect x="576" y="72" width="160" height="26" rx="10" fill="#0d3b46"/>
+  <text x="656" y="89" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">4. MONDRIAN CONFORMAL</text>
+  <text x="656" y="118" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f172a">Ancestry Guarantees</text>
+  <text x="656" y="136" text-anchor="middle" font-size="10.5" fill="#334155">SAS 91.4% | AFR 93.3%</text>
+  <text x="656" y="152" text-anchor="middle" font-size="10.5" fill="#334155">EUR 90.9% | RARE 97.7%</text>
+  <text x="656" y="176" text-anchor="middle" font-size="10" font-weight="700" fill="#0d3b46">0 Empty Prediction Sets</text>
+
+  <line x1="736" y1="133" x2="760" y2="133" stroke="#c5942f" stroke-width="2.4" marker-end="url(#arr)"/>
+
+  <!-- Stage 5 -->
+  <rect x="762" y="72" width="160" height="122" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.6"/>
+  <rect x="762" y="72" width="160" height="26" rx="10" fill="#b91c1c"/>
+  <text x="842" y="89" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">5. BA1 SAFEGUARD</text>
+  <text x="842" y="118" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f172a">3-Layer Clinical QA</text>
+  <text x="842" y="136" text-anchor="middle" font-size="10.5" fill="#334155">Protects HBB_E7V (Sickle)</text>
+  <text x="842" y="152" text-anchor="middle" font-size="10.5" fill="#334155">Blocks High-AF False Calls</text>
+  <text x="842" y="176" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">W3C RO-Crate Audit Log</text>
+
+  <!-- Bottom Verification Strip -->
+  <rect x="18" y="210" width="904" height="42" rx="8" fill="#0d3b46"/>
+  <text x="470" y="235" text-anchor="middle" font-size="11.5" font-weight="600" fill="#f8fafc">Verified: Post-2023 Holdout AUROC 0.9846 &#8226; Wet-Lab MaveDB 4/5 Wins (TP53 = Honest Miss) &#8226; MIT Code + CC BY 4.0 Data &#8226; ORCID 0009-0006-3130-9141</text>
+</svg>
