@@ -1,0 +1,11 @@
+{
+  "name": "genomic-equity-conformal",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "hostRequirements": { "cpus": 2, "memory": "8gb", "storage": "15gb" },
+  "containerEnv": {
+    "OMP_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "PYTHONHASHSEED": "42",
+    "HF_HOME": "/tmp/hf_cache"
+  }
+}

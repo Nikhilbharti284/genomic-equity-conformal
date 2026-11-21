@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Genomic Equity Conformal v1.0.0 — Interactive Air-Gapped QA Sandbox</title>
+<style>
+:root{--p:#0f4c5c;--a:#d97706;--bg:#f8fafc;--card:#fff;--b:#e2e8f0;--t:#0f172a;--m:#475569;}
+*{box-sizing:border-box} body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--t);margin:0;padding:20px;line-height:1.5;}
+.wrap{max-width:980px;margin:0 auto;}
+.hero{background:linear-gradient(135deg,#0b3946,#0f4c5c);color:#fff;padding:26px;border-radius:12px;border-bottom:4px solid var(--a);}
+.hero h1{margin:6px 0;font-size:26px;} .kicker{font-size:12px;color:#fde68a;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:18px 0;}
+.kpi{background:var(--card);border:1px solid var(--b);border-top:3px solid var(--p);border-radius:8px;padding:14px;}
+.kpi b{font-size:22px;color:var(--p);display:block;} .kpi span{font-size:12.5px;color:var(--m);}
+.card{background:var(--card);border:1px solid var(--b);border-radius:10px;padding:20px;margin:16px 0;}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
+label{display:block;font-size:13px;font-weight:600;color:var(--m);margin:8px 0 4px;}
+input,select{width:100%;padding:9px 10px;border:1px solid #cbd5e1;border-radius:6px;font-size:14px;}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;}
+button{background:var(--p);color:#fff;border:none;padding:9px 14px;border-radius:6px;font-weight:600;cursor:pointer;font-size:13px;}
+button.alt{background:#e2e8f0;color:#0f172a;} button:hover{opacity:.92;}
+.out{background:#0f172a;color:#e2e8f0;padding:16px;border-radius:8px;font-family:ui-monospace,monospace;font-size:13px;white-space:pre-wrap;overflow-x:auto;}
+.pill{display:inline-block;padding:4px 10px;border-radius:999px;font-weight:700;font-size:12.5px;margin-bottom:8px;}
+.p-red{background:#fee2e2;color:#991b1b;} .p-grn{background:#dcfce7;color:#166534;} .p-amb{background:#fef3c7;color:#92400e;}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px;}
+th{background:var(--p);color:#fff;text-align:left;padding:8px 10px;} td{padding:8px 10px;border-bottom:1px solid var(--b);}
+.note{background:#fffbeb;border-left:4px solid var(--a);padding:12px 14px;border-radius:6px;font-size:13px;margin:14px 0;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div class="kicker">Open-Core Air-Gapped Clinical Genomics QA &bull; v1.0.0 &bull; MIT + CC BY 4.0</div>
+    <h1>Genomic Equity Conformal</h1>
+    <p style="margin:0;color:#e2e8f0;">Zero-GPU, commercially clean Ancestry Calibration, ClinGen Pejaver PP3/BP4 Bayesian Mapping &amp; 3-Layer Balancing-Selection Safeguard for South Asian (SAS) and African (AFR) cohorts.</p>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><b>0.9839 AUROC</b><span>118 Genes, 9,142 &ge;2-Star Variants (p &lt; 0.001 vs AlphaMissense 0.9583)</span></div>
+    <div class="kpi"><b>&minus;82.2% ECE Drop</b><span>Overall Calibration Error 0.0686 &rarr; 0.0122 (SAS &minus;43.5%, AFR &minus;63.4%)</span></div>
+    <div class="kpi"><b>4/5 MaveDB Wins</b><span>ESM2-35M + AlphaFold DB v6 beat Raw 35M on PTEN, MSH2, LDLR, BRCA1</span></div>
+    <div class="kpi"><b>0.9846 Post-2023</b><span>Prospective Holdout (n=7,420) &bull; 100 Homology Clusters &bull; $0 CPU</span></div>
+  </div>
+
+  <div class="card">
+    <h2 style="margin-top:0;color:var(--p);">Interactive Variant Equity &amp; BA1 Safeguard Simulator (100% Client-Side)</h2>
+    <div class="btns">
+      <button class="alt" onclick="loadPreset('TP53','R175H','SAS',0.992,-0.698,0.0,0.0)">Preset: TP53 R175H (Cancer)</button>
+      <button class="alt" onclick="loadPreset('HBB','E7V','AFR',0.860,-2.277,0.0006,0.0470)">Preset: HBB E7V (Sickle Cell Guard)</button>
+      <button class="alt" onclick="loadPreset('TP53','P72R','SAS',0.085,-3.318,0.5002,0.3799)">Preset: TP53 P72R (SAS Benign)</button>
+      <button class="alt" onclick="loadPreset('GJB2','V37I','SAS',0.740,-2.100,0.0120,0.0010)">Preset: GJB2 V37I (BA1 Exception)</button>
+    </div>
+    <div class="grid2">
+      <div><label>Gene Symbol</label><input id="gene" value="HBB"></div>
+      <div><label>Missense Variant</label><input id="var" value="E7V"></div>
+      <div><label>Patient Ancestry Cohort</label><select id="anc"><option value="SAS">SAS (South Asian)</option><option value="AFR" selected>AFR (African)</option><option value="EUR">EUR (European)</option><option value="ULTRA_RARE">ULTRA_RARE</option></select></div>
+      <div><label>AlphaMissense Score (0–1, CC BY 4.0)</label><input id="am" type="number" step="0.01" value="0.86"></div>
+      <div><label>Frozen ESM-2 LLR</label><input id="llr" type="number" step="0.1" value="-2.28"></div>
+      <div><label>gnomAD SAS / AFR Max AF</label><input id="af" type="number" step="0.0001" value="0.0470"></div>
+    </div>
+    <div class="btns">
+      <button onclick="evaluateVariant()">Run Conformal + Pejaver + BA1 Audit</button>
+    </div>
+    <div id="badge"></div>
+    <div class="out" id="out">Click "Run Conformal + Pejaver + BA1 Audit" to inspect live output...</div>
+  </div>
+
+  <div class="card">
+    <h2 style="margin-top:0;color:var(--p);">Verified 118-Gene / 100-Cluster Ancestry Calibration Table (n = 9,142)</h2>
+    <table>
+      <thead><tr><th>Ancestry</th><th>n</th><th>Raw AlphaMissense ECE</th><th>v1.0.0 Platt ECE</th><th>ECE Drop</th><th>Mondrian Coverage</th><th>Singletons</th></tr></thead>
+      <tbody>
+        <tr><td><strong>EUR</strong></td><td>2,209</td><td>0.0622</td><td><strong>0.0343</strong></td><td>&minus;44.9%</td><td><strong>0.9086</strong></td><td>92.6%</td></tr>
+        <tr><td><strong>SAS (South Asian)</strong></td><td>1,098</td><td>0.0527</td><td><strong>0.0298</strong></td><td>&minus;43.5%</td><td><strong>0.9144</strong></td><td>97.9%</td></tr>
+        <tr><td><strong>AFR (African)</strong></td><td>1,412</td><td>0.0637</td><td><strong>0.0233</strong></td><td>&minus;63.4%</td><td><strong>0.9334</strong></td><td>100.0%</td></tr>
+        <tr><td><strong>ULTRA_RARE</strong></td><td>4,423</td><td>0.1192</td><td><strong>0.0072</strong></td><td>&minus;94.0%</td><td><strong>0.9767</strong></td><td>100.0%</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><strong>Responsible Framing:</strong> Computational research &amp; clinical-pipeline QA audit utility only — not a standalone diagnostic medical device. Zero patient data leaves your browser or on-premise Docker container.</div>
+  </div>
+</div>
+<script>
+const BA1_EXC = {
+  "HBB_E7V": "Sickle Cell Disease (Balancing Selection)",
+  "HBB_E7K": "Hemoglobin C Disease (Balancing Selection)",
+  "GJB2_V37I": "Autosomal Recessive Deafness (BA1 Exception)",
+  "G6PD_V68M": "G6PD Deficiency (Malaria Selection)",
+  "CFTR_R117H": "CFTR-Related Disorder"
+};
+function loadPreset(g,v,a,am,llr,afS,afA){
+  gene.value=g; document.getElementById('var').value=v; anc.value=a; am_el=document.getElementById('am'); am_el.value=am; document.getElementById('llr').value=llr; document.getElementById('af').value=Math.max(afS,afA); evaluateVariant();
+}
+function pejaver(p){
+  if(p>=0.97) return ["PP3_Strong",+4]; if(p>=0.85) return ["PP3_Moderate",+2]; if(p>=0.56) return ["PP3_Supporting",+1];
+  if(p<=0.07) return ["BP4_Strong",-4]; if(p<=0.15) return ["BP4_Moderate",-2]; if(p<=0.34) return ["BP4_Supporting",-1];
+  return ["Indeterminate",0];
+}
+function evaluateVariant(){
+  const g=document.getElementById('gene').value.trim().toUpperCase();
+  const v=document.getElementById('var').value.trim().toUpperCase();
+  const a=document.getElementById('anc').value;
+  const am=parseFloat(document.getElementById('am').value);
+  const llr=parseFloat(document.getElementById('llr').value);
+  const af=parseFloat(document.getElementById('af').value);
+  const vid=`${g}_${v}`;
+  const [acmg, pts] = pejaver(am);
+  const afPenalty = af >= 0.01 ? 0.08 : (af >= 0.001 ? 0.45 : 1.0);
+  const pJoint = Math.max(0.001, Math.min(0.999, am * afPenalty));
+  const qMap = {EUR:0.18, SAS:0.20, AFR:0.19, ULTRA_RARE:0.15};
+  const q = qMap[a] || 0.20;
+  let pset = [];
+  if(pJoint <= q) pset.push("Benign");
+  if(1 - pJoint <= q) pset.push("Pathogenic");
+  if(pset.length === 0) pset.push(pJoint >= 0.5 ? "Pathogenic" : "Benign");
+  let tier = pset.length === 1 ? (pset[0]==="Pathogenic" ? "Pathogenic_90pct" : "Benign_90pct") : "VUS_Review_Required";
+  let guard = null;
+  if(BA1_EXC[vid]){
+    if(tier==="Benign_90pct") tier = `VUS_Review_Required (Layer-1 BA1 Exception: ${BA1_EXC[vid]})`;
+    guard = `Layer-1 ClinGen BA1 Exception (${BA1_EXC[vid]})`;
+  } else if(tier==="Benign_90pct" && af>=0.01 && (pts>=2 || llr<=-2.0)){
+    tier = "VUS_Review_Required (Layer-3 High-AF Functional Conflict)";
+    guard = `Layer-3 Functional Conflict (AF=${af} >= 0.01, LLR=${llr})`;
+  }
+  const cls = tier.startsWith("Pathogenic") ? "p-red" : (tier.startsWith("Benign") ? "p-grn" : "p-amb");
+  document.getElementById('badge').innerHTML = `<span class="pill ${cls}">${tier}</span>`;
+  document.getElementById('out').textContent = JSON.stringify({
+    variant_id: vid, patient_ancestry: a, commercial_license_clean: true,
+    af_free_alphamissense: am, pejaver_acmg_code: acmg, pejaver_points: pts,
+    joint_calibrated_prob: Number(pJoint.toFixed(4)), conformal_90pct_set: pset,
+    final_tier: tier, safeguard_triggered: guard
+  }, null, 2);
+}
+evaluateVariant();
+</script>
+</body>
+</html>

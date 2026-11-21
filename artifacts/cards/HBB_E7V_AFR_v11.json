@@ -1,0 +1,19 @@
+{
+  "variant_id": "HBB_E7V",
+  "gene": "HBB",
+  "patient_ancestry": "AFR",
+  "model_version": "1.0.0-clean",
+  "commercial_license_clean": true,
+  "esm2_llr": -2.2773,
+  "af_free_functional_prob": 0.8012,
+  "pejaver_acmg_code": "PP3_Supporting",
+  "pejaver_points": 1,
+  "joint_triage_prob": 0.1789,
+  "conformal_90pct_set": [
+    "Benign"
+  ],
+  "final_tier": "VUS_Review_Required (Layer-1 BA1 Exception: Sickle Cell Disease (Balancing Selection))",
+  "safeguard_triggered": "Layer-1 BA1 Exception (Sickle Cell Disease (Balancing Selection))",
+  "framing": "Computational research & clinical-pipeline QA audit only \u2014 not standalone SaMD.",
+  "sha256": "9775ce1570352f88650e9479765cc7284e7e4d819099863d2d05d53de546ebfc"
+}

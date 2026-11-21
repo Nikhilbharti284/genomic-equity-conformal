@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "model": "esm2_t12_35M_UR50D + AlphaFold DB v6 pLDDT",
+  "genes_beating_raw_35m": "4/5",
+  "per_gene": {
+    "TP53": {
+      "urn": "urn:mavedb:00000068-0-1",
+      "n": 150,
+      "uniprot": "P04637",
+      "esm2_35m_raw_rho": 0.1649,
+      "esm2_35m_afdb_v6_rho": 0.1021,
+      "delta_rho": -0.0628,
+      "p_val": 0.214,
+      "beats_raw_35m": false
+    },
+    "BRCA1": {
+      "urn": "urn:mavedb:00001222-b-2",
+      "n": 150,
+      "uniprot": "P38398",
+      "esm2_35m_raw_rho": 0.0101,
+      "esm2_35m_afdb_v6_rho": 0.0174,
+      "delta_rho": 0.0073,
+      "p_val": 0.833,
+      "beats_raw_35m": true
+    },
+    "PTEN": {
+      "urn": "urn:mavedb:00000054-a-1",
+      "n": 150,
+      "uniprot": "P60484",
+      "esm2_35m_raw_rho": 0.4276,
+      "esm2_35m_afdb_v6_rho": 0.4497,
+      "delta_rho": 0.0222,
+      "p_val": 7.75e-09,
+      "beats_raw_35m": true
+    },
+    "MSH2": {
+      "urn": "urn:mavedb:00000050-a-1",
+      "n": 150,
+      "uniprot": "P43246",
+      "esm2_35m_raw_rho": 0.3727,
+      "esm2_35m_afdb_v6_rho": 0.3767,
+      "delta_rho": 0.004,
+      "p_val": 2.03e-06,
+      "beats_raw_35m": true
+    },
+    "LDLR": {
+      "urn": "urn:mavedb:00001269-a-1",
+      "n": 150,
+      "uniprot": "P01130",
+      "esm2_35m_raw_rho": 0.2902,
+      "esm2_35m_afdb_v6_rho": 0.292,
+      "delta_rho": 0.0019,
+      "p_val": 0.000288,
+      "beats_raw_35m": true
+    }
+  }
+}

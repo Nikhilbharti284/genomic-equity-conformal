@@ -1,0 +1,37 @@
+{
+  "vcf_source": "data/sample_patient.vcf",
+  "n_audited": 3,
+  "results": [
+    {
+      "chrom": "17",
+      "pos": "7675088",
+      "rsid": "rs28934578",
+      "variant": "TP53_R175H",
+      "ancestry": "SAS",
+      "esm2_llr": -0.698,
+      "platt_prob": 0.8625,
+      "conformal_tier": "Pathogenic_90pct"
+    },
+    {
+      "chrom": "17",
+      "pos": "43124096",
+      "rsid": "rs80357418",
+      "variant": "BRCA1_M1V",
+      "ancestry": "SAS",
+      "esm2_llr": -5.615,
+      "platt_prob": 0.9245,
+      "conformal_tier": "Pathogenic_90pct"
+    },
+    {
+      "chrom": "11",
+      "pos": "5227002",
+      "rsid": "rs334",
+      "variant": "HBB_E7V",
+      "ancestry": "AFR",
+      "esm2_llr": -2.277,
+      "platt_prob": 0.8783,
+      "conformal_tier": "Pathogenic_90pct"
+    }
+  ],
+  "sha256": "02b8abb741412f568ebb3d34871cbc6c3e73953e104401c2df9edaffef41aae8"
+}

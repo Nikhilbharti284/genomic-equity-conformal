@@ -1,0 +1,352 @@
+{
+  "n_genes": 119,
+  "n_clusters": 101,
+  "paralog_merges": [
+    [
+      "ARID1A",
+      "ARID1B",
+      0.171
+    ],
+    [
+      "CACNA1A",
+      "CACNA1E",
+      0.285
+    ],
+    [
+      "COL1A1",
+      "COL1A2",
+      0.252
+    ],
+    [
+      "COL1A1",
+      "COL2A1",
+      0.353
+    ],
+    [
+      "COL1A1",
+      "COL3A1",
+      0.266
+    ],
+    [
+      "COL1A1",
+      "COL4A3",
+      0.138
+    ],
+    [
+      "COL1A1",
+      "COL4A4",
+      0.13
+    ],
+    [
+      "COL1A1",
+      "COL4A5",
+      0.125
+    ],
+    [
+      "COL1A1",
+      "COL7A1",
+      0.177
+    ],
+    [
+      "COL1A2",
+      "COL2A1",
+      0.252
+    ],
+    [
+      "COL1A2",
+      "COL3A1",
+      0.204
+    ],
+    [
+      "COL1A2",
+      "COL4A3",
+      0.132
+    ],
+    [
+      "COL1A2",
+      "COL4A4",
+      0.126
+    ],
+    [
+      "COL1A2",
+      "COL4A5",
+      0.116
+    ],
+    [
+      "COL1A2",
+      "COL7A1",
+      0.173
+    ],
+    [
+      "COL2A1",
+      "COL3A1",
+      0.24
+    ],
+    [
+      "COL2A1",
+      "COL4A3",
+      0.141
+    ],
+    [
+      "COL2A1",
+      "COL4A4",
+      0.131
+    ],
+    [
+      "COL2A1",
+      "COL4A5",
+      0.137
+    ],
+    [
+      "COL2A1",
+      "COL7A1",
+      0.202
+    ],
+    [
+      "COL3A1",
+      "COL4A3",
+      0.14
+    ],
+    [
+      "COL3A1",
+      "COL4A4",
+      0.133
+    ],
+    [
+      "COL3A1",
+      "COL4A5",
+      0.142
+    ],
+    [
+      "COL3A1",
+      "COL7A1",
+      0.163
+    ],
+    [
+      "COL4A3",
+      "COL4A4",
+      0.172
+    ],
+    [
+      "COL4A3",
+      "COL4A5",
+      0.228
+    ],
+    [
+      "COL4A3",
+      "COL7A1",
+      0.175
+    ],
+    [
+      "COL4A4",
+      "COL4A5",
+      0.194
+    ],
+    [
+      "COL4A4",
+      "COL7A1",
+      0.158
+    ],
+    [
+      "COL4A5",
+      "COL7A1",
+      0.177
+    ],
+    [
+      "CREBBP",
+      "EP300",
+      0.302
+    ],
+    [
+      "GJB1",
+      "GJB2",
+      0.189
+    ],
+    [
+      "GRIN2A",
+      "GRIN2B",
+      0.21
+    ],
+    [
+      "KMT2A",
+      "KMT2B",
+      0.095
+    ],
+    [
+      "RYR1",
+      "RYR2",
+      0.246
+    ],
+    [
+      "SCN1A",
+      "SCN2A",
+      0.645
+    ],
+    [
+      "SCN1A",
+      "SCN4A",
+      0.379
+    ],
+    [
+      "SCN1A",
+      "SCN5A",
+      0.29
+    ],
+    [
+      "SCN1A",
+      "SCN8A",
+      0.446
+    ],
+    [
+      "SCN2A",
+      "SCN4A",
+      0.39
+    ],
+    [
+      "SCN2A",
+      "SCN5A",
+      0.298
+    ],
+    [
+      "SCN2A",
+      "SCN8A",
+      0.457
+    ],
+    [
+      "SCN4A",
+      "SCN5A",
+      0.298
+    ],
+    [
+      "SCN4A",
+      "SCN8A",
+      0.342
+    ],
+    [
+      "SCN5A",
+      "SCN8A",
+      0.299
+    ]
+  ],
+  "gene_to_cluster": {
+    "ABCA4": "CLU_000",
+    "ABCD1": "CLU_001",
+    "ACVRL1": "CLU_002",
+    "ADGRV1": "CLU_003",
+    "ALPL": "CLU_004",
+    "ANKRD11": "CLU_005",
+    "APOB": "CLU_006",
+    "ARID1A": "CLU_007",
+    "ARID1B": "CLU_007",
+    "ARSA": "CLU_008",
+    "ATM": "CLU_009",
+    "ATP7B": "CLU_010",
+    "ATRX": "CLU_011",
+    "BEST1": "CLU_012",
+    "BRCA1": "CLU_013",
+    "BRCA2": "CLU_014",
+    "CACNA1A": "CLU_015",
+    "CACNA1E": "CLU_015",
+    "CAPN3": "CLU_016",
+    "CDH1": "CLU_017",
+    "CDH23": "CLU_018",
+    "CDKL5": "CLU_019",
+    "CFTR": "CLU_020",
+    "CHD7": "CLU_021",
+    "COL1A1": "CLU_022",
+    "COL1A2": "CLU_022",
+    "COL2A1": "CLU_022",
+    "COL3A1": "CLU_022",
+    "COL4A3": "CLU_022",
+    "COL4A4": "CLU_022",
+    "COL4A5": "CLU_022",
+    "COL7A1": "CLU_022",
+    "CRB1": "CLU_023",
+    "DMD": "CLU_024",
+    "DNAH11": "CLU_025",
+    "DNAH5": "CLU_026",
+    "DYNC1H1": "CLU_027",
+    "DYSF": "CLU_028",
+    "EHMT1": "CLU_029",
+    "ENG": "CLU_030",
+    "CREBBP": "CLU_031",
+    "EP300": "CLU_031",
+    "F8": "CLU_032",
+    "F9": "CLU_033",
+    "FBN1": "CLU_034",
+    "FH": "CLU_035",
+    "FLNA": "CLU_036",
+    "FOXG1": "CLU_037",
+    "G6PD": "CLU_038",
+    "GAA": "CLU_039",
+    "GALT": "CLU_040",
+    "GCDH": "CLU_041",
+    "GCK": "CLU_042",
+    "GJB1": "CLU_043",
+    "GJB2": "CLU_043",
+    "GLA": "CLU_044",
+    "GLB1": "CLU_045",
+    "GRIN2A": "CLU_046",
+    "GRIN2B": "CLU_046",
+    "HNF1A": "CLU_047",
+    "IDS": "CLU_048",
+    "IDUA": "CLU_049",
+    "ITGA2B": "CLU_050",
+    "KAT6A": "CLU_051",
+    "KCNH2": "CLU_052",
+    "KCNQ1": "CLU_053",
+    "KCNQ2": "CLU_054",
+    "KCNT1": "CLU_055",
+    "KMT2A": "CLU_056",
+    "KMT2B": "CLU_056",
+    "KMT2D": "CLU_057",
+    "LDLR": "CLU_058",
+    "MACF1": "CLU_059",
+    "MECP2": "CLU_060",
+    "MED13L": "CLU_061",
+    "MEN1": "CLU_062",
+    "MLH1": "CLU_063",
+    "MMUT": "CLU_064",
+    "MSH2": "CLU_065",
+    "MSH6": "CLU_066",
+    "MYH7": "CLU_067",
+    "MYO7A": "CLU_068",
+    "NEB": "CLU_069",
+    "NF1": "CLU_070",
+    "NOTCH3": "CLU_071",
+    "NPC1": "CLU_072",
+    "NSD1": "CLU_073",
+    "PAH": "CLU_074",
+    "PKD1": "CLU_075",
+    "PKHD1": "CLU_076",
+    "PTCH1": "CLU_077",
+    "PTEN": "CLU_078",
+    "PTPN11": "CLU_079",
+    "RHO": "CLU_080",
+    "RNF213": "CLU_081",
+    "RP1L1": "CLU_082",
+    "RPE65": "CLU_083",
+    "RPGR": "CLU_084",
+    "RS1": "CLU_085",
+    "RYR1": "CLU_086",
+    "RYR2": "CLU_086",
+    "SCN1A": "CLU_087",
+    "SCN2A": "CLU_087",
+    "SCN4A": "CLU_087",
+    "SCN5A": "CLU_087",
+    "SCN8A": "CLU_087",
+    "SETBP1": "CLU_088",
+    "SLC12A3": "CLU_089",
+    "SLC26A4": "CLU_090",
+    "SMPD1": "CLU_091",
+    "SPAST": "CLU_092",
+    "TNXB": "CLU_093",
+    "TP53": "CLU_094",
+    "TSC2": "CLU_095",
+    "TTN": "CLU_096",
+    "TTR": "CLU_097",
+    "USH2A": "CLU_098",
+    "VHL": "CLU_099",
+    "VWF": "CLU_100"
+  }
+}

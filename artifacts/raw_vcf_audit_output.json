@@ -1,0 +1,41 @@
+{
+  "vcf_source": "data/raw_hospital_sample.vcf",
+  "auto_annotated": true,
+  "n_audited": 3,
+  "results": [
+    {
+      "hgvs_g": "chr17:g.7675088C>T",
+      "variant": "TP53_R175H",
+      "ancestry": "SAS",
+      "live_af_sas": 0.0,
+      "live_af_afr": 0.0,
+      "live_revel": 0.922,
+      "esm2_llr": -0.698,
+      "platt_prob": 0.9202,
+      "conformal_tier": "Pathogenic_90pct"
+    },
+    {
+      "hgvs_g": "chr11:g.5227002T>A",
+      "variant": "HBB_E7V",
+      "ancestry": "SAS",
+      "live_af_sas": 0.000621,
+      "live_af_afr": 0.046998,
+      "live_revel": 0.535,
+      "esm2_llr": -2.277,
+      "platt_prob": 0.0195,
+      "conformal_tier": "VUS_Review_Required (High-AF Functional Conflict)"
+    },
+    {
+      "hgvs_g": "chr17:g.7676154G>C",
+      "variant": "TP53_P72R",
+      "ancestry": "SAS",
+      "live_af_sas": 0.500196,
+      "live_af_afr": 0.379906,
+      "live_revel": 0.368,
+      "esm2_llr": -3.318,
+      "platt_prob": 0.0015,
+      "conformal_tier": "Benign_90pct"
+    }
+  ],
+  "sha256": "e32c23e2a93c1558434fc77cafc4f9d76b322ab6a140cd84f2c590cdc8a74021"
+}

@@ -1,0 +1,49 @@
+{
+  "version": "0.4.0",
+  "n_total": 1206,
+  "features_used": {
+    "n_features": 13,
+    "cadd_included": false,
+    "revel_included": true
+  },
+  "baseline_raw_esm2_auroc": 0.6673,
+  "baseline_raw_esm2_95ci": [
+    0.6358,
+    0.6977
+  ],
+  "v4_ensemble_oof_auroc": 0.9278,
+  "v4_ensemble_95ci": [
+    0.9122,
+    0.9424
+  ],
+  "paired_bootstrap_p_vs_esm2": 0.0,
+  "v4_ensemble_oof_prauc": 0.9371,
+  "overall_platt_ece": 0.0329,
+  "by_ancestry_group": {
+    "EUR": {
+      "n": 311,
+      "platt_ece": 0.0998,
+      "mondrian_cov": 0.8424,
+      "singleton_rate": 0.881
+    },
+    "SAS": {
+      "n": 95,
+      "platt_ece": 0.0775,
+      "mondrian_cov": 0.8526,
+      "singleton_rate": 0.9053
+    },
+    "AFR": {
+      "n": 150,
+      "platt_ece": 0.0613,
+      "mondrian_cov": 0.9067,
+      "singleton_rate": 0.9067
+    },
+    "ULTRA_RARE": {
+      "n": 650,
+      "platt_ece": 0.031,
+      "mondrian_cov": 0.8708,
+      "singleton_rate": 0.9585
+    }
+  },
+  "bundle_sha256": "7cb2c14fa320664b58bd3c5b94d3a5826d596bbbe75d2a2eef1150fb7026913f"
+}

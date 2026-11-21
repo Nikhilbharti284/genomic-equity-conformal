@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0-ccby4-119genes",
+  "commercial_license_clean": true,
+  "n_variants": 9142,
+  "n_genes": 118,
+  "n_homology_clusters": 100,
+  "empty_prediction_sets": 0,
+  "baseline_alphamissense_only_auroc": 0.9583,
+  "baseline_alphamissense_95ci": [
+    0.9546,
+    0.962
+  ],
+  "v10_trackB_oof_auroc": 0.9839,
+  "v10_trackB_95ci": [
+    0.9818,
+    0.9858
+  ],
+  "paired_bootstrap_p_vs_alphamissense": 0.0,
+  "v10_trackB_oof_prauc": 0.9902,
+  "post_2023_prospective_n": 7420,
+  "post_2023_prospective_auroc": 0.9846,
+  "overall_ece_raw_am": 0.0686,
+  "overall_ece_v10_platt": 0.0122,
+  "by_ancestry": {
+    "EUR": {
+      "n": 2209,
+      "raw_am_ece": 0.0622,
+      "v10_platt_ece": 0.0343,
+      "mondrian_cov": 0.9086,
+      "singleton_rate": 0.9258
+    },
+    "SAS": {
+      "n": 1098,
+      "raw_am_ece": 0.0527,
+      "v10_platt_ece": 0.0298,
+      "mondrian_cov": 0.9144,
+      "singleton_rate": 0.9791
+    },
+    "AFR": {
+      "n": 1412,
+      "raw_am_ece": 0.0637,
+      "v10_platt_ece": 0.0233,
+      "mondrian_cov": 0.9334,
+      "singleton_rate": 1.0
+    },
+    "ULTRA_RARE": {
+      "n": 4423,
+      "raw_am_ece": 0.1192,
+      "v10_platt_ece": 0.0072,
+      "mondrian_cov": 0.9767,
+      "singleton_rate": 1.0
+    }
+  },
+  "bundle_sha256": "abb610c4827c312b5dc1242c82b29302f5cc585c841166e0fc3358477332c656"
+}

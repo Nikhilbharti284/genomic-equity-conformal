@@ -1,0 +1,36 @@
+{
+  "version": "1.0.0-clean",
+  "commercial_safe": true,
+  "double_dipping_eliminated": true,
+  "empty_prediction_sets": 0,
+  "oof_auroc": 0.84,
+  "oof_prauc": 0.8605,
+  "overall_ece": 0.0485,
+  "by_ancestry": {
+    "EUR": {
+      "n": 311,
+      "ece": 0.04,
+      "mondrian_cov": 0.8714,
+      "singleton_rate": 0.6077
+    },
+    "SAS": {
+      "n": 95,
+      "ece": 0.0844,
+      "mondrian_cov": 0.9684,
+      "singleton_rate": 0.4526
+    },
+    "AFR": {
+      "n": 150,
+      "ece": 0.1109,
+      "mondrian_cov": 0.9867,
+      "singleton_rate": 0.5533
+    },
+    "ULTRA_RARE": {
+      "n": 650,
+      "ece": 0.0503,
+      "mondrian_cov": 0.9,
+      "singleton_rate": 0.7046
+    }
+  },
+  "bundle_sha256": "cf968fba2903f81ec5ac641b5f56ad2268a33131d8bb5d15450e70c4c20489e6"
+}

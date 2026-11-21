@@ -1,0 +1,14 @@
+{
+  "variant_id": "TP53_R175H",
+  "ancestry_cohort": "SAS",
+  "esm2_zero_shot_llr": -0.6982,
+  "raw_mlp_probability": 0.6815,
+  "platt_calibrated_probability": 0.6039,
+  "conformal_90pct_set": [
+    "Benign",
+    "Pathogenic"
+  ],
+  "ancestry_calibrated_verdict": "Uncertain / VUS (Requires Clinical Review)",
+  "framing": "Computational research hypothesis only \u2014 not clinical diagnostic advice.",
+  "card_sha256": "70639b7c5394fb7f612b20253dfbc9df035c700f48b8e44d96d9d96902c9d8e6"
+}

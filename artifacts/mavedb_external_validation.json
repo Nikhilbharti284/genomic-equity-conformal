@@ -1,0 +1,10 @@
+{
+  "mavedb_urn": "urn:mavedb:00000068-a-1",
+  "held_out_gene": "TP53",
+  "n_wetlab_variants": 100,
+  "raw_esm2_abs_spearman": 0.3115,
+  "raw_esm2_pvalue": 0.00161,
+  "revel_free_model_abs_spearman": 0.2685,
+  "revel_free_model_pvalue": 0.00692,
+  "beats_raw_esm2": false
+}
