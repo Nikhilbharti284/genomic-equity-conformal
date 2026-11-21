@@ -70,6 +70,10 @@ class GenomicEquityEngine:
             safeguard_triggered = f"Layer-1 BA1 Exception ({exc['condition']})"
             if acmg_pts < 0:
                 acmg_code, acmg_pts = ("Indeterminate (BA1 Exception Protected)", 0)
+        elif grpmax_af >= max(g_thr["ba1"], 0.05):
+            ps = [0]
+            tier = "Benign_90pct"
+            safeguard_triggered = f"Layer-2 ACMG BA1 Stand-Alone Benign (AF={grpmax_af:.4f} >= 0.05, non-exception)"
         elif tier == "Benign_90pct" and grpmax_af >= g_thr["bs1"] and (acmg_pts >= 2 or llr <= -2.0):
             tier = f"VUS_Review_Required (Layer-3 High-AF Functional Conflict; {g_thr['moi']} BS1={g_thr['bs1']})"
             safeguard_triggered = f"Layer-3 Functional Conflict (AF={grpmax_af:.4f} >= BS1={g_thr['bs1']}, LLR={llr:.2f})"

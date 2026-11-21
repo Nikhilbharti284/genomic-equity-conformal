@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "genomic-equity-conformal"
+version = "1.1.0"
+description = "Air-Gapped Clinical Variant Calibration, Ancestry Equity & 3-Layer BA1 Regulatory QA Sidecar"
+readme = "README.md"
+license = "MIT"
+authors = [{name = "Nikhil Bharti", email = "nikhilbharti594@gmail.com"}]
+requires-python = ">=3.10"
+dependencies = ["numpy", "scikit-learn", "joblib"]
+
+[project.optional-dependencies]
+esm2 = ["torch", "transformers"]
+api = ["fastapi", "uvicorn"]
+dev = ["pytest"]
+
+[project.scripts]
+gec-audit = "audit_vcf:main"
+gec-predict = "predict_variant:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = ["inference_engine", "audit_vcf", "predict_variant", "mondrian_conformal", "localized_conformal", "api_server"]
