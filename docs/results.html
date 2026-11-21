@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Results — Genomic Equity Conformal (v1.0.0)</title><meta name="description" content="Interactive Chart.js benchmarks &amp; VCF 4.2"><meta name="theme-color" content="#0b3c49">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js" defer></script></head><body>
+<div id="progress-bar"></div>
+<header class="navbar"><div class="nav-inner"><a class="brand" href="index.html"><img src="assets/favicon.svg" width="26" height="26" alt="Logo"><span>Genomic Equity v1.0.0</span></a>
+<nav id="nav-links" class="nav-links"><a href="index.html" class="">Home</a>
+<a href="overview.html" class="">Overview</a>
+<a href="architecture.html" class="">Architecture</a>
+<a href="results.html" class="active">Results</a>
+<a href="mavedb.html" class="">MaveDB</a>
+<a href="audit.html" class="">Audit Log</a>
+<a href="deploy.html" class="">Deploy</a>
+<a href="provenance.html" class="">Provenance</a>
+<a href="code.html" class="">Source Code</a></nav>
+<div class="nav-controls"><div class="search-wrap"><input id="site-search" class="search-input" type="search" placeholder="Search site..."><div id="search-results" class="search-results"></div></div>
+<button id="theme-toggle" class="icon-btn" type="button">☾ Dark</button><button id="menu-toggle" class="icon-btn hamburger" type="button">☰</button></div></div></header>
+<div class="page-shell"><aside class="toc-sidebar"><div class="toc-title">On This Page</div><ul class="toc-list"><li><a href="#auroc">AUROC</a></li><li><a href="#ece">ECE</a></li><li><a href="#subgroups">Subgroups</a></li><li><a href="#conformal">Mondrian</a></li><li><a href="#mavedb-c">MaveDB</a></li><li><a href="#vcf">Raw VCF</a></li></ul></aside><main id="main-content"><section class="hero"><div class="hero-eyebrow">Section 3 &bull; Live-Verified Results</div><h1>Interactive Charts, Subgroup Table &amp; Raw VCF 4.2</h1><p>All numbers loaded directly from centralized <code>data/results.json</code> matching the 66-page Master Documentation verbatim.</p></section>
+<section id="auroc" class="card"><h2>Figure 2: AUROC Progression (0.6673 &rarr; 0.9839; Post-2023: 0.9846)</h2><div class="chart-box"><canvas id="chart-auroc"></canvas></div></section>
+<section id="ece" class="card"><h2>Figure 3: Expected Calibration Error (&minus;82.2% Overall)</h2><div class="chart-box"><canvas id="chart-ece"></canvas></div></section>
+<section id="subgroups" class="card"><h2>Subgroup Calibration &amp; Coverage Table (118 Genes, 100 Clusters, n = 9,142)</h2><div class="table-wrap"><table><thead><tr><th>Cohort</th><th class="num">n</th><th class="num">Raw AM ECE</th><th class="num">v1.0.0 ECE</th><th class="num">Drop</th><th class="num">Cov.</th><th class="num">Singletons</th><th class="num">Empty</th></tr></thead><tbody>
+<tr><td><strong>EUR (European)</strong></td><td class="num">2,209</td><td class="num">0.0622</td><td class="num"><strong>0.0343</strong></td><td class="num">&minus;44.9%</td><td class="num"><strong>0.9086</strong></td><td class="num">92.6%</td><td class="num">0</td></tr>
+<tr><td><strong>SAS (South Asian)</strong></td><td class="num">1,098</td><td class="num">0.0527</td><td class="num"><strong>0.0298</strong></td><td class="num">&minus;43.5%</td><td class="num"><strong>0.9144</strong></td><td class="num">97.9%</td><td class="num">0</td></tr>
+<tr><td><strong>AFR (African)</strong></td><td class="num">1,412</td><td class="num">0.0637</td><td class="num"><strong>0.0233</strong></td><td class="num"><strong>&minus;63.4%</strong></td><td class="num"><strong>0.9334</strong></td><td class="num">100.0%</td><td class="num">0</td></tr>
+<tr><td><strong>ULTRA_RARE</strong></td><td class="num">4,423</td><td class="num">0.1192</td><td class="num"><strong>0.0072</strong></td><td class="num"><strong>&minus;94.0%</strong></td><td class="num"><strong>0.9767</strong></td><td class="num">100.0%</td><td class="num">0</td></tr></tbody></table></div></section>
+<section id="conformal" class="card"><h2>Figure 4: Non-Empty Mondrian Coverage &amp; Singletons</h2><div class="chart-box"><canvas id="chart-conformal"></canvas></div></section>
+<section id="mavedb-c" class="card"><h2>Figure 5: 5-Gene Wet-Lab MaveDB DMS (TP53 = HONEST MISS)</h2><div class="chart-box"><canvas id="chart-mavedb"></canvas></div></section>
+<section id="vcf" class="card"><h2>Live Raw Hospital VCF 4.2 Auto-Annotation Results (3/3 Verified)</h2><div class="table-wrap"><table><thead><tr><th>GRCh38 Coord</th><th>Resolved</th><th class="num">SAS AF</th><th class="num">AFR AF</th><th class="num">Platt Prob</th><th>Final Tier</th></tr></thead><tbody>
+<tr><td><code>chr17:g.7675088C&gt;T</code></td><td><strong>TP53_R175H</strong></td><td class="num">0.000000</td><td class="num">0.000000</td><td class="num">0.9202</td><td><span class="chip chip-danger">Pathogenic_90pct</span></td></tr>
+<tr><td><code>chr11:g.5227002T&gt;A</code></td><td><strong>HBB_E7V</strong></td><td class="num">0.000621</td><td class="num">0.046998</td><td class="num">0.0195</td><td><span class="chip chip-warn">VUS (Layer-1 BA1 Exception)</span></td></tr>
+<tr><td><code>chr17:g.7676154G&gt;C</code></td><td><strong>TP53_P72R</strong></td><td class="num">0.500196</td><td class="num">0.379906</td><td class="num">0.0015</td><td><span class="chip chip-pass">Benign_90pct</span></td></tr></tbody></table></div></section></main></div>
+<button id="back-to-top" type="button" aria-label="Back to top">↑</button>
+<footer><div class="footer-inner"><div><strong>Genomic Equity Conformal (v1.0.0)</strong> &bull; Nikhil Bharti (@Nikhilbharti284) &bull; MIT + CC BY 4.0 &bull; Built November 2026</div>
+<div style="display:flex;gap:14px"><a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub Repo</a><a href="code.html">Source Code</a><a href="provenance.html">SHA-256 Ledger</a></div></div></footer>
+<script src="js/main.js"></script><script src="js/charts.js" defer></script></body></html>

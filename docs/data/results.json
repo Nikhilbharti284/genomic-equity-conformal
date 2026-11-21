@@ -1,0 +1,360 @@
+{
+  "kpis": {
+    "auroc_v10": 0.9839,
+    "auroc_am_only": 0.9583,
+    "post2023_auroc": 0.9846,
+    "ece_raw_overall": 0.0686,
+    "ece_v10_overall": 0.0122
+  },
+  "auroc_progression": [
+    {
+      "label": "Raw ESM-2 (8M)",
+      "auroc": 0.6673
+    },
+    {
+      "label": "v0.1.0 Pilot",
+      "auroc": 0.7322
+    },
+    {
+      "label": "V2 Pure (20g)",
+      "auroc": 0.8038
+    },
+    {
+      "label": "v1.0 Clean (20g)",
+      "auroc": 0.84
+    },
+    {
+      "label": "AlphaMissense (118g)",
+      "auroc": 0.9583
+    },
+    {
+      "label": "v1.0.0 Track B",
+      "auroc": 0.9839
+    },
+    {
+      "label": "Post-2023 (n=7,420)",
+      "auroc": 0.9846
+    }
+  ],
+  "subgroups": [
+    {
+      "cohort": "EUR (European)",
+      "short": "EUR",
+      "n": 2209,
+      "raw_am_ece": 0.0622,
+      "v10_ece": 0.0343,
+      "ece_drop": "-44.9%",
+      "coverage": 0.9086,
+      "singletons": 92.6,
+      "empty_sets": 0
+    },
+    {
+      "cohort": "SAS (South Asian)",
+      "short": "SAS",
+      "n": 1098,
+      "raw_am_ece": 0.0527,
+      "v10_ece": 0.0298,
+      "ece_drop": "-43.5%",
+      "coverage": 0.9144,
+      "singletons": 97.9,
+      "empty_sets": 0
+    },
+    {
+      "cohort": "AFR (African)",
+      "short": "AFR",
+      "n": 1412,
+      "raw_am_ece": 0.0637,
+      "v10_ece": 0.0233,
+      "ece_drop": "-63.4%",
+      "coverage": 0.9334,
+      "singletons": 100.0,
+      "empty_sets": 0
+    },
+    {
+      "cohort": "ULTRA_RARE",
+      "short": "ULTRA_RARE",
+      "n": 4423,
+      "raw_am_ece": 0.1192,
+      "v10_ece": 0.0072,
+      "ece_drop": "-94.0%",
+      "coverage": 0.9767,
+      "singletons": 100.0,
+      "empty_sets": 0
+    }
+  ],
+  "mavedb_5gene": [
+    {
+      "gene": "PTEN",
+      "raw_35m": 0.4276,
+      "afdb_v6": 0.4497,
+      "delta": "+0.0221",
+      "p_value": "7.75e-09",
+      "status": "WIN"
+    },
+    {
+      "gene": "MSH2",
+      "raw_35m": 0.3727,
+      "afdb_v6": 0.3767,
+      "delta": "+0.0040",
+      "p_value": "2.03e-06",
+      "status": "WIN"
+    },
+    {
+      "gene": "LDLR",
+      "raw_35m": 0.2902,
+      "afdb_v6": 0.292,
+      "delta": "+0.0018",
+      "p_value": "2.88e-04",
+      "status": "WIN"
+    },
+    {
+      "gene": "BRCA1",
+      "raw_35m": 0.0101,
+      "afdb_v6": 0.0174,
+      "delta": "+0.0073",
+      "p_value": "\u2014",
+      "status": "WIN"
+    },
+    {
+      "gene": "TP53",
+      "raw_35m": 0.1649,
+      "afdb_v6": 0.1021,
+      "delta": "-0.0628",
+      "p_value": "\u2014",
+      "status": "HONEST MISS"
+    }
+  ],
+  "code_files": [
+    {
+      "group": "Part 7A \u2014 Registry",
+      "path": "data/ba1_exception_registry.json",
+      "file": "ba1_exception_registry.json.txt",
+      "lang": "json",
+      "role": "ClinGen SVI BA1 Exception List & gene MOI thresholds"
+    },
+    {
+      "group": "Part 7B \u2014 v1.0.0 Core",
+      "path": "src/mondrian_conformal.py",
+      "file": "mondrian_conformal.py.txt",
+      "lang": "python",
+      "role": "Non-empty AncestryMondrianConformal (0 empty sets)"
+    },
+    {
+      "group": "Part 7B \u2014 v1.0.0 Core",
+      "path": "src/localized_conformal.py",
+      "file": "localized_conformal.py.txt",
+      "lang": "python",
+      "role": "LocalizedWeightedConformal (Tibshirani 2019 + Guan 2023)"
+    },
+    {
+      "group": "Part 7B \u2014 v1.0.0 Core",
+      "path": "src/inference_engine.py",
+      "file": "inference_engine.py.txt",
+      "lang": "python",
+      "role": "Unified Pejaver PP3/BP4 + 3-Layer BA1 Exception Safeguard"
+    },
+    {
+      "group": "Part 7B \u2014 v1.0.0 Core",
+      "path": "src/calibrate_pejaver_lr.py",
+      "file": "calibrate_pejaver_lr.py.txt",
+      "lang": "python",
+      "role": "2,000-bootstrap empirical LR+ ClinGen Pejaver auditor"
+    },
+    {
+      "group": "Part 7B \u2014 v1.0.0 Core",
+      "path": "src/v1_curate_120genes.py",
+      "file": "v1_curate_120genes.py.txt",
+      "lang": "python",
+      "role": "ClinVar >=2-star GRCh38 stream (119 genes, 9,247 variants)"
+    },
+    {
+      "group": "Part 7B \u2014 v1.0.0 Core",
+      "path": "src/v1_cluster_genes.py",
+      "file": "v1_cluster_genes.py.txt",
+      "lang": "python",
+      "role": "5-mer + Union-Find <30% homology clustering (101 clusters)"
+    },
+    {
+      "group": "Part 7B \u2014 v1.0.0 Core",
+      "path": "src/v1_ingest_alphamissense_and_gnomad.py",
+      "file": "v1_ingest_alphamissense_and_gnomad.py.txt",
+      "lang": "python",
+      "role": "71M-row CC BY 4.0 AlphaMissense stream (55.25 MB RAM)"
+    },
+    {
+      "group": "Part 7B \u2014 v1.0.0 Core",
+      "path": "src/v1_train_full_120genes.py",
+      "file": "v1_train_full_120genes.py.txt",
+      "lang": "python",
+      "role": "118-gene / 100-cluster Track B stack (0.9839 AUROC, 0.0122 ECE)"
+    },
+    {
+      "group": "Part 7B \u2014 v1.0.0 Core",
+      "path": "src/alphafold_v6_features.py",
+      "file": "alphafold_v6_features.py.txt",
+      "lang": "python",
+      "role": "Dynamic EMBL-EBI AlphaFold DB v6 CA pLDDT extractor"
+    },
+    {
+      "group": "Part 7B \u2014 v1.0.0 Core",
+      "path": "src/v1_mavedb_5gene_suite.py",
+      "file": "v1_mavedb_5gene_suite.py.txt",
+      "lang": "python",
+      "role": "5-gene independent wet-lab MaveDB DMS suite (4/5 wins)"
+    },
+    {
+      "group": "Part 7B \u2014 v1.0.0 Core",
+      "path": "src/v1_esm2_35m_poscache.py",
+      "file": "v1_esm2_35m_poscache.py.txt",
+      "lang": "python",
+      "role": "Position-cached 512-aa ESM2-35M SQLite WAL scorer"
+    },
+    {
+      "group": "Part 7B \u2014 v1.0.0 Core",
+      "path": "src/api_server.py",
+      "file": "api_server.py.txt",
+      "lang": "python",
+      "role": "Zero-dependency localhost REST API wired to GenomicEquityEngine"
+    },
+    {
+      "group": "Part 7B \u2014 v1.0.0 Core",
+      "path": "src/predict_variant.py",
+      "file": "predict_variant.py.txt",
+      "lang": "python",
+      "role": "Unified Variant Equity Card CLI wired to GenomicEquityEngine"
+    },
+    {
+      "group": "Part 7B \u2014 v1.0.0 Core",
+      "path": "src/audit_vcf.py",
+      "file": "audit_vcf.py.txt",
+      "lang": "python",
+      "role": "Raw Hospital VCF 4.2 auto-annotating auditor"
+    },
+    {
+      "group": "Part 7B \u2014 v1.0.0 Core",
+      "path": "tests/test_v10_regression.py",
+      "file": "test_v10_regression.py.txt",
+      "lang": "python",
+      "role": "v1.0.0 regression tests (0 empty sets, Pejaver, HBB_E7V)"
+    },
+    {
+      "group": "Part 7C \u2014 Foundational",
+      "path": ".devcontainer/devcontainer.json",
+      "file": "devcontainer.json.txt",
+      "lang": "json",
+      "role": "Codespaces 2-core / 8 GB RAM DevContainer config"
+    },
+    {
+      "group": "Part 7C \u2014 Foundational",
+      "path": "Dockerfile",
+      "file": "Dockerfile.txt",
+      "lang": "dockerfile",
+      "role": "Air-gapped zero-egress hospital Dockerfile"
+    },
+    {
+      "group": "Part 7C \u2014 Foundational",
+      "path": "requirements.txt",
+      "file": "requirements.txt.txt",
+      "lang": "plaintext",
+      "role": "CPU-only Python dependencies"
+    },
+    {
+      "group": "Part 7C \u2014 Foundational",
+      "path": "CITATION.cff",
+      "file": "CITATION.cff.txt",
+      "lang": "yaml",
+      "role": "Standard Citation File Format v1.2.0 metadata"
+    },
+    {
+      "group": "Part 7C \u2014 Foundational",
+      "path": ".gitignore",
+      "file": "gitignore.txt",
+      "lang": "plaintext",
+      "role": "Git ignore rules"
+    },
+    {
+      "group": "Part 7C \u2014 Foundational",
+      "path": "LICENSE",
+      "file": "LICENSE.txt",
+      "lang": "plaintext",
+      "role": "MIT License (Copyright 2026 Nikhil Bharti)"
+    },
+    {
+      "group": "Part 7C \u2014 Foundational",
+      "path": "src/resource_logger.py",
+      "file": "resource_logger.py.txt",
+      "lang": "python",
+      "role": "Wall-clock, RAM & SHA-256 JSONL telemetry logger"
+    },
+    {
+      "group": "Part 7C \u2014 Foundational",
+      "path": "src/esm2_scorer.py",
+      "file": "esm2_scorer.py.txt",
+      "lang": "python",
+      "role": "Frozen ESM-2 8M SQLite WAL scorer with SIGTERM guard"
+    },
+    {
+      "group": "Part 7C \u2014 Foundational",
+      "path": "src/data_curate_clinvar.py",
+      "file": "data_curate_clinvar.py.txt",
+      "lang": "python",
+      "role": "20-gene ClinVar GRCh38 + UniProt + gnomAD curator"
+    },
+    {
+      "group": "Part 7C \u2014 Foundational",
+      "path": "src/run_pilot_benchmark.py",
+      "file": "run_pilot_benchmark.py.txt",
+      "lang": "python",
+      "role": "Sliding-window ESM-2 caching & V1 pilot benchmark"
+    },
+    {
+      "group": "Part 7C \u2014 Foundational",
+      "path": "src/enrich_hg38_and_rebench.py",
+      "file": "enrich_hg38_and_rebench.py.txt",
+      "lang": "python",
+      "role": "GRCh38 gnomAD ancestry AF enrichment pipeline"
+    },
+    {
+      "group": "Part 7C \u2014 Foundational",
+      "path": "src/calibrated_benchmark_v2.py",
+      "file": "calibrated_benchmark_v2.py.txt",
+      "lang": "python",
+      "role": "V2 pure zero-circularity Platt + Mondrian benchmark (0.8038)"
+    },
+    {
+      "group": "Part 7C \u2014 Foundational",
+      "path": "src/train_v10_clean.py",
+      "file": "train_v10_clean.py.txt",
+      "lang": "python",
+      "role": "Nested OOF Platt 20-gene clean benchmark (0.8400 AUROC)"
+    },
+    {
+      "group": "Part 7C \u2014 Foundational",
+      "path": "src/upgrade_v4_ensemble.py",
+      "file": "upgrade_v4_ensemble.py.txt",
+      "lang": "python",
+      "role": "Pilot V4 3-model ensemble + 1,000-bootstrap archive"
+    },
+    {
+      "group": "Part 7C \u2014 Foundational",
+      "path": "src/validate_mavedb_dms.py",
+      "file": "validate_mavedb_dms.py.txt",
+      "lang": "python",
+      "role": "Single-gene TP53 MaveDB pilot validator"
+    },
+    {
+      "group": "Part 7C \u2014 Foundational",
+      "path": "src/generate_rocrate.py",
+      "file": "generate_rocrate.py.txt",
+      "lang": "python",
+      "role": "W3C RO-Crate 1.1 SHA-256 manifest builder"
+    },
+    {
+      "group": "Part 7C \u2014 Foundational",
+      "path": "tests/test_pipeline.py",
+      "file": "test_pipeline.py.txt",
+      "lang": "python",
+      "role": "Core unit tests (Mondrian, zero leakage, SQLite resume)"
+    }
+  ]
+}

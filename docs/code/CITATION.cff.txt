@@ -1,0 +1,5 @@
+cff-version: 1.2.0
+title: "Genomic Equity Conformal: Ancestry-Calibrated Missense & Splicing VUS Classifier"
+message: "If you use this software or benchmark, please cite it."
+type: software
+license: MIT

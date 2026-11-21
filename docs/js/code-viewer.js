@@ -1,0 +1,10 @@
+(function(){const el=document.getElementById("code-accordion"),sq=document.getElementById("code-search");if(!el)return;
+fetch("data/results.json").then(r=>r.json()).then(d=>{const fs=d.code_files||[],gs=[...new Set(fs.map(f=>f.group))];
+function render(q=""){q=q.trim().toLowerCase();el.innerHTML="";gs.forEach(g=>{const items=fs.filter(f=>f.group===g&&(!q||(f.path+" "+f.role).toLowerCase().includes(q)));if(!items.length)return;
+const h=document.createElement("h3");h.textContent=`${g} (${items.length})`;el.appendChild(h);
+items.forEach(f=>{const w=document.createElement("div");w.className="acc-item";
+w.innerHTML=`<button class="acc-head" type="button"><span><code>${f.path}</code> &mdash; <span style="font-weight:500;color:var(--muted)">${f.role}</span></span><span style="font-size:.8rem;color:var(--teal-link)">Expand</span></button><div class="acc-body"><div class="code-box"><div class="code-bar"><strong>${f.path}</strong><div style="display:flex;gap:8px"><button class="btn cp" type="button">Copy</button><a class="btn" href="code/${f.file}" download="${f.path.split('/').pop()}">Download</a></div></div><div class="code-lines"><div class="line-nums">1</div><pre style="flex:1"><code class="language-${f.lang}">Loading...</code></pre></div></div></div>`;
+const hd=w.querySelector(".acc-head"),ce=w.querySelector("code.language-"+f.lang),ln=w.querySelector(".line-nums"),cp=w.querySelector(".cp");let ok=false;
+hd.addEventListener("click",async()=>{const op=w.classList.toggle("open");if(op&&!ok){const t=await(await fetch("code/"+f.file)).text();ce.textContent=t;ln.textContent=Array.from({length:t.split("\n").length},(_,i)=>i+1).join("\n");if(window.hljs)window.hljs.highlightElement(ce);cp.addEventListener("click",()=>{navigator.clipboard.writeText(t);cp.textContent="Copied!";setTimeout(()=>cp.textContent="Copy",1200);});ok=true;}});
+el.appendChild(w);});});}
+render();if(sq)sq.addEventListener("input",()=>render(sq.value));});})();
