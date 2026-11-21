@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Interactive Testing Lab — Genomic Equity Conformal (v1.0.0)</title><meta name="theme-color" content="#0b3c49">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"></head><body>
+<div id="progress-bar"></div>
+<header class="who-header"><div class="header-inner">
+  <a class="who-brand" href="index.html"><img src="assets/favicon.svg" alt="Logo"><div class="brand-text"><strong>Genomic Equity</strong><span>Conformal QA v1.0.0</span></div></a>
+  <nav class="desktop-nav" aria-label="Primary"><a href="index.html" class="">Home</a><a href="lab.html"><span>Live Testing Lab</span><span class="chev">›</span></a><a href="overview.html" class="active">Overview & Equity</a><a href="architecture.html" class="">Architecture</a><a href="results.html" class="">Live Results</a><a href="mavedb.html" class="">MaveDB Wet-Lab</a><a href="audit.html" class="">Audit Log</a></nav>
+  <div class="header-actions"><a class="pill-cta" href="lab.html">Live Testing Lab</a><button id="menu-open" class="who-burger" type="button" aria-label="Open menu">☰</button></div>
+</div></header>
+
+<div id="who-drawer" class="who-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="drawer-top"><a class="drawer-brand" href="index.html"><img src="assets/favicon.svg" width="30" height="30" alt="Logo"><span>Genomic Equity v1.0.0</span></a><button id="menu-close" class="drawer-close" type="button" aria-label="Close menu">&times;</button></div>
+  <div class="drawer-tools"><input id="drawer-search" class="drawer-search" type="search" placeholder="Search research portal..."><button id="theme-toggle" class="drawer-theme" type="button">☾ Dark</button></div>
+  <div id="drawer-results" class="drawer-results"></div>
+  <nav class="drawer-links"><a href="index.html" class=""><span>Home</span><span class="chev">›</span></a><a href="overview.html" class="active"><span>Overview & Equity</span><span class="chev">›</span></a><a href="architecture.html" class=""><span>Architecture</span><span class="chev">›</span></a><a href="results.html" class=""><span>Live Results</span><span class="chev">›</span></a><a href="mavedb.html" class=""><span>MaveDB Wet-Lab</span><span class="chev">›</span></a><a href="audit.html" class=""><span>Audit Log</span><span class="chev">›</span></a><a href="deploy.html" class=""><span>Codespaces & Docker</span><span class="chev">›</span></a><a href="provenance.html" class=""><span>Provenance & Funding</span><span class="chev">›</span></a><a href="code.html" class=""><span>Source Code</span><span class="chev">›</span></a></nav>
+</div>
+
+<section class="who-hero"><div class="who-hero-inner" style="grid-template-columns:1fr">
+  <div>
+    <span class="hero-tag">100% Client-Side &bull; Zero Backend &bull; Live Algorithm Verification</span>
+    <h1>Interactive Clinical QA &amp; Algorithm Testing Lab</h1>
+    <p>Test single variants, batch raw VCF 4.2 files, explore the AlphaFold DB v6 structural attenuation formula, and run all 6 automated scientific regression tests directly in your browser.</p>
+  </div>
+</div></section>
+
+<div class="container">
+  <section class="card">
+    <h2>1. Single-Variant Conformal + Pejaver PP3/BP4 + 3-Layer BA1 Tester</h2>
+    <p style="font-size:.89rem;color:var(--muted)">Tap any clinical preset or adjust sliders to watch how Ancestry Mondrian Conformal Prediction and the 3-Layer BA1 Safeguard respond in real time:</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+      <button class="btn" type="button" data-preset="hbb_e7v">HBB E7V (Sickle Cell Guard)</button>
+      <button class="btn" type="button" data-preset="tp53_r175h">TP53 R175H (SAS Pathogenic)</button>
+      <button class="btn" type="button" data-preset="gjb2_v37i">GJB2 V37I (BA1 Exception)</button>
+      <button class="btn" type="button" data-preset="tp53_p72r">TP53 P72R (SAS Benign)</button>
+      <button class="btn" type="button" data-preset="brca1_c61g">BRCA1 C61G (AFR Rare)</button>
+      <button class="btn" type="button" data-preset="myh7_r403q">MYH7 R403Q (AD BS1 Check)</button>
+    </div>
+    <div class="kpi-grid" style="margin-bottom:14px">
+      <label style="font-size:.84rem;font-weight:700">Gene<input id="sim-gene" class="filter-input" style="margin:4px 0 0" value="HBB"></label>
+      <label style="font-size:.84rem;font-weight:700">Variant<input id="sim-var" class="filter-input" style="margin:4px 0 0" value="E7V"></label>
+      <label style="font-size:.84rem;font-weight:700">Patient Ancestry<select id="sim-anc" class="filter-input" style="margin:4px 0 0"><option value="AFR" selected>AFR (African)</option><option value="SAS">SAS (South Asian)</option><option value="EUR">EUR (European)</option><option value="ULTRA_RARE">ULTRA_RARE</option></select></label>
+      <label style="font-size:.84rem;font-weight:700">Conformal Alpha (&alpha;)<select id="sim-alpha" class="filter-input" style="margin:4px 0 0"><option value="0.05">0.05 (95% Target)</option><option value="0.10" selected>0.10 (90% Target)</option><option value="0.20">0.20 (80% Target)</option></select></label>
+    </div>
+    <div class="editorial-grid" style="margin-bottom:14px">
+      <label style="font-size:.84rem;font-weight:700">AlphaMissense (CC BY 4.0): <span id="am-val">0.860</span><input id="sim-am" type="range" min="0.01" max="0.999" step="0.005" value="0.86" style="width:100%"></label>
+      <label style="font-size:.84rem;font-weight:700">Frozen ESM-2 LLR: <span id="llr-val">-2.28</span><input id="sim-llr" type="range" min="-10" max="2" step="0.05" value="-2.28" style="width:100%"></label>
+      <label style="font-size:.84rem;font-weight:700">gnomAD Max AF (0 &ndash; 0.50)<input id="sim-af" class="filter-input" type="number" min="0" max="1" step="0.0001" value="0.0470" style="margin:4px 0 0"></label>
+    </div>
+    <div style="margin-bottom:10px"><span id="sim-badge" class="chip chip-warn">Running...</span></div>
+    <div id="sim-steps" class="pipe-detail" style="margin-bottom:12px;display:flex;flex-direction:column;gap:6px"></div>
+    <div class="code-box">
+      <div class="code-bar"><strong>Live SHA-256 Variant Equity Card JSON</strong><div style="display:flex;gap:8px"><button class="btn" type="button" data-copy="#sim-json">Copy JSON</button><button id="dl-card-json" class="btn" type="button">Download Card</button></div></div>
+      <pre><code id="sim-json"></code></pre>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>2. Batch Raw Hospital VCF 4.2 Auditor (Client-Side)</h2>
+    <p style="font-size:.89rem;color:var(--muted)">Paste a tab-delimited VCF 4.2 cohort below (zero data leaves your browser) and run an instant conformal + BA1 audit:</p>
+    <textarea id="vcf-input" rows="7" style="width:100%;font-family:'JetBrains Mono',monospace;font-size:.8rem;padding:10px;border-radius:8px;border:1px solid var(--border);background:var(--code-bg);color:var(--code-text)"></textarea>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0">
+      <button id="vcf-run" class="btn-gold" style="border:0;cursor:pointer" type="button">Run Batch VCF Audit</button>
+      <button id="vcf-load" class="btn" type="button">Reset 5-Variant Sample VCF</button>
+      <button id="vcf-csv" class="btn" type="button">Export Audit CSV</button>
+    </div>
+    <div id="vcf-summary" style="margin:10px 0"></div>
+    <div class="table-wrap"><table><thead><tr><th>GRCh38 Coord</th><th>Variant</th><th>Ancestry</th><th class="num">Pejaver</th><th class="num">Platt Prob</th><th>Final Tier</th></tr></thead><tbody id="vcf-tbody"></tbody></table></div>
+  </section>
+
+  <section class="card">
+    <h2>3. AlphaFold DB v6 Structural Attenuation Playground (MaveDB Formula)</h2>
+    <p style="font-size:.89rem;color:var(--muted)">Test <code>s_struct = LLR &times; (0.35 + 0.65 &times; pLDDT / 100)</code> across ordered structural cores vs. disordered loops:</p>
+    <div class="editorial-grid" style="grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:10px">
+      <label style="font-size:.84rem;font-weight:700">ESM2-35M LLR: <span id="af-llr-val">-4.50</span><input id="af-llr" type="range" min="-12" max="1" step="0.1" value="-4.5" style="width:100%"></label>
+      <label style="font-size:.84rem;font-weight:700">AlphaFold DB v6 CA pLDDT: <span id="af-plddt-val">92.0</span><input id="af-plddt" type="range" min="20" max="100" step="0.5" value="92" style="width:100%"></label>
+    </div>
+    <div id="af-out" class="pipe-detail"></div>
+  </section>
+
+  <section class="card">
+    <h2>4. Live In-Browser Automated Test Suite (6 Scientific Checks)</h2>
+    <p style="font-size:.89rem;color:var(--muted)">Mirrors <code>tests/test_pipeline.py</code> and <code>tests/test_v10_regression.py</code> directly inside your browser to prove core invariants pass live:</p>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px">
+      <button id="run-tests-btn" class="btn-gold" style="border:0;cursor:pointer" type="button">Run All 6 Verification Tests</button>
+      <span id="test-summary"></span>
+    </div>
+    <div class="table-wrap"><table><thead><tr><th>Test Case</th><th>Status</th><th>Verified Output</th></tr></thead><tbody id="test-output"><tr><td colspan="3" style="color:var(--muted)">Click "Run All 6 Verification Tests" above to execute live assertions.</td></tr></tbody></table></div>
+  </section>
+</div><button id="back-to-top" type="button" aria-label="Back to top">↑</button>
+<footer><div class="footer-inner">
+  <div><strong>Genomic Equity Conformal (v1.0.0)</strong> &bull; Nikhil Bharti (@Nikhilbharti284) &bull; MIT + CC BY 4.0 &bull; Built November 2026</div>
+  <div style="display:flex;gap:14px"><a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub Repo</a><a href="code.html">Source Code</a><a href="provenance.html">SHA-256 Ledger</a></div>
+</div></footer>
+<script src="js/main.js"></script><script src="js/lab.js"></script></body></html>

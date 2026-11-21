@@ -6,6 +6,12 @@
     "text": "Release v1.0.0 &bull; November 2026 &bull; MIT + CC BY 4.0 Genomic Equity Conformal (v1.0.0) Air-Gapped, Zero-GPU Clinical Calibration, Ancestry Equity &amp; Regulatory QA Sidecar for South Asian (SAS) and African (AFR) Genomic Cohorts. 0.9839 118-Gene OOF AUROC (p &lt; 0.001 vs AlphaMissense 0.9583) &minus;82.2% ECE 0.0686 &rarr; 0.0122 Overall (SAS &minus;43.5%, AFR &minus;63.4%) 4/5 MaveDB ESM2-35M + AFDB v6 Beat Raw 35M Wet-Lab $0 / 42 Files Codespaces Free CPU &bull; W3C RO-Crate 1.1 Author &amp; Links Nikhil Bharti (@Nikhilbharti284) GitHub Repo (v1.0.0, 59 Files) Hardware &amp; License Codespaces Free Tier (2-Core, 8 GB RAM, 15 GB Disk) MIT (Code) + CC BY 4.0 (Data) Verification Scale 9,142 &ge;2-Star ClinVar &bull; 118 Genes &bull; 100 Clusters &bull; 7,420 Post-2023 Holdout Responsible Framing: Strictly an in-house laboratory QA, ancestry calibration &amp; research benchmarking sidecar &mdash; NOT a standalone clinical diagnostic device (SaMD). Predictions must be reviewed by qualified clinical geneticists under NABL/CAP/CLIA protocols. Version Journey (v0.1.0 &rarr; v1.0.0) v0.1.0 Pilot 20 genes, Raw ESM-2 (0.6673) &rarr; MLP (0.7322 AUROC). V2 Zero-Circularity hg38 gnomAD + Platt + Mondrian (0.8038 AUROC, SAS cov 0.9053). v1.0.0-clean Zero REVEL, Nested OOF Platt, 0 empty sets (0.8400 AUROC). v1.0.0 Track B 118 genes, 100 clusters, CC BY 4.0 AlphaMissense: 0.9839 AUROC , 0.0122 ECE. Explore All Sections 1. Overview &amp; Blueprints Equity problem, DPDP Act &amp; Tr"
   },
   {
+    "url": "lab.html",
+    "title": "Interactive Live Testing Lab",
+    "snippet": "Test single variants, batch VCF 4.2, AlphaFold pLDDT formula & 6/6 live regression tests in-browser.",
+    "text": "interactive simulator variant tester HBB_E7V sickle cell BA1 safeguard Pejaver PP3 BP4 batch VCF CSV export AlphaFold pLDDT live pytest runner"
+  },
+  {
     "url": "overview.html",
     "title": "Overview",
     "snippet": "Equity problem & blueprint selection",
