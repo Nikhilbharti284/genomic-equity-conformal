@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Genomic Equity Conformal (v3.0.0) — Nikhil Bharti</title>
-<link rel="stylesheet" href="css/style.css?v=7">
+<link rel="stylesheet" href="css/style.css?v=9">
 </head>
 <body>
 <div class="author-ribbon">Created &amp; Engineered by <strong>Nikhil Bharti</strong> (<span class="author-handle">@Nikhilbharti284</span>) &bull; <a href="https://orcid.org/0009-0006-3130-9141" target="_blank">ORCID 0009-0006-3130-9141</a> &bull; <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub &#8599;</a></div>
@@ -13,16 +13,17 @@
     <div class="brand-mark">GE</div>
     <div><div class="brand-title">Genomic Equity</div><div class="brand-sub">CONFORMAL QA V3.0.0</div></div>
   </a>
-  <button class="menu-btn" onclick="toggleDrawer(true)" aria-label="Menu">&#9776;</button>
+  <button class="menu-btn" onclick="toggleDrawer(true)" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
 </header>
 
 <nav id="nav-drawer" class="drawer">
-  <div class="drawer-top"><strong>Genomic Equity v3.0.0</strong><button class="menu-btn" onclick="toggleDrawer(false)">&#10005;</button></div>
-  <a href="index.html" onclick="toggleDrawer(false)">Home &amp; Architecture</a>
-  <a href="results.html" onclick="toggleDrawer(false)">7-Ancestry Benchmarks &amp; 19 Discoveries</a>
-  <a href="lab.html" onclick="toggleDrawer(false)">Live Interactive Lab (PGx + Zygosity + VCF)</a>
-  <a href="whitepaper.html" onclick="toggleDrawer(false)">Printable Whitepaper (PDF)</a>
-  <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub Repository &#8599;</a>
+  <div class="drawer-top"><strong>Genomic Equity v3.0.0</strong><button class="menu-btn" onclick="toggleDrawer(false)">X</button></div>
+  <a href="index.html">Home &amp; 5-Stage Architecture</a>
+  <a href="results.html">7-Ancestry Benchmarks &amp; All 19 Discoveries</a>
+  <a href="lab.html">Live Interactive Lab (PGx + Zygosity + BA1)</a>
+  <a href="whitepaper.html">Printable v3.0.0 Whitepaper (PDF)</a>
+  <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal/tree/main/src" target="_blank">Browse Full v3.0.0 Source Code (GitHub) &#8599;</a>
+  <a href="https://orcid.org/0009-0006-3130-9141" target="_blank">ORCID: 0009-0006-3130-9141 &#8599;</a>
 </nav>
 
 <main class="wrap">
@@ -35,13 +36,13 @@
       <a class="btn btn-teal" href="results.html" style="border:1px solid rgba(255,255,255,.35)">View v3.0.0 Benchmarks</a>
       <a class="btn btn-orcid" href="https://orcid.org/0009-0006-3130-9141" target="_blank">ORCID: 0009-0006-3130-9141</a>
     </div>
-    <img src="assets/figures/pipeline_5stage.svg?v=6" alt="5-Stage Air-Gapped Clinical QA Pipeline" style="width:100%;height:auto;display:block;border-radius:10px;background:#fff;padding:4px">
+    <img src="assets/figures/pipeline_5stage.svg?v=9" alt="5-Stage Air-Gapped Clinical QA Pipeline" style="width:100%;height:auto;display:block;border-radius:10px;background:#fff;padding:4px">
   </section>
 
   <section class="kpis">
     <div class="kpi"><b>0.9844</b><span>118-Gene OOF AUROC (PR-AUC 0.9898)</span></div>
     <div class="kpi"><b>&#8722;90.4% ECE</b><span>0.0686 &#8594; 0.0066 (0 Empty Sets)</span></div>
-    <div class="kpi"><b>19 Found</b><span>Unlisted BS1+ Global Founders</span></div>
+    <div class="kpi"><b>19 Founders</b><span>Unlisted BS1+ Global Founders</span></div>
     <div class="kpi"><b>9,249 DB</b><span>Offline SQLite WAL (--network=none)</span></div>
   </section>
 
@@ -78,6 +79,6 @@
     <a href="index.html">Home</a> <a href="results.html">Benchmarks</a> <a href="lab.html">Live Lab</a> <a href="https://orcid.org/0009-0006-3130-9141" target="_blank">ORCID</a> <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub</a>
   </div>
 </footer>
-<script src="js/main.js?v=6"></script>
+<script src="js/main.js?v=9"></script>
 </body>
 </html>

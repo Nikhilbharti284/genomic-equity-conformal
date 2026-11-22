@@ -1,48 +1,20 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Technical Whitepaper (Preprint) — Genomic Equity Conformal v3.0.0</title>
-<style>
-  body{font-family:Georgia,serif;max-width:860px;margin:28px auto;padding:0 18px;color:#0f172a;line-height:1.6}
-  .bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;font-family:system-ui,sans-serif}
-  .btn{background:#00205C;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:700;border:none;cursor:pointer;font-size:14px}
-  .btn-gold{background:#c5942f;color:#00205C}
-  h1{color:#00205C;margin-bottom:6px;line-height:1.25}
-  h2{color:#00205C;border-bottom:2px solid #e2e8f0;padding-bottom:4px;margin-top:26px}
-  table{width:100%;border-collapse:collapse;margin:14px 0;font-family:system-ui,sans-serif;font-size:13.5px}
-  th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left}
-  th{background:#00205C;color:#fff}
-  img{max-width:100%;height:auto;margin:12px 0;border:1px solid #e2e8f0;border-radius:8px}
-  @media print{.bar{display:none}}
-</style>
-</head>
-<body>
-<div class="bar">
-  <button class="btn btn-gold" onclick="window.print()">Save / Print as PDF</button>
-  <a class="btn" href="index.html">&#8592; Back to Portal</a>
-  <a class="btn" href="https://orcid.org/0009-0006-3130-9141" target="_blank">ORCID: 0009-0006-3130-9141</a>
-</div>
-<h1>Genomic Equity Conformal (v3.0.0): Air-Gapped Clinical Calibration, Ancestry Equity &amp; Regulatory QA Sidecar</h1>
-<p><strong>Author:</strong> Nikhil Bharti (<a href="https://orcid.org/0009-0006-3130-9141">ORCID 0009-0006-3130-9141</a>, <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal">GitHub @Nikhilbharti284</a>) &bull; <strong>Release:</strong> v3.0.0 (November 2026) &bull; <strong>License:</strong> MIT (Code) + CC BY 4.0 (Data)</p>
-<h2>1. Abstract</h2>
-<p>Clinical variant pathogenicity predictors exhibit severe probability miscalibration and elevated Variant of Uncertain Significance (VUS) rates for underrepresented South Asian (SAS) and African (AFR) cohorts. Genomic Equity Conformal v3.0.0 is a zero-GPU, air-gapped clinical QA sidecar combining homology-aware splitting (100 clusters, 118 genes, 9,142 &ge;2-star ClinVar GRCh38 variants), nested out-of-fold Platt scaling, non-empty Mondrian conformal prediction, and a 3-Layer BA1 Safeguard protecting balanced-selection alleles such as HBB_E7V (Sickle Cell).</p>
-<h2>2. System Architecture</h2>
-<img src="assets/figures/pipeline_5stage.svg?v=4" alt="5-Stage Pipeline Architecture">
-<h2>3. Live-Verified Benchmarks (118 Genes, n = 9,142)</h2>
-<table>
-  <tr><th>Cohort</th><th>n</th><th>Raw AM ECE</th><th>v3.0.0 ECE</th><th>ECE Cut</th><th>Mondrian Cov</th><th>Singletons</th><th>Empty Sets</th></tr>
-  <tr><td>EUR</td><td>2,209</td><td>0.0622</td><td>0.0343</td><td>-44.9%</td><td>0.9086</td><td>92.6%</td><td>0</td></tr>
-  <tr><td>SAS</td><td>1,098</td><td>0.0527</td><td>0.0298</td><td>-43.5%</td><td>0.9144</td><td>97.9%</td><td>0</td></tr>
-  <tr><td>AFR</td><td>1,412</td><td>0.0637</td><td>0.0233</td><td>-63.4%</td><td>0.9334</td><td>100.0%</td><td>0</td></tr>
-  <tr><td>ULTRA_RARE</td><td>4,423</td><td>0.1192</td><td>0.0072</td><td>-94.0%</td><td>0.9767</td><td>100.0%</td><td>0</td></tr>
-</table>
-<p><strong>Track B OOF AUROC:</strong> 0.9844 (95% CI [0.9818, 0.9858], p &lt; 0.001 vs AlphaMissense 0.9583) &bull; <strong>Post-2023 Holdout (n=7,420):</strong> 0.9846 &bull; <strong>Overall ECE:</strong> 0.0686 &rarr; 0.0122 (-82.2%).</p>
-<img src="assets/figures/fig2_auroc.svg?v=4" alt="AUROC Progression">
-<img src="assets/figures/fig3_ece.svg?v=4" alt="ECE Reduction">
-<img src="assets/figures/fig4_conformal.svg?v=4" alt="Mondrian Coverage">
-<h2>4. Independent Wet-Lab MaveDB DMS Suite (Zero ClinVar Labels)</h2>
-<p>4/5 wins using ESM2-35M + AlphaFold DB v6 pLDDT: PTEN (+0.0221, p=7.75e-9), MSH2 (+0.0040, p=2.03e-6), LDLR (+0.0018, p=2.88e-4), BRCA1 (+0.0073), and TP53 explicitly reported as HONEST MISS (0.1649 &rarr; 0.1021).</p>
-<img src="assets/figures/fig5_mavedb.svg?v=4" alt="MaveDB 5-Gene Validation">
-<p><em>Disclaimer: Computational research and clinical-pipeline QA sidecar only; not a standalone diagnostic SaMD.</em></p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Technical Whitepaper (v3.0.0) — Genomic Equity Conformal</title>
+<style>body{font-family:Georgia,serif;max-width:880px;margin:24px auto;padding:0 16px;color:#0f172a;line-height:1.6}.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;font-family:system-ui,sans-serif}.btn{background:#0d3b46;color:#fff;padding:9px 14px;border-radius:8px;text-decoration:none;font-weight:700;border:none;cursor:pointer;font-size:13.5px}.btn-gold{background:#c5942f;color:#0d3b46}h1,h2{color:#0d3b46}table{width:100%;border-collapse:collapse;margin:12px 0;font-family:system-ui,sans-serif;font-size:13px}th,td{border:1px solid #cbd5e1;padding:7px 9px;text-align:left}th{background:#0d3b46;color:#fff}img{max-width:100%;height:auto;margin:10px 0;border:1px solid #e2e8f0;border-radius:8px}@media print{.bar{display:none}}</style>
+</head><body>
+<div class="bar"><button class="btn btn-gold" onclick="window.print()">Save / Print as PDF</button><a class="btn" href="index.html">Back to Portal</a><a class="btn" href="https://orcid.org/0009-0006-3130-9141" target="_blank">ORCID: 0009-0006-3130-9141</a></div>
+<h1>Genomic Equity Conformal (v3.0.0): Air-Gapped Pan-Global Clinical Calibration, Zygosity &amp; CPIC PGx QA Sidecar</h1>
+<p><strong>Author:</strong> Nikhil Bharti (<a href="https://orcid.org/0009-0006-3130-9141">ORCID 0009-0006-3130-9141</a>, <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal">@Nikhilbharti284</a>) &bull; <strong>Release:</strong> v3.0.0 Enterprise (Nov 2026) &bull; <strong>License:</strong> MIT Code + CC BY 4.0 Data</p>
+<h2>1. Architecture</h2><img src="assets/figures/pipeline_5stage.svg?v=9" alt="v3.0.0 5-Stage Pipeline">
+<h2>2. Pan-Global 7-Ancestry Benchmarks (n = 9,142)</h2>
+<p><strong>OOF AUROC:</strong> 0.9844 (PR-AUC 0.9898) &bull; <strong>Overall ECE:</strong> 0.0686 &#8594; 0.0066 (<strong>-90.4%</strong>) &bull; <strong>Empty Sets:</strong> 0 &bull; <strong>10,000-Variant WES Benchmark:</strong> 0.917s, 181.1 MB Peak RAM (20/20 pytest PASSED).</p>
+<img src="assets/figures/fig3_ece.svg?v=9" alt="7-Ancestry ECE"><img src="assets/figures/fig4_conformal.svg?v=9" alt="7-Ancestry Coverage">
+<h2>3. Autonomous Unlisted Founder Discoveries (All 19)</h2>
+<table><thead><tr><th>#</th><th>Variant</th><th>Ancestry</th><th>AF</th><th>AlphaMissense</th><th>AFDB v6 pLDDT</th></tr></thead><tbody><tr><td>1</td><td><code>ABCA4_G1961E</code></td><td><strong>ASJ</strong></td><td>0.02392</td><td>0.8530</td><td>87.5</td></tr><tr><td>2</td><td><code>ATP7B_H1069Q</code></td><td><strong>ASJ</strong></td><td>0.00536</td><td>0.9933</td><td>77.62</td></tr><tr><td>3</td><td><code>SLC12A3_T180K</code></td><td><strong>EAS</strong></td><td>0.00462</td><td>0.8743</td><td>95.25</td></tr><tr><td>4</td><td><code>GJB2_G12C</code></td><td><strong>AMR</strong></td><td>0.00365</td><td>0.8856</td><td>63.0</td></tr><tr><td>5</td><td><code>ATP7B_E1064A</code></td><td><strong>ASJ</strong></td><td>0.00328</td><td>0.8683</td><td>91.5</td></tr><tr><td>6</td><td><code>USH2A_C759F</code></td><td><strong>AMR</strong></td><td>0.00315</td><td>0.9091</td><td>79.0</td></tr><tr><td>7</td><td><code>SLC26A4_F335L</code></td><td><strong>SAS</strong></td><td>0.00248</td><td>0.9537</td><td>83.38</td></tr><tr><td>8</td><td><code>SLC12A3_L849H</code></td><td><strong>EAS</strong></td><td>0.00192</td><td>0.9119</td><td>91.5</td></tr><tr><td>9</td><td><code>ATP7B_R778L</code></td><td><strong>EAS</strong></td><td>0.00189</td><td>0.9641</td><td>74.0</td></tr><tr><td>10</td><td><code>SLC26A4_V239D</code></td><td><strong>SAS</strong></td><td>0.00167</td><td>0.9612</td><td>94.62</td></tr><tr><td>11</td><td><code>PAH_R408W</code></td><td><strong>NFE</strong></td><td>0.00166</td><td>0.9182</td><td>89.44</td></tr><tr><td>12</td><td><code>PAH_F55L</code></td><td><strong>AMR</strong></td><td>0.00164</td><td>0.9168</td><td>87.81</td></tr><tr><td>13</td><td><code>ABCA4_R1129L</code></td><td><strong>AMR</strong></td><td>0.00159</td><td>0.8583</td><td>85.88</td></tr><tr><td>14</td><td><code>GAA_D645E</code></td><td><strong>EAS</strong></td><td>0.00155</td><td>0.9554</td><td>98.75</td></tr><tr><td>15</td><td><code>ABCA4_G818E</code></td><td><strong>AMR</strong></td><td>0.00147</td><td>0.9547</td><td>78.38</td></tr><tr><td>16</td><td><code>NPC1_S734I</code></td><td><strong>AMR</strong></td><td>0.00138</td><td>0.8645</td><td>89.88</td></tr><tr><td>17</td><td><code>ALPL_F327L</code></td><td><strong>EAS</strong></td><td>0.00135</td><td>0.9955</td><td>98.88</td></tr><tr><td>18</td><td><code>RPE65_G140E</code></td><td><strong>AMR</strong></td><td>0.00124</td><td>0.8531</td><td>97.62</td></tr><tr><td>19</td><td><code>GJB2_L90P</code></td><td><strong>NFE</strong></td><td>0.00123</td><td>0.9816</td><td>90.81</td></tr></tbody></table>
+<h2>4. Wet-Lab MaveDB DMS (C-Beta RSA Burial — TP53 Flipped to WIN)</h2>
+<p>4/5 wins over raw ESM2-35M (zero ClinVar labels): TP53 (+0.0003 WIN), BRCA1 (+0.0039 WIN), PTEN (+0.0029 WIN), MSH2 (+0.0030 WIN); LDLR (-0.0002 honest miss).</p>
+<img src="assets/figures/fig5_mavedb.svg?v=9" alt="MaveDB v3">
+<h2>5. Global CPIC Pharmacogenomics (PGx) &amp; Enterprise Air-Gapped Stack</h2>
+<p>Covers DPYD (5-FU), NUDT15/TPMT (Thiopurines), CYP2C19 (Clopidogrel), SLCO1B1 (Simvastatin), G6PD (Primaquine), and HLA-B*57:01/B*15:02 (Abacavir/Carbamazepine) via <code>GEC_PGX_ALERT</code>, backed by 9,249-record SQLite WAL offline store (<code>gec-audit --offline</code>), GT zygosity gating, and NABL/CAP/EU AI Act HTML reports (<code>gec-report</code>).</p>
+<p><em>Disclaimer: Computational research &amp; clinical-pipeline QA sidecar only — not standalone diagnostic SaMD.</em></p>
 </body></html>
