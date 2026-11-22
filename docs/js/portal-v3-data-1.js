@@ -64,5 +64,16 @@ const VERSIONS = {
       "Verified 10,000-variant WES streaming in 0.917s at 181.1 MB peak RAM, stdlib OpenAPI REST API (gec-api), NABL/CAP/EU AI Act HTML report (gec-report), and 20/20 pytest."
     ],
     metrics: "9,249 Offline DB Rows • 10K WES: 0.917s / 181.1 MB RAM • 20/20 Pytest Passing"
+  },
+  v400: {
+    badge: "v4.0.0 • GLOBAL HOSPITAL LAN EDITION",
+    title: "Offline LAN Bridge (/ui), Trio Compound-Het, HL7 FHIR R4 & SHA-256 Hash-Chain",
+    why: "Upgraded on top of v3.0.0 so hospitals worldwide (EU GDPR, UK NHS, US HIPAA, India DPDP, Brazil LGPD, Saudi PDPL) can connect multiple LAN computers and EHR/LIMS offline with zero cloud egress.",
+    built: [
+      "Built src/lan_hospital_bridge.py (0.0.0.0:8000, optional X-GEC-API-Key, zero-CDN /ui dashboard) with explicit OOD_NOT_IN_OFFLINE_PANEL abstention.",
+      "Built src/trio_phasing.py detecting Trans Compound Heterozygotes (AR_Compound_Het_Trans_Affected), Cis Carriers, and De Novo candidates.",
+      "Built src/fhir_exporter.py (HL7 FHIR R4 Bundle, LOINC 51969-4 / 69548-6) & src/audit_chain.py (tamper-evident SHA-256 ledger catching 1-byte edits); 27/27 pytest passing."
+    ],
+    metrics: "HL7 FHIR R4 • Trio Compound-Het • SHA-256 Hash-Chain • 27/27 Pytest (37.42s)"
   }
 };

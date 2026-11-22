@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Genomic Equity Conformal v3.0.0 — Air-Gapped Pan-Global Clinical QA Portal</title>
+  <title>Genomic Equity Conformal v4.0.0 — Air-Gapped Pan-Global Clinical QA Portal</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -52,7 +52,7 @@
         </span>
         <div>
           <div class="text-sm sm:text-base font-extrabold text-slate-900 leading-tight">Genomic Equity Conformal</div>
-          <div class="text-[11px] font-semibold text-[#0f4c5c] tracking-wide">ENTERPRISE v3.0.0 • CLINICAL QA SIDECAR</div>
+          <div class="text-[11px] font-semibold text-[#0f4c5c] tracking-wide">GLOBAL v4.0.0 • HOSPITAL LAN &amp; FHIR QA</div>
         </div>
       </button>
       <nav class="hidden lg:flex items-center gap-1" aria-label="Main navigation">
@@ -86,15 +86,15 @@
     <section id="tab-overview" class="tab-panel active space-y-6">
       <div class="rounded-2xl bg-gradient-to-br from-[#0b3d4a] via-[#0f4c5c] to-[#135d6e] text-white p-6 sm:p-8 shadow-lg border border-teal-800">
         <div class="flex flex-wrap items-center gap-2 mb-3">
-          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-400 text-slate-950 tracking-wide">RELEASE v3.0.0 ENTERPRISE</span>
+          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-400 text-slate-950 tracking-wide">RELEASE v4.0.0 GLOBAL HOSPITAL LAN</span>
           <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-white/15 text-teal-100">Zero-GPU • $0 Codespaces Free Tier</span>
-          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-400/20 text-emerald-200 border border-emerald-300/30">20/20 Pytest Passing</span>
+          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-400/20 text-emerald-200 border border-emerald-300/30">27/27 Pytest Passing</span>
         </div>
         <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight max-w-4xl">Air-Gapped Pan-Global 7-Ancestry Clinical Variant Calibration, Zygosity Gating &amp; CPIC PGx Engine</h1>
         <p class="mt-3 text-sm sm:text-base text-teal-100 max-w-3xl leading-relaxed">Eliminates European-ancestry probability miscalibration and VUS inflation in South Asian (SAS), African (AFR), East Asian (EAS), Admixed American (AMR), Middle Eastern (MID), and founder cohorts—while protecting balancing-selection alleles like Sickle Cell (<code class="text-amber-200">HBB_E7V</code>) and running 100% offline (<code class="text-amber-200">--network=none</code>) under India's DPDP Act and NABL/CAP/EU AI Act workflows.</p>
         <div class="mt-5 flex flex-wrap gap-3">
           <button type="button" class="cta-nav px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs sm:text-sm shadow transition" data-target="lab">Open Live Testing Lab</button>
-          <button type="button" class="cta-nav px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-white font-semibold text-xs sm:text-sm border border-white/25 transition" data-target="evolution">Read Full v0.1 → v3.0 Story</button>
+          <button type="button" class="cta-nav px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-white font-semibold text-xs sm:text-sm border border-white/25 transition" data-target="evolution">Read Full v0.1 → v4.0 Story</button>
           <button type="button" class="cta-nav px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-teal-100 font-semibold text-xs sm:text-sm border border-white/20 transition" data-target="benchmarks">Explore Interactive Charts</button>
         </div>
       </div>
@@ -104,7 +104,7 @@
         <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Overall ECE Cut</div><div class="text-2xl sm:text-3xl font-extrabold text-emerald-700 mt-1">−90.4%</div><div class="text-xs text-slate-600 mt-1">0.0686 → 0.0066 • 0 Empty Sets</div></div>
         <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Novel Founders</div><div class="text-2xl sm:text-3xl font-extrabold text-amber-600 mt-1">19</div><div class="text-xs text-slate-600 mt-1">Unlisted BS1+ Global Candidates</div></div>
         <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Offline SQLite DB</div><div class="text-2xl sm:text-3xl font-extrabold text-[#0f4c5c] mt-1">9,249</div><div class="text-xs text-slate-600 mt-1">GRCh38 WAL Rows • --network=none</div></div>
-        <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm col-span-2 lg:col-span-1"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">10K WES Streaming</div><div class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">0.917s</div><div class="text-xs text-slate-600 mt-1">181.1 MB Peak RAM • 20/20 Pytest</div></div>
+        <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm col-span-2 lg:col-span-1"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">10K WES Streaming</div><div class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">0.917s</div><div class="text-xs text-slate-600 mt-1">181.1 MB Peak RAM • 27/27 Pytest</div></div>
       </div>
 
       <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm">
@@ -113,7 +113,7 @@
           <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">Zero GPU • &lt;250 MB Streaming RAM</span>
         </div>
         <div class="overflow-x-auto">
-          <svg viewBox="0 0 960 215" class="w-full min-w-[700px] h-auto" role="img" aria-label="Genomic Equity Conformal v3.0.0 5-Stage Architecture">
+          <svg viewBox="0 0 960 215" class="w-full min-w-[700px] h-auto" role="img" aria-label="Genomic Equity Conformal v4.0.0 5-Stage Architecture">
             <defs><marker id="arrowHead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#0f4c5c" /></marker></defs>
             <rect x="0" y="0" width="960" height="215" rx="12" fill="#f8fafc" stroke="#e2e8f0" />
             <rect x="16" y="34" width="166" height="145" rx="10" fill="#ffffff" stroke="#0284c7" stroke-width="1.6"/><rect x="16" y="34" width="166" height="30" rx="10" fill="#0284c7"/><text x="99" y="54" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">1. VCF 4.2 + GT</text><text x="99" y="84" text-anchor="middle" fill="#0f172a" font-size="10.5" font-weight="600">Streaming .vcf/.vcf.gz</text><text x="99" y="103" text-anchor="middle" fill="#475569" font-size="10">GT/DP/GQ Zygosity</text><text x="99" y="121" text-anchor="middle" fill="#475569" font-size="10">0/1 AR Carrier vs</text><text x="99" y="137" text-anchor="middle" fill="#475569" font-size="10">1/1 Biallelic Affected</text><text x="99" y="162" text-anchor="middle" fill="#0369a1" font-size="10" font-weight="700">AIM 7-Ancestry MLE</text>
@@ -151,6 +151,17 @@
           </ul>
         </div>
       </div>
+
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm">
+        <h2 class="text-lg font-bold text-slate-900 mb-1">Clinical Genomics &amp; Sequencing Visual Gallery</h2>
+        <p class="text-xs sm:text-sm text-slate-600 mb-4">From molecular structure and nanopore sequencing to air-gapped hospital LAN calibration.</p>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <figure class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50"><img src="assets/photos/dna_helix.png" alt="DNA Double Helix" class="w-full h-36 object-cover" loading="lazy"><figcaption class="p-2 text-[11px] font-semibold text-slate-700">GRCh38 Missense Calibration</figcaption></figure>
+          <figure class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50"><img src="assets/photos/lab_sequencing.jpg" alt="Clinical Sequencing Lab" class="w-full h-36 object-cover" loading="lazy"><figcaption class="p-2 text-[11px] font-semibold text-slate-700">Air-Gapped Hospital Lab QA</figcaption></figure>
+          <figure class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50"><img src="assets/photos/nanopore_dna.jpg" alt="Nanopore Sequencing" class="w-full h-36 object-cover" loading="lazy"><figcaption class="p-2 text-[11px] font-semibold text-slate-700">Real-Time VCF 4.2 Streaming</figcaption></figure>
+          <figure class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50"><img src="assets/photos/sequencers.jpg" alt="High-Throughput Sequencers" class="w-full h-36 object-cover" loading="lazy"><figcaption class="p-2 text-[11px] font-semibold text-slate-700">10K WES in 0.917s (181 MB)</figcaption></figure>
+        </div>
+      </div>
     </section>
 
     <section id="tab-evolution" class="tab-panel space-y-6">
@@ -169,6 +180,7 @@
             <button type="button" class="pill-btn px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-300" data-ver="v110">v1.1.0</button>
             <button type="button" class="pill-btn px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-300" data-ver="v200">v2.0.0</button>
             <button type="button" class="pill-btn px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-300" data-ver="v300">v3.0.0</button>
+            <button type="button" class="pill-btn px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-300" data-ver="v400">v4.0.0</button>
           </div>
         </div>
         <div id="versionDetailCard" class="rounded-xl bg-slate-50 border border-slate-200 p-5"></div>
@@ -292,8 +304,8 @@
 
     <section id="tab-enterprise" class="tab-panel space-y-6">
       <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
-        <h2 class="text-xl font-extrabold text-slate-900">Enterprise v3.0.0 Air-Gapped Hospital Modules</h2>
-        <div class="overflow-x-auto"><table class="w-full text-left border-collapse text-xs sm:text-sm"><thead><tr class="bg-[#0f4c5c] text-white"><th class="p-3 rounded-tl-lg">Enterprise Module</th><th class="p-3">CLI / Endpoint</th><th class="p-3 rounded-tr-lg">Air-Gapped Capability &amp; Regulatory Role</th></tr></thead><tbody class="divide-y divide-slate-200"><tr><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/offline_reference_store.py</td><td class="p-3 font-mono text-xs">artifacts/v3_offline_clinical_ref.sqlite</td><td class="p-3">9,249 indexed GRCh38 records in SQLite WAL for <code>--network=none</code> sub-ms lookup.</td></tr><tr class="bg-slate-50"><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/vcf_patient_profiler.py</td><td class="p-3 font-mono text-xs">GT/DP/GQ + AIM 7-Ancestry MLE</td><td class="p-3">Distinguishes <code>AR_Carrier_Only</code> (0/1) vs <code>AR_Biallelic_Affected</code> (1/1); automatic ancestry inference.</td></tr><tr><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/audit_vcf.py</td><td class="p-3 font-mono text-xs">gec-audit --offline --vcf</td><td class="p-3">Constant-memory streaming WES auditor (10,000 variants in 0.917s, 181.1 MB RAM) emitting 7 <code>GEC_*</code> INFO tags.</td></tr><tr class="bg-slate-50"><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/api_server.py</td><td class="p-3 font-mono text-xs">gec-api (ThreadingHTTPServer)</td><td class="p-3">Zero-dependency REST API: <code>/health</code>, <code>/openapi.json</code>, <code>/docs</code>, <code>POST /audit</code>, <code>POST /audit-vcf</code>.</td></tr><tr><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/clinical_report_generator.py</td><td class="p-3 font-mono text-xs">gec-report --audit-json</td><td class="p-3">Offline print-ready NABL (ISO 15189) / CAP / EU AI Act Annex IV HTML report.</td></tr></tbody></table></div>
+        <h2 class="text-xl font-extrabold text-slate-900">v4.0.0 Global Hospital LAN &amp; Preserved v3.0.0 Core Modules</h2>
+        <div class="overflow-x-auto"><table class="w-full text-left border-collapse text-xs sm:text-sm"><thead><tr class="bg-[#0f4c5c] text-white"><th class="p-3 rounded-tl-lg">Enterprise Module</th><th class="p-3">CLI / Endpoint</th><th class="p-3 rounded-tr-lg">Air-Gapped Capability &amp; Regulatory Role</th></tr></thead><tbody class="divide-y divide-slate-200"><tr class="bg-emerald-50/60"><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/lan_hospital_bridge.py</td><td class="p-3 font-mono text-xs">0.0.0.0:8000/ui, /health</td><td class="p-3"><strong>v4.0.0:</strong> Offline Hospital LAN server + zero-CDN web workbench + optional <code>X-GEC-API-Key</code> + <code>OOD_NOT_IN_OFFLINE_PANEL</code> abstention.</td></tr><tr><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/trio_phasing.py</td><td class="p-3 font-mono text-xs">POST /trio-audit</td><td class="p-3"><strong>v4.0.0:</strong> Multi-sample Trio &amp; phased (<code>0|1</code>/<code>1|0</code>) Trans Compound-Het (<code>AR_Compound_Het_Trans_Affected</code>) &amp; De Novo detector.</td></tr><tr class="bg-slate-50"><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/fhir_exporter.py</td><td class="p-3 font-mono text-xs">POST /fhir/DiagnosticReport</td><td class="p-3"><strong>v4.0.0:</strong> Global HL7 FHIR R4 Genomics Bundle (LOINC 51969-4 / 69548-6) for Epic, Cerner, Bahmni, OpenMRS, NHS &amp; ABDM.</td></tr><tr><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/audit_chain.py</td><td class="p-3 font-mono text-xs">GET /audit-chain/verify</td><td class="p-3"><strong>v4.0.0:</strong> Tamper-evident SHA-256 hash-chain ledger catching 1-byte edits for ISO 15189 / CAP / EU AI Act / HIPAA / GDPR.</td></tr><tr><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/offline_reference_store.py</td><td class="p-3 font-mono text-xs">artifacts/v3_offline_clinical_ref.sqlite</td><td class="p-3">9,249 indexed GRCh38 records in SQLite WAL for <code>--network=none</code> sub-ms lookup.</td></tr><tr class="bg-slate-50"><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/vcf_patient_profiler.py</td><td class="p-3 font-mono text-xs">GT/DP/GQ + AIM 7-Ancestry MLE</td><td class="p-3">Distinguishes <code>AR_Carrier_Only</code> (0/1) vs <code>AR_Biallelic_Affected</code> (1/1); automatic ancestry inference.</td></tr><tr><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/audit_vcf.py</td><td class="p-3 font-mono text-xs">gec-audit --offline --vcf</td><td class="p-3">Constant-memory streaming WES auditor (10,000 variants in 0.917s, 181.1 MB RAM) emitting 7 <code>GEC_*</code> INFO tags.</td></tr><tr class="bg-slate-50"><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/api_server.py</td><td class="p-3 font-mono text-xs">gec-api (ThreadingHTTPServer)</td><td class="p-3">Zero-dependency REST API: <code>/health</code>, <code>/openapi.json</code>, <code>/docs</code>, <code>POST /audit</code>, <code>POST /audit-vcf</code>.</td></tr><tr><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/clinical_report_generator.py</td><td class="p-3 font-mono text-xs">gec-report --audit-json</td><td class="p-3">Offline print-ready NABL (ISO 15189) / CAP / EU AI Act Annex IV HTML report.</td></tr></tbody></table></div>
       </div>
 
       <div class="grid lg:grid-cols-2 gap-6">
