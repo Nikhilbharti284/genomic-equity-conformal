@@ -1,13 +1,15 @@
 # Genomic Equity Conformal (v4.0.0)
+<p>
+  <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal/actions/workflows/ci.yml"><img src="https://github.com/Nikhilbharti284/genomic-equity-conformal/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal/releases/tag/v4.0.0"><img src="https://img.shields.io/badge/Release-v4.0.0-0f4c5c?style=flat-square" alt="Release v4.0.0"></a>
+  <a href="https://orcid.org/0009-0006-3130-9141"><img src="https://img.shields.io/badge/ORCID-0009--0006--3130--9141-a6ce39?style=flat-square&logo=orcid&logoColor=white" alt="ORCID"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/Code-MIT-0d3b46?style=flat-square" alt="MIT License"></a>
+  <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/Data-CC%20BY%204.0-c5942f?style=flat-square" alt="CC BY 4.0"></a>
+  <a href="#quickstart--verification"><img src="https://img.shields.io/badge/Pytest-27%2F27%20Passing-16a34a?style=flat-square" alt="Pytest 27/27"></a>
+  <a href="#whats-new-in-v400-global-hospital-lan--interoperability"><img src="https://img.shields.io/badge/Interop-HL7%20FHIR%20R4-0284c7?style=flat-square" alt="HL7 FHIR R4"></a>
+  <a href="https://nikhilbharti284.github.io/genomic-equity-conformal/"><img src="https://img.shields.io/badge/Live%20Portal-GitHub%20Pages-0f766e?style=flat-square" alt="Live Portal"></a>
+</p>
 
-[[https://github.com/Nikhilbharti284/genomic-equity-conformal/actions/workflows/ci.yml/badge.svg]](https://github.com/Nikhilbharti284/genomic-equity-conformal/actions/workflows/ci.yml)
-[[https://img.shields.io/badge/Release-v4.0.0-0f4c5c?style=flat-square]](https://github.com/Nikhilbharti284/genomic-equity-conformal/releases/tag/v4.0.0)
-[[https://img.shields.io/badge/ORCID-0009--0006--3130--9141-a6ce39?style=flat-square&logo=orcid&logoColor=white]](https://orcid.org/0009-0006-3130-9141)
-[[https://img.shields.io/badge/Code-MIT-0d3b46?style=flat-square]](LICENSE)
-[[https://img.shields.io/badge/Data-CC%20BY%204.0-c5942f?style=flat-square]](https://creativecommons.org/licenses/by/4.0/)
-[[https://img.shields.io/badge/Pytest-27%2F27%20Passing-16a34a?style=flat-square]](#quickstart--verification)
-[[https://img.shields.io/badge/Interop-HL7%20FHIR%20R4-0284c7?style=flat-square]](#whats-new-in-v400-global-hospital-lan--interoperability)
-[[https://img.shields.io/badge/Live%20Portal-GitHub%20Pages-0f766e?style=flat-square]](https://nikhilbharti284.github.io/genomic-equity-conformal/)
 
 **Air-Gapped Pan-Global 7-Ancestry Clinical Variant Calibration, Multi-Sample Trio Compound-Het Phasing, CPIC Pharmacogenomics (`PGx`), HL7 FHIR R4 Export & Tamper-Evident Hospital LAN QA Sidecar** — zero-GPU, 100% commercially clean (`MIT + CC BY 4.0`), built & live-verified on `$0`-cost GitHub Codespaces Free Tier.
 
