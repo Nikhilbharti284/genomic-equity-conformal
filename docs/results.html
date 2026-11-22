@@ -1,42 +1,80 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Results — Genomic Equity Conformal (v3.0.0)</title><meta name="theme-color" content="#00205C">
-<link rel="manifest" href="manifest.json">
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4"><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js" defer></script></head><body>
-<div id="progress-bar"></div>
-<div class="author-ribbon">Created &amp; Engineered by <strong>Nikhil Bharti</strong> (<span class="author-handle" style="background:rgba(255,255,255,0.14);color:#f6c453;border:1px solid rgba(246,196,83,0.45);padding:1px 6px;border-radius:4px;font-weight:700">@Nikhilbharti284</span>) &bull; Genomic Equity Conformal v3.0.0 <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub &nearr;</a></div>
-<header class="who-header"><div class="header-inner">
-  <a class="who-brand" href="index.html"><img src="assets/favicon.svg" alt="Logo"><div class="brand-text"><strong>Genomic Equity</strong><span>Conformal QA v3.0.0</span></div></a>
-  <nav class="desktop-nav" aria-label="Primary"><a href="index.html" class="">Home</a><a href="lab.html"><span>Live Testing Lab</span><span class="chev">›</span></a><a href="overview.html" class="">Overview & Equity</a><a href="architecture.html" class="">Architecture</a><a href="results.html" class="active">Live Results</a><a href="mavedb.html" class="">MaveDB Wet-Lab</a><a href="audit.html" class="">Audit Log</a></nav>
-  <div class="header-actions"><a class="pill-cta" href="lab.html">Live Testing Lab</a><button id="menu-open" class="who-burger" type="button" aria-label="Open menu">☰</button></div>
-</div></header>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>v3.0.0 Benchmarks &amp; 19 Discoveries — Genomic Equity Conformal</title>
+<link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+<div class="author-ribbon">Created &amp; Engineered by <strong>Nikhil Bharti</strong> (<span class="author-handle">@Nikhilbharti284</span>) &bull; <a href="https://orcid.org/0009-0006-3130-9141" target="_blank">ORCID 0009-0006-3130-9141</a></div>
+<header class="who-header">
+  <a class="brand" href="index.html"><div class="brand-mark">GE</div><div><div class="brand-title">Genomic Equity</div><div class="brand-sub">BENCHMARKS V3.0.0</div></div></a>
+  <button class="menu-btn" onclick="toggleDrawer(true)">&#9776;</button>
+</header>
+<nav id="nav-drawer" class="drawer">
+  <div class="drawer-top"><strong>Genomic Equity v3.0.0</strong><button class="menu-btn" onclick="toggleDrawer(false)">&#10005;</button></div>
+  <a href="index.html">Home &amp; Architecture</a>
+  <a href="results.html">7-Ancestry Benchmarks &amp; 19 Discoveries</a>
+  <a href="lab.html">Live Interactive Lab</a>
+  <a href="whitepaper.html">Printable Whitepaper (PDF)</a>
+</nav>
 
-<div id="who-drawer" class="who-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
-  <div class="drawer-top"><a class="drawer-brand" href="index.html"><img src="assets/favicon.svg" width="30" height="30" alt="Logo"><span>Genomic Equity v3.0.0</span></a><button id="menu-close" class="drawer-close" type="button" aria-label="Close menu">&times;</button></div>
-  <div class="drawer-tools"><input id="drawer-search" class="drawer-search" type="search" placeholder="Search research portal..."><button id="theme-toggle" class="drawer-theme" type="button">☾ Dark</button></div>
-  <div id="drawer-results" class="drawer-results"></div>
-  <nav class="drawer-links"><a href="index.html" class=""><span>Home</span><span class="chev">›</span></a><a href="overview.html" class=""><span>Overview & Equity</span><span class="chev">›</span></a><a href="architecture.html" class=""><span>Architecture</span><span class="chev">›</span></a><a href="results.html" class="active"><span>Live Results</span><span class="chev">›</span></a><a href="mavedb.html" class=""><span>MaveDB Wet-Lab</span><span class="chev">›</span></a><a href="audit.html" class=""><span>Audit Log</span><span class="chev">›</span></a><a href="deploy.html" class=""><span>Codespaces & Docker</span><span class="chev">›</span></a><a href="provenance.html" class=""><span>Provenance & Funding</span><span class="chev">›</span></a><a href="code.html" class=""><span>Source Code</span><span class="chev">›</span></a></nav>
-</div>
+<main class="wrap">
+  <section class="card">
+    <h2>Pan-Global 7-Ancestry Nested OOF Benchmarks (118 Genes, n = 9,142)</h2>
+    <p><strong>OOF AUROC:</strong> 0.9844 (PR-AUC 0.9898) &bull; <strong>Overall ECE:</strong> 0.0686 &#8594; 0.0066 (<strong>&#8722;90.4%</strong>) &bull; <strong>Empty Sets:</strong> 0 &bull; <code>SHA-256: 08b002cc...4e08a</code></p>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Cohort</th><th>n</th><th>Raw AM ECE</th><th>v3.0.0 ECE</th><th>ECE Cut</th><th>Mondrian Cov</th><th>Singletons</th><th>Empty</th></tr></thead>
+      <tbody>
+        <tr><td><strong>SAS</strong></td><td>700</td><td>0.0530</td><td><strong>0.0229</strong></td><td>&#8722;56.8%</td><td>0.9114</td><td>97.9%</td><td>0</td></tr>
+        <tr><td><strong>AFR</strong></td><td>1,221</td><td>0.0543</td><td><strong>0.0141</strong></td><td>&#8722;74.0%</td><td>0.9328</td><td>100.0%</td><td>0</td></tr>
+        <tr><td><strong>EAS</strong></td><td>740</td><td>0.0685</td><td><strong>0.0335</strong></td><td>&#8722;51.1%</td><td>0.9149</td><td>95.8%</td><td>0</td></tr>
+        <tr><td><strong>AMR</strong></td><td>717</td><td>0.0480</td><td><strong>0.0288</strong></td><td>&#8722;40.0%</td><td>0.9121</td><td>94.3%</td><td>0</td></tr>
+        <tr><td><strong>MID*</strong></td><td>122</td><td>0.1127</td><td><strong>0.0566</strong></td><td>&#8722;49.8%</td><td>0.8934*</td><td>100.0%</td><td>0</td></tr>
+        <tr><td><strong>NFE</strong></td><td>1,192</td><td>0.0941</td><td><strong>0.0180</strong></td><td>&#8722;80.9%</td><td>0.9077</td><td>90.5%</td><td>0</td></tr>
+        <tr><td><strong>FOUNDER (ASJ+FIN)</strong></td><td>622</td><td>0.0669</td><td><strong>0.0179</strong></td><td>&#8722;73.3%</td><td>0.9277</td><td>100.0%</td><td>0</td></tr>
+        <tr><td><strong>ULTRA_RARE</strong></td><td>3,828</td><td>0.1333</td><td><strong>0.0054</strong></td><td>&#8722;96.0%</td><td>0.9875</td><td>100.0%</td><td>0</td></tr>
+      </tbody>
+    </table></div>
+    <p style="font-size:12px;color:#475569;margin-top:6px">*Honest finite-sample note: MID has n=122 (0.8934 is within 1 variant of 0.90).</p>
+  </section>
 
-<div class="container"><section class="hero"><div class="hero-eyebrow">Section 3 &bull; Live-Verified Results</div><h1>Interactive Charts, Subgroup Table &amp; Raw VCF 4.2</h1><p>All numbers loaded directly from centralized <code>data/results.json</code> matching the 66-page Master Documentation verbatim.</p></section>
-<section id="auroc" class="card"><h2>Figure 2: AUROC Progression (0.6673 &rarr; 0.9844; Post-2023: 0.9846)</h2><img src="assets/figures/fig2_auroc.svg?v=4" alt="AUROC Progression Chart" style="width:100%;height:auto;display:block"></section>
-<section id="ece" class="card"><h2>Figure 3: Expected Calibration Error (&minus;82.2% Overall)</h2><img src="assets/figures/fig3_ece.svg?v=4" alt="Expected Calibration Error Chart" style="width:100%;height:auto;display:block"></section>
-<section id="subgroups" class="card"><h2>Subgroup Calibration &amp; Coverage Table (118 Genes, 100 Clusters, n = 9,142)</h2><div class="table-wrap"><table><thead><tr><th>Cohort</th><th class="num">n</th><th class="num">Raw AM ECE</th><th class="num">v3.0.0 ECE</th><th class="num">Drop</th><th class="num">Cov.</th><th class="num">Singletons</th><th class="num">Empty</th></tr></thead><tbody>
-<tr><td><strong>EUR (European)</strong></td><td class="num">2,209</td><td class="num">0.0622</td><td class="num"><strong>0.0343</strong></td><td class="num">&minus;44.9%</td><td class="num"><strong>0.9086</strong></td><td class="num">92.6%</td><td class="num">0</td></tr>
-<tr><td><strong>SAS (South Asian)</strong></td><td class="num">1,098</td><td class="num">0.0527</td><td class="num"><strong>0.0298</strong></td><td class="num">&minus;43.5%</td><td class="num"><strong>0.9144</strong></td><td class="num">97.9%</td><td class="num">0</td></tr>
-<tr><td><strong>AFR (African)</strong></td><td class="num">1,412</td><td class="num">0.0637</td><td class="num"><strong>0.0233</strong></td><td class="num"><strong>&minus;63.4%</strong></td><td class="num"><strong>0.9334</strong></td><td class="num">100.0%</td><td class="num">0</td></tr>
-<tr><td><strong>ULTRA_RARE</strong></td><td class="num">4,423</td><td class="num">0.1192</td><td class="num"><strong>0.0072</strong></td><td class="num"><strong>&minus;94.0%</strong></td><td class="num"><strong>0.9767</strong></td><td class="num">100.0%</td><td class="num">0</td></tr></tbody></table></div></section>
-<section id="conformal" class="card"><h2>Figure 4: Non-Empty Mondrian Coverage &amp; Singletons</h2><img src="assets/figures/fig4_conformal.svg?v=4" alt="Mondrian Coverage Chart" style="width:100%;height:auto;display:block"></section>
-<section id="mavedb-c" class="card"><h2>Figure 5: 5-Gene Wet-Lab MaveDB DMS (TP53 = HONEST MISS)</h2><img src="assets/figures/fig5_mavedb.svg?v=4" alt="MaveDB 5-Gene Chart" style="width:100%;height:auto;display:block"></section>
-<section id="vcf" class="card"><h2>Live Raw Hospital VCF 4.2 Auto-Annotation Results (3/3 Verified)</h2><div class="table-wrap"><table><thead><tr><th>GRCh38 Coord</th><th>Resolved</th><th class="num">SAS AF</th><th class="num">AFR AF</th><th class="num">Platt Prob</th><th>Final Tier</th></tr></thead><tbody>
-<tr><td><code>chr17:g.7675088C&gt;T</code></td><td><strong>TP53_R175H</strong></td><td class="num">0.000000</td><td class="num">0.000000</td><td class="num">0.9202</td><td><span class="chip chip-danger">Pathogenic_90pct</span></td></tr>
-<tr><td><code>chr11:g.5227002T&gt;A</code></td><td><strong>HBB_E7V</strong></td><td class="num">0.000621</td><td class="num">0.046998</td><td class="num">0.0195</td><td><span class="chip chip-warn">VUS (Layer-1 BA1 Exception)</span></td></tr>
-<tr><td><code>chr17:g.7676154G&gt;C</code></td><td><strong>TP53_P72R</strong></td><td class="num">0.500196</td><td class="num">0.379906</td><td class="num">0.0015</td><td><span class="chip chip-pass">Benign_90pct</span></td></tr></tbody></table></div></section></div>
+  <section class="card">
+    <h2>Top 10 Autonomous Unlisted Founder Discoveries (19 Total)</h2>
+    <p>ClinVar &#8805;2-star Pathogenic variants exceeding BS1 (&#8805;0.1%) in a global ancestry yet unlisted in ClinGen's static BA1 Exception List (<code>SHA-256: d2bb59d2a76c37f4...</code>):</p>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>#</th><th>Variant</th><th>Top Ancestry</th><th>AF</th><th>AlphaMissense</th><th>AFDB v6 pLDDT</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><code>ABCA4_G1961E</code></td><td><strong>ASJ</strong></td><td>0.02392</td><td>0.8530</td><td>87.50</td></tr>
+        <tr><td>2</td><td><code>ATP7B_H1069Q</code></td><td><strong>ASJ</strong></td><td>0.00536</td><td>0.9933</td><td>77.62</td></tr>
+        <tr><td>3</td><td><code>SLC12A3_T180K</code></td><td><strong>EAS</strong></td><td>0.00462</td><td>0.8743</td><td>95.25</td></tr>
+        <tr><td>4</td><td><code>GJB2_G12C</code></td><td><strong>AMR</strong></td><td>0.00365</td><td>0.8856</td><td>63.00</td></tr>
+        <tr><td>5</td><td><code>ATP7B_E1064A</code></td><td><strong>ASJ</strong></td><td>0.00328</td><td>0.8683</td><td>91.50</td></tr>
+        <tr><td>6</td><td><code>USH2A_C759F</code></td><td><strong>AMR</strong></td><td>0.00315</td><td>0.9091</td><td>79.00</td></tr>
+        <tr><td>7</td><td><code>SLC26A4_F335L</code></td><td><strong>SAS</strong></td><td>0.00248</td><td>0.9537</td><td>83.38</td></tr>
+        <tr><td>8</td><td><code>SLC12A3_L849H</code></td><td><strong>EAS</strong></td><td>0.00192</td><td>0.9119</td><td>91.50</td></tr>
+        <tr><td>9</td><td><code>ATP7B_R778L</code></td><td><strong>EAS</strong></td><td>0.00189</td><td>0.9641</td><td>74.00</td></tr>
+        <tr><td>10</td><td><code>SLC26A4_V239D</code></td><td><strong>SAS</strong></td><td>0.00167</td><td>0.9612</td><td>94.62</td></tr>
+      </tbody>
+    </table></div>
+  </section>
 
-<button id="back-to-top" type="button" aria-label="Back to top">↑</button>
-<footer><div class="footer-inner">
-  <div><strong>Genomic Equity Conformal (v3.0.0)</strong> &bull; Nikhil Bharti (@Nikhilbharti284) &bull; MIT + CC BY 4.0 &bull; Built November 2026</div>
-  <div style="display:flex;gap:14px"><a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub Repo</a><a href="code.html">Source Code</a><a href="provenance.html">SHA-256 Ledger</a></div>
-</div></footer>
-<script src="js/main.js"></script><script src="js/charts.js" defer></script></body></html>
+  <section class="card">
+    <h2>Wet-Lab MaveDB DMS (C-Beta RSA Burial — TP53 Flipped to WIN)</h2>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Gene</th><th>Raw ESM2-35M |&#961;|</th><th>v2/v3 C-Beta RSA |&#961;|</th><th>Delta</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>TP53</strong></td><td>0.2485</td><td><strong>0.2488</strong></td><td>+0.0003</td><td><strong>WIN</strong></td></tr>
+        <tr><td><strong>BRCA1</strong></td><td>0.0085</td><td><strong>0.0124</strong></td><td>+0.0039</td><td><strong>WIN</strong></td></tr>
+        <tr><td><strong>PTEN</strong></td><td>0.1669</td><td><strong>0.1698</strong></td><td>+0.0029</td><td><strong>WIN</strong></td></tr>
+        <tr><td><strong>MSH2</strong></td><td>0.1635</td><td><strong>0.1665</strong></td><td>+0.0030</td><td><strong>WIN</strong></td></tr>
+        <tr><td><strong>LDLR</strong></td><td>0.1532</td><td>0.1530</td><td>&#8722;0.0002</td><td>HONEST MISS</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+</main>
+
+<footer class="footer"><div class="wrap" style="padding:0"><strong>Genomic Equity Conformal (v3.0.0)</strong> &bull; Nikhil Bharti (@Nikhilbharti284) &bull; <a href="index.html">Home</a> <a href="lab.html">Live Lab</a></div></footer>
+<script src="js/main.js?v=6"></script>
+</body>
+</html>
