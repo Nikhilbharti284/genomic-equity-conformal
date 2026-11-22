@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "genomic-equity-conformal"
-version = "3.0.0"
+version = "4.0.0"
 description = "Enterprise Air-Gapped Pan-Global Clinical Calibration, Zygosity, CPIC PGx & Regulatory QA Sidecar"
 readme = "README.md"
 license = "MIT"
@@ -21,6 +21,7 @@ gec-audit = "audit_vcf:main"
 gec-predict = "predict_variant:main"
 gec-report = "clinical_report_generator:main"
 gec-api = "api_server:start_server"
+gec-lan = "lan_hospital_bridge:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}

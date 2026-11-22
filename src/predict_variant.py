@@ -19,7 +19,7 @@ def main():
     p = argparse.ArgumentParser(description="Genomic Equity v1.1.0 — Unified Variant Equity Card CLI")
     p.add_argument("--gene", required=True)
     p.add_argument("--variant", required=True)
-    p.add_argument("--ancestry", default="SAS", choices=["EUR", "SAS", "AFR", "ULTRA_RARE"])
+    p.add_argument("--ancestry", default="SAS", choices=["auto", "EUR", "NFE", "SAS", "AFR", "EAS", "AMR", "MID", "ASJ", "FIN", "BOTTLENECK_FOUNDER", "ULTRA_RARE"])
     p.add_argument("--af-nfe", type=float, default=0.0)
     p.add_argument("--af-sas", type=float, default=0.0)
     p.add_argument("--af-afr", type=float, default=0.0)
