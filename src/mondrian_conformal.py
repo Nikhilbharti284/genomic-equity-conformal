@@ -76,3 +76,15 @@ class AncestryMondrianConformal:
                 "q_threshold": round(self.q_by_group.get(str(g), self.q_global), 4),
             }
         return report
+
+GLOBAL_7_ANCESTRIES = ("SAS", "AFR", "EAS", "AMR", "MID", "NFE", "BOTTLENECK_FOUNDER")
+
+def normalize_global_ancestry(ancestry):
+    a = str(ancestry or "SAS").strip().upper()
+    if a in ("ASJ", "FIN", "BOTTLENECK", "FOUNDER", "BOTTLENECK_FOUNDER"):
+        return "BOTTLENECK_FOUNDER"
+    if a in ("EUR", "NFE"):
+        return "EUR"
+    if a in ("SAS", "AFR", "EAS", "AMR", "MID", "ULTRA_RARE"):
+        return a
+    return "ULTRA_RARE"

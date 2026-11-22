@@ -147,8 +147,24 @@
         },
         {
           "@id": "tests/test_v10_regression.py"
+        },
+        {
+          "@id": "artifacts/v20_global_7ancestry_report.json"
+        },
+        {
+          "@id": "artifacts/v20_novel_founder_discoveries.json"
+        },
+        {
+          "@id": "artifacts/v20_novel_founder_discoveries.csv"
+        },
+        {
+          "@id": "artifacts/v20_mavedb_rsa_report.json"
+        },
+        {
+          "@id": "data/pgx_cpic_panel.json"
         }
-      ]
+      ],
+      "version": "2.0.0"
     },
     {
       "@id": "CITATION.cff",
@@ -450,6 +466,36 @@
       "name": "test_v10_regression.py",
       "contentSize": 1333,
       "sha256": "6c0e9a65ec5b1999be4f1641ac2092a78ce3e6c54389820a80b3525865ef6a6f"
+    },
+    {
+      "@id": "artifacts/v20_global_7ancestry_report.json",
+      "@type": "File",
+      "sha256": "66e707def3d34b9a45fe657a947e6fc01b79bc07cd0e070f80ae9ae233f5fe45",
+      "encodingFormat": "application/json"
+    },
+    {
+      "@id": "artifacts/v20_novel_founder_discoveries.json",
+      "@type": "File",
+      "sha256": "139ec9d508b41e7fd100bc74d9a0a90a702357a30117883037ae85189a301180",
+      "encodingFormat": "application/json"
+    },
+    {
+      "@id": "artifacts/v20_novel_founder_discoveries.csv",
+      "@type": "File",
+      "sha256": "642f8ff6df37d607370a4f1f37531815138500aaf35dd045df201909fcddcb9b",
+      "encodingFormat": "text/csv"
+    },
+    {
+      "@id": "artifacts/v20_mavedb_rsa_report.json",
+      "@type": "File",
+      "sha256": "a4ffd9e68ca4f048943d490ec2e551b138d0155a58f57d03145bfb58a13939ba",
+      "encodingFormat": "application/json"
+    },
+    {
+      "@id": "data/pgx_cpic_panel.json",
+      "@type": "File",
+      "sha256": "4c955d2057d179436f63d817926d3ff513543bf1fac44bff015ee6c2a970b223",
+      "encodingFormat": "application/json"
     }
   ]
 }

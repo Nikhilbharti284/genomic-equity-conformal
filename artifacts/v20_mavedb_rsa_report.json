@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0-mavedb-rsa-burial",
+  "wins": "4/5",
+  "genes": {
+    "TP53": {
+      "urn": "urn:mavedb:00000068-0-1",
+      "n_scored": 150,
+      "raw_esm2_35m_abs_rho": 0.2485,
+      "v2_rsa_burial_abs_rho": 0.2488,
+      "delta": 0.0003,
+      "status": "WIN"
+    },
+    "BRCA1": {
+      "urn": "urn:mavedb:00001222-b-2",
+      "n_scored": 150,
+      "raw_esm2_35m_abs_rho": 0.0085,
+      "v2_rsa_burial_abs_rho": 0.0124,
+      "delta": 0.0039,
+      "status": "WIN"
+    },
+    "PTEN": {
+      "urn": "urn:mavedb:00000054-a-1",
+      "n_scored": 150,
+      "raw_esm2_35m_abs_rho": 0.1669,
+      "v2_rsa_burial_abs_rho": 0.1698,
+      "delta": 0.0029,
+      "status": "WIN"
+    },
+    "MSH2": {
+      "urn": "urn:mavedb:00000050-a-1",
+      "n_scored": 150,
+      "raw_esm2_35m_abs_rho": 0.1635,
+      "v2_rsa_burial_abs_rho": 0.1665,
+      "delta": 0.003,
+      "status": "WIN"
+    },
+    "LDLR": {
+      "urn": "urn:mavedb:00001269-a-1",
+      "n_scored": 150,
+      "raw_esm2_35m_abs_rho": 0.1532,
+      "v2_rsa_burial_abs_rho": 0.153,
+      "delta": -0.0002,
+      "status": "HONEST_MISS"
+    }
+  },
+  "sha256": "46165f38fa1e5956ac4159f973f5a2758999cf81c71d6c25fcd6813cd6a37c2e"
+}

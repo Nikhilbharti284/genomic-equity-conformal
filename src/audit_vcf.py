@@ -9,6 +9,7 @@ GEC_INFO_HEADERS = [
     '##INFO=<ID=GEC_TIER,Number=1,Type=String,Description="Non-empty Mondrian 90pct conformal + 3-Layer BA1 final tier">',
     '##INFO=<ID=GEC_SAFEGUARD,Number=1,Type=String,Description="Balancing-selection / BA1 safeguard status">',
     '##INFO=<ID=GEC_ANC,Number=1,Type=String,Description="Patient ancestry stratum used for Mondrian calibration">',
+    '##INFO=<ID=GEC_PGX_ALERT,Number=1,Type=String,Description="CPIC-aligned Pharmacogenomics drug-toxicity alert">',
 ]
 
 def _num(x, default=0.0):
@@ -105,6 +106,7 @@ def write_annotated_vcf(in_vcf, out_vcf, card_by_hgvs):
                     f"GEC_TIER={_vcf_safe(card['final_tier'])}",
                     f"GEC_SAFEGUARD={_vcf_safe(card['safeguard_triggered'] or 'NONE')}",
                     f"GEC_ANC={_vcf_safe(card['patient_ancestry'])}",
+                    f"GEC_PGX_ALERT={_vcf_safe((card.get('pgx_alert') or {}).get('drug_class', 'NONE'))}",
                 ]
                 cols[7] = ";".join(tags) if cols[7] in ("", ".") else cols[7] + ";" + ";".join(tags)
             fout.write("\t".join(cols) + "\n")
@@ -114,7 +116,7 @@ def main():
     ap.add_argument("--vcf", required=True)
     ap.add_argument("--out-vcf", default="artifacts/audited_output.vcf")
     ap.add_argument("--out-json", default="artifacts/raw_vcf_audit_output.json")
-    ap.add_argument("--default-ancestry", default="SAS", choices=["EUR", "SAS", "AFR", "ULTRA_RARE"])
+    ap.add_argument("--default-ancestry", default="SAS", choices=["EUR", "NFE", "SAS", "AFR", "EAS", "AMR", "MID", "ASJ", "FIN", "BOTTLENECK_FOUNDER", "ULTRA_RARE"])
     args = ap.parse_args()
 
     raw_rows = []
@@ -163,7 +165,7 @@ def main():
         card = eng.predict(
             gene=gene, wt=wt, pos=pos, mt=mt, llr=llr, enorm=enorm, ancestry=anc,
             af_nfe=a.get("af_nfe", 0.0), af_sas=a.get("af_sas", 0.0),
-            af_afr=a.get("af_afr", 0.0), af_all=a.get("af_all", 0.0),
+            af_afr=a.get("af_afr", 0.0), af_all=a.get("af_all", 0.0), rsid=r.get("rsid"),
         )
         card["hgvs_g"] = r["hgvs_g"]
         card["live_af_sas"] = round(a.get("af_sas", 0.0), 6)

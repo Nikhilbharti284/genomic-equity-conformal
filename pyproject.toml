@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "genomic-equity-conformal"
-version = "1.1.0"
+version = "2.0.0"
 description = "Air-Gapped Clinical Variant Calibration, Ancestry Equity & 3-Layer BA1 Regulatory QA Sidecar"
 readme = "README.md"
 license = "MIT"
@@ -23,4 +23,4 @@ gec-predict = "predict_variant:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
-py-modules = ["inference_engine", "audit_vcf", "predict_variant", "mondrian_conformal", "localized_conformal", "api_server"]
+py-modules = ["inference_engine", "audit_vcf", "predict_variant", "mondrian_conformal", "localized_conformal", "api_server", "pgx_drug_safety", "discover_unlisted_ba1_candidates", "v2_global_7ancestry_eval", "v2_mavedb_rsa_upgrade"]

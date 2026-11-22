@@ -1,5 +1,8 @@
 import hashlib, json, math, os
-import joblib
+import sys, joblib
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from pgx_drug_safety import PGxDrugSafetySidecar
+from mondrian_conformal import normalize_global_ancestry
 import numpy as np
 
 HYDRO = {"A":1.8,"R":-4.5,"N":-3.5,"D":-3.5,"C":2.5,"Q":-3.5,"E":-3.5,"G":-0.4,"H":-3.2,"I":4.5,"L":3.8,"K":-3.9,"M":1.9,"F":2.8,"P":-1.6,"S":-0.8,"T":-0.7,"W":-0.9,"Y":-1.3,"V":4.2}
@@ -39,12 +42,14 @@ class GenomicEquityEngine:
         self.bundle = joblib.load(bundle_path)
         with open(registry_path) as f:
             self.registry = json.load(f)
+        self.pgx = PGxDrugSafetySidecar()
 
-    def predict(self, gene, wt, pos, mt, llr, enorm=10.0, ancestry="SAS", af_nfe=0.0, af_sas=0.0, af_afr=0.0, af_all=0.0):
+    def predict(self, gene, wt, pos, mt, llr, enorm=10.0, ancestry="SAS", af_nfe=0.0, af_sas=0.0, af_afr=0.0, af_eas=0.0, af_amr=0.0, af_mid=0.0, af_asj=0.0, af_fin=0.0, af_all=0.0, rsid=None):
         gene = gene.upper()
         wt, mt = wt.upper(), mt.upper()
         vid = f"{gene}_{wt}{pos}{mt}"
-        grpmax_af = max(af_nfe, af_sas, af_afr, af_all)
+        anc_norm = normalize_global_ancestry(ancestry)
+        grpmax_af = max(af_nfe, af_sas, af_afr, af_eas, af_amr, af_mid, af_asj, af_fin, af_all)
 
         # 1. AF-Free Functional Head -> ClinGen Pejaver PP3/BP4 (zero AF double-counting!)
         xf = np.array([build_func_features(wt, mt, llr, enorm)], dtype=float)
@@ -57,7 +62,7 @@ class GenomicEquityEngine:
         xts = self.bundle["triage_scaler"].transform(xt)
         p_tr_raw = float(0.50 * self.bundle["triage_mlp"].predict_proba(xts)[0, 1] + 0.35 * self.bundle["triage_hgb"].predict_proba(xt)[0, 1] + 0.15 * self.bundle["triage_lr"].predict_proba(xts)[0, 1])
         p_tr_cal = float(self.bundle["triage_platt"].predict_proba(_logit(np.array([p_tr_raw])).reshape(-1, 1))[0, 1])
-        ps = self.bundle["mondrian"].predict_sets(np.array([p_tr_cal]), np.array([ancestry]))[0]
+        ps = self.bundle["mondrian"].predict_sets(np.array([p_tr_cal]), np.array([anc_norm]))[0]
         tier = "Pathogenic_90pct" if ps == [1] else ("Benign_90pct" if ps == [0] else "VUS_Review_Required")
 
         # 3. 3-Layer Balancing-Selection & Recessive Safeguard
@@ -88,7 +93,9 @@ class GenomicEquityEngine:
             "joint_triage_prob": round(p_tr_cal, 4),
             "conformal_90pct_set": ["Benign" if c == 0 else "Pathogenic" for c in ps],
             "final_tier": tier,
+            "ancestry_stratum": anc_norm,
             "safeguard_triggered": safeguard_triggered,
+            "pgx_alert": self.pgx.lookup(variant_id=vid, rsid=rsid),
             "framing": "Computational research & clinical-pipeline QA audit only — not standalone SaMD."
         }
         out["sha256"] = hashlib.sha256(json.dumps(out, sort_keys=True).encode()).hexdigest()

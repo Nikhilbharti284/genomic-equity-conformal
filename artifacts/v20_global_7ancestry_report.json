@@ -1,0 +1,87 @@
+{
+  "version": "2.0.0-pan-global",
+  "overall": {
+    "n_variants": 9142,
+    "oof_auroc": 0.9844,
+    "oof_pr_auc": 0.9898,
+    "raw_am_ece": 0.0686,
+    "v20_platt_ece": 0.0066,
+    "empty_prediction_sets": 0,
+    "ece_reduction_pct": 90.4
+  },
+  "subgroups": {
+    "SAS": {
+      "n": 700,
+      "raw_am_ece": 0.053,
+      "v20_ece": 0.0229,
+      "ece_cut_pct": 56.8,
+      "mondrian_cov": 0.9114,
+      "singleton_pct": 97.9,
+      "empty_sets": 0
+    },
+    "AFR": {
+      "n": 1221,
+      "raw_am_ece": 0.0543,
+      "v20_ece": 0.0141,
+      "ece_cut_pct": 74.0,
+      "mondrian_cov": 0.9328,
+      "singleton_pct": 100.0,
+      "empty_sets": 0
+    },
+    "EAS": {
+      "n": 740,
+      "raw_am_ece": 0.0685,
+      "v20_ece": 0.0335,
+      "ece_cut_pct": 51.1,
+      "mondrian_cov": 0.9149,
+      "singleton_pct": 95.8,
+      "empty_sets": 0
+    },
+    "AMR": {
+      "n": 717,
+      "raw_am_ece": 0.048,
+      "v20_ece": 0.0288,
+      "ece_cut_pct": 40.0,
+      "mondrian_cov": 0.9121,
+      "singleton_pct": 94.3,
+      "empty_sets": 0
+    },
+    "MID": {
+      "n": 122,
+      "raw_am_ece": 0.1127,
+      "v20_ece": 0.0566,
+      "ece_cut_pct": 49.8,
+      "mondrian_cov": 0.8934,
+      "singleton_pct": 100.0,
+      "empty_sets": 0
+    },
+    "NFE": {
+      "n": 1192,
+      "raw_am_ece": 0.0941,
+      "v20_ece": 0.018,
+      "ece_cut_pct": 80.9,
+      "mondrian_cov": 0.9077,
+      "singleton_pct": 90.5,
+      "empty_sets": 0
+    },
+    "BOTTLENECK_FOUNDER": {
+      "n": 622,
+      "raw_am_ece": 0.0669,
+      "v20_ece": 0.0179,
+      "ece_cut_pct": 73.3,
+      "mondrian_cov": 0.9277,
+      "singleton_pct": 100.0,
+      "empty_sets": 0
+    },
+    "ULTRA_RARE": {
+      "n": 3828,
+      "raw_am_ece": 0.1333,
+      "v20_ece": 0.0054,
+      "ece_cut_pct": 96.0,
+      "mondrian_cov": 0.9875,
+      "singleton_pct": 100.0,
+      "empty_sets": 0
+    }
+  },
+  "sha256": "08b002cc58beba804c64416f2e4dc38ca2d266a55ee156a3af830f209844e08a"
+}
