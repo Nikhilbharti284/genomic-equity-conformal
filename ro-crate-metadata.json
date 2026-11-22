@@ -162,9 +162,18 @@
         },
         {
           "@id": "data/pgx_cpic_panel.json"
+        },
+        {
+          "@id": "src/offline_reference_store.py"
+        },
+        {
+          "@id": "src/vcf_patient_profiler.py"
+        },
+        {
+          "@id": "src/clinical_report_generator.py"
         }
       ],
-      "version": "2.0.0"
+      "version": "3.0.0"
     },
     {
       "@id": "CITATION.cff",
@@ -277,13 +286,6 @@
       "name": "alphafold_v6_features.py",
       "contentSize": 1867,
       "sha256": "5938d6039acae859ed3b4c7da86d89073945fa0beb82a314a3598dfe149fc0c4"
-    },
-    {
-      "@id": "src/api_server.py",
-      "@type": "File",
-      "name": "api_server.py",
-      "contentSize": 1694,
-      "sha256": "c1fbdbf4b1b2711e1fca533a0b24c4900fef54ec74400eb084de61699cbb5cf0"
     },
     {
       "@id": "src/audit_vcf.py",
@@ -496,6 +498,30 @@
       "@type": "File",
       "sha256": "4c955d2057d179436f63d817926d3ff513543bf1fac44bff015ee6c2a970b223",
       "encodingFormat": "application/json"
+    },
+    {
+      "@id": "src/offline_reference_store.py",
+      "@type": "File",
+      "sha256": "0edf09524fc93afe650e3327d53fe694e8359601d9e791b66f500f9b937999c2",
+      "encodingFormat": "text/x-python"
+    },
+    {
+      "@id": "src/vcf_patient_profiler.py",
+      "@type": "File",
+      "sha256": "a1ed4ddc7e99ffdbba488458b620745093cf5fec2d0cce01eb2b636d15576e6b",
+      "encodingFormat": "text/x-python"
+    },
+    {
+      "@id": "src/clinical_report_generator.py",
+      "@type": "File",
+      "sha256": "94b27f7d2a56f67e1686e80a72793e9f77cd72e6f9a5df723d0fa8bbfafc7560",
+      "encodingFormat": "text/x-python"
+    },
+    {
+      "@id": "src/api_server.py",
+      "@type": "File",
+      "sha256": "216782d62c4934e526686d0d8a7e7a742349c76ad5cc6185ff4f36d47a751090",
+      "encodingFormat": "text/x-python"
     }
   ]
 }

@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Clinical QA &amp; Regulatory Audit Report — Genomic Equity Conformal v3.0.0</title>
+<style>
+  body{font-family:system-ui,-apple-system,sans-serif;max-width:980px;margin:20px auto;padding:0 16px;color:#0f172a;line-height:1.5}
+  .hdr{background:#0d3b46;color:#fff;padding:20px;border-radius:12px;border-bottom:4px solid #c5942f}
+  .badge{display:inline-block;background:#c5942f;color:#0d3b46;font-weight:800;padding:3px 10px;border-radius:6px;font-size:12px;margin-right:6px}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:16px 0}
+  .kpi{background:#f8fafc;border:1px solid #cbd5e1;border-radius:10px;padding:12px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0}
+  th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;vertical-align:top}
+  th{background:#0d3b46;color:#fff}
+  .trace{background:#f1f5f9;border-left:4px solid #0d3b46;padding:12px;border-radius:8px;font-family:monospace;font-size:12px;word-break:break-all}
+</style></head><body>
+<div class="hdr">
+  <div><span class="badge">NABL ISO 15189</span><span class="badge">CAP QA SIDECAR</span><span class="badge">EU AI ACT ANNEX IV</span><span class="badge">90% CONFORMAL GUARANTEE</span></div>
+  <h1 style="margin:10px 0 4px">Genomic Equity Conformal v3.0.0 &#8212; Clinical QA &amp; Patient Audit Report</h1>
+  <div>Generated: 2026-11-22 05:57 UTC &bull; Inferred Patient Ancestry: <strong>AMR</strong> &bull; Offline Air-Gapped Mode: <strong>True</strong></div>
+</div>
+<div class="kpis">
+  <div class="kpi"><small>Variants Scanned</small><div style="font-size:22px;font-weight:800">10000</div></div>
+  <div class="kpi"><small>Clinically Audited</small><div style="font-size:22px;font-weight:800">4</div></div>
+  <div class="kpi"><small>CPIC PGx Drug Alerts</small><div style="font-size:22px;font-weight:800;color:#b91c1c">1</div></div>
+  <div class="kpi"><small>Empty Conformal Sets</small><div style="font-size:22px;font-weight:800;color:#0f766e">0</div></div>
+</div>
+<h2>Executive Clinical Variant &amp; Pharmacogenomics Audit Table</h2>
+<table>
+  <tr><th>Variant (GRCh38)</th><th>GT / Zygosity Status</th><th>Platt Prob</th><th>Conformal Final Tier</th><th>3-Layer BA1 Safeguard</th><th>CPIC Level A PGx Alert</th></tr>
+  <tr><td><code>TP53_R175H</code><br><small>chr17:g.7675088C&gt;T</small></td><td>0/1<br><strong>AD_Heterozygous_Affected</strong></td><td>0.9917</td><td><strong>Pathogenic_90pct</strong></td><td>None</td><td>None</td></tr><tr><td><code>HBB_E7V</code><br><small>chr11:g.5227002T&gt;A</small></td><td>0/1<br><strong>AR_Carrier_Only</strong></td><td>0.3285</td><td><strong>VUS_Review_Required</strong></td><td>Layer-1 BA1 Exception (Sickle Cell Disease (Balancing Selection))</td><td>None</td></tr><tr><td><code>TP53_P72R</code><br><small>chr17:g.7676154G&gt;C</small></td><td>1/1<br><strong>AD_Homozygous_Affected</strong></td><td>0.3095</td><td><strong>Benign_90pct</strong></td><td>Layer-2 ACMG BA1 Stand-Alone Benign (AF=0.7378 &gt;= 0.05, non-exception)</td><td>None</td></tr><tr><td><code>NUDT15_R139C</code><br><small>chr13:g.48045719C&gt;T</small></td><td>0/1<br><strong>AR_Carrier_Only</strong></td><td>0.4113</td><td><strong>Benign_90pct</strong></td><td>Layer-2 ACMG BA1 Stand-Alone Benign (AF=0.1040 &gt;= 0.05, non-exception)</td><td><strong style='color:#b91c1c'>Thiopurines (Azathioprine, 6-MP, Thioguanine)</strong><br><small>Reduce starting dose by 30-80% or avoid in homozygotes (CPIC Level A)</small></td></tr>
+</table>
+<h2>Cryptographic Traceability Ledger (NABL / CAP / EU AI Act Annex IV)</h2>
+<div class="trace">
+  Input VCF SHA-256: 49664f0ebc26c26fd2b4219d85cdacd2eb278f8d367e14d33d1c2d76825e94da<br>
+  Model Bundle SHA-256: cf968fba2903f81ec5ac641b5f56ad2268a33131d8bb5d15450e70c4c20489e6<br>
+  Audit Results SHA-256: a38b4958969f58a2ce804062db45bfb726a119cddb7fcdf19cd29ab9673cd307<br>
+  Author / Maintainer: Nikhil Bharti (ORCID 0009-0006-3130-9141) &bull; License: MIT Code + CC BY 4.0 Data
+</div>
+<p style="font-size:12px;color:#475569;margin-top:14px"><em>Regulatory Framing: Computational research &amp; clinical-pipeline QA audit sidecar only &#8212; not a standalone diagnostic SaMD.</em></p>
+</body></html>

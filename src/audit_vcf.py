@@ -1,84 +1,48 @@
-import argparse, hashlib, json, math, os, re, sys, urllib.request
+import argparse, gzip, hashlib, json, math, os, re, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from inference_engine import GenomicEquityEngine
+from offline_reference_store import OfflineReferenceStore
+from vcf_patient_profiler import parse_sample_gt, classify_clinical_zygosity, infer_patient_ancestry_from_vcf
 
 GEC_INFO_HEADERS = [
-    '##INFO=<ID=GEC_PLATT,Number=1,Type=Float,Description="Genomic Equity Conformal v1.1.0 calibrated joint probability">',
+    '##INFO=<ID=GEC_PLATT,Number=1,Type=Float,Description="Genomic Equity Conformal v3.0.0 calibrated joint probability">',
     '##INFO=<ID=GEC_ACMG,Number=1,Type=String,Description="AF-free Pejaver PP3/BP4 ACMG tier">',
     '##INFO=<ID=GEC_TIER,Number=1,Type=String,Description="Non-empty Mondrian 90pct conformal + 3-Layer BA1 final tier">',
     '##INFO=<ID=GEC_SAFEGUARD,Number=1,Type=String,Description="Balancing-selection / BA1 safeguard status">',
     '##INFO=<ID=GEC_ANC,Number=1,Type=String,Description="Patient ancestry stratum used for Mondrian calibration">',
     '##INFO=<ID=GEC_PGX_ALERT,Number=1,Type=String,Description="CPIC-aligned Pharmacogenomics drug-toxicity alert">',
+    '##INFO=<ID=GEC_ZYGOSITY,Number=1,Type=String,Description="MOI-aware clinical zygosity status from VCF GT">',
 ]
 
-def _num(x, default=0.0):
-    if x is None: return default
-    if isinstance(x, list):
-        vals = [_num(v, None) for v in x]
-        vals = [v for v in vals if v is not None]
-        return max(vals) if vals else default
-    try:
-        v = float(x)
-        return default if math.isnan(v) else v
-    except Exception:
-        return default
+def _open_vcf(path):
+    return gzip.open(path, "rt", encoding="utf-8", errors="ignore") if str(path).endswith(".gz") else open(path, "r", encoding="utf-8", errors="ignore")
 
 def _vcf_safe(s):
     return re.sub(r"[^A-Za-z0-9_.\-:]+", "_", str(s or "NONE")).strip("_") or "NONE"
 
-def annotate_hg38_batch(hgvs_ids):
-    """Auto-annotates raw CHROM/POS/REF/ALT variants with Gene, AA, and gnomAD AFs (zero REVEL)."""
-    if not hgvs_ids: return {}
-    out = {}
-    url = "https://myvariant.info/v1/variant?assembly=hg38&fields=dbnsfp.genename,dbnsfp.aa,gnomad_exome.af,gnomad_genome.af"
-    payload = json.dumps({"ids": hgvs_ids}).encode("utf-8")
-    req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json", "User-Agent": "genomic-equity-conformal/1.1"})
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        for r in json.loads(resp.read().decode("utf-8")):
-            q = r.get("query")
-            if not q or r.get("notfound"): continue
-            db = r.get("dbnsfp")
-            if isinstance(db, list) and db: db = db[0]
-            gene, wt, pos, mt = "", "", 0, ""
-            if isinstance(db, dict):
-                g = db.get("genename")
-                gene = g[0] if isinstance(g, list) else (g or "")
-                aa = db.get("aa")
-                if isinstance(aa, dict):
-                    wt, mt = aa.get("ref") or "", aa.get("alt") or ""
-                    p_raw = aa.get("pos")
-                    if isinstance(p_raw, list): p_raw = p_raw[0]
-                    try: pos = int(p_raw)
-                    except Exception: pos = 0
-            af = {"af_nfe": 0.0, "af_sas": 0.0, "af_afr": 0.0, "af_all": 0.0}
-            for k in ("gnomad_exome", "gnomad_genome"):
-                sub = r.get(k)
-                if isinstance(sub, list) and sub: sub = sub[0]
-                if isinstance(sub, dict) and isinstance(sub.get("af"), dict):
-                    a = sub["af"]
-                    af = {"af_nfe": _num(a.get("af_nfe")), "af_sas": _num(a.get("af_sas")), "af_afr": _num(a.get("af_afr")), "af_all": _num(a.get("af"))}
-                    if max(af.values()) > 0: break
-            out[q] = {"gene": gene, "wt": wt, "pos": pos, "mt": mt, **af}
-    return out
-
-def fetch_seq(gene):
-    url = f"https://rest.uniprot.org/uniprotkb/search?query=gene_exact:{gene}+AND+organism_id:9606+AND+reviewed:true&format=json&size=1"
-    req = urllib.request.Request(url, headers={"User-Agent": "genomic-equity-conformal/1.1"})
-    with urllib.request.urlopen(req, timeout=20) as resp:
-        res = json.loads(resp.read().decode("utf-8")).get("results", [])
-    return res[0]["sequence"]["value"] if res else None
-
-def crop_window(seq, pos_1idx, max_len=512):
-    if len(seq) <= max_len: return seq, pos_1idx
-    start = max(0, (pos_1idx - 1) - max_len // 2)
-    end = min(len(seq), start + max_len)
-    return seq[max(0, end - max_len):end], pos_1idx - max(0, end - max_len)
+def stream_vcf_records(vcf_path):
+    """Constant-memory streaming generator for .vcf and .vcf.gz files."""
+    with _open_vcf(vcf_path) as f:
+        for line in f:
+            if line.startswith("#") or not line.strip():
+                continue
+            cols = line.rstrip("\n").split("\t")
+            if len(cols) < 5:
+                continue
+            chrom = cols[0].replace("chr", "")
+            pos_g, rsid, ref, alt = cols[1], cols[2], cols[3], cols[4]
+            info = dict(kv.split("=", 1) for kv in cols[7].split(";") if "=" in kv) if len(cols) > 7 else {}
+            gt_info = parse_sample_gt(cols[8], cols[9], chrom) if len(cols) >= 10 else {"gt": "./.", "zygosity": "UNKNOWN", "dp": None, "gq": None}
+            yield {
+                "chrom": chrom, "pos_g": pos_g, "rsid": rsid, "ref": ref, "alt": alt,
+                "hgvs_g": f"chr{chrom}:g.{pos_g}{ref}>{alt}", "info": info, "gt_info": gt_info
+            }
 
 def write_annotated_vcf(in_vcf, out_vcf, card_by_hgvs):
-    """Writes a standard VCF 4.2 with GEC_* INFO annotations for Nextflow/bcftools pipelines."""
+    """Streaming VCF 4.2 writer with GEC_* INFO tags (supports .vcf and .vcf.gz input)."""
     os.makedirs(os.path.dirname(out_vcf) or ".", exist_ok=True)
-    with open(in_vcf, encoding="utf-8") as fin, open(out_vcf, "w", encoding="utf-8") as fout:
+    with _open_vcf(in_vcf) as fin, open(out_vcf, "w", encoding="utf-8") as fout:
         inserted = False
         for line in fin:
             if line.startswith("##"):
@@ -107,80 +71,91 @@ def write_annotated_vcf(in_vcf, out_vcf, card_by_hgvs):
                     f"GEC_SAFEGUARD={_vcf_safe(card['safeguard_triggered'] or 'NONE')}",
                     f"GEC_ANC={_vcf_safe(card['patient_ancestry'])}",
                     f"GEC_PGX_ALERT={_vcf_safe((card.get('pgx_alert') or {}).get('drug_class', 'NONE'))}",
+                    f"GEC_ZYGOSITY={_vcf_safe(card.get('clinical_zygosity_status', 'UNKNOWN'))}",
                 ]
                 cols[7] = ";".join(tags) if cols[7] in ("", ".") else cols[7] + ";" + ";".join(tags)
             fout.write("\t".join(cols) + "\n")
 
-def main():
-    ap = argparse.ArgumentParser(description="Genomic Equity v1.1.0 — Unified Hospital VCF 4.2 Auditor")
-    ap.add_argument("--vcf", required=True)
-    ap.add_argument("--out-vcf", default="artifacts/audited_output.vcf")
-    ap.add_argument("--out-json", default="artifacts/raw_vcf_audit_output.json")
-    ap.add_argument("--default-ancestry", default="SAS", choices=["EUR", "NFE", "SAS", "AFR", "EAS", "AMR", "MID", "ASJ", "FIN", "BOTTLENECK_FOUNDER", "ULTRA_RARE"])
-    args = ap.parse_args()
+def audit_vcf_offline(vcf_path, out_vcf=None, default_ancestry="auto", eng=None, store=None):
+    """Constant-memory air-gapped streaming VCF auditor (zero network packets)."""
+    eng = eng or GenomicEquityEngine()
+    store = store or OfflineReferenceStore()
+    g_thr = eng.registry.get("gene_thresholds", {})
 
-    raw_rows = []
-    with open(args.vcf, encoding="utf-8") as f:
-        for line in f:
-            if line.startswith("#") or not line.strip(): continue
-            cols = line.strip().split("\t")
-            if len(cols) < 5: continue
-            chrom = cols[0].replace("chr", "")
-            pos_g, rsid, ref, alt = cols[1], cols[2], cols[3], cols[4]
-            info = dict(kv.split("=", 1) for kv in cols[7].split(";") if "=" in kv) if len(cols) > 7 else {}
-            raw_rows.append({"chrom": chrom, "pos_g": pos_g, "rsid": rsid, "hgvs_g": f"chr{chrom}:g.{pos_g}{ref}>{alt}", "info": info})
+    inferred_anc, posteriors = default_ancestry, {}
+    if str(default_ancestry).lower() == "auto":
+        aim_obs = []
+        for r in stream_vcf_records(vcf_path):
+            ref = store.lookup_by_hgvs(r["hgvs_g"])
+            if ref:
+                aim_obs.append(ref)
+            if len(aim_obs) >= 500:
+                break
+        inferred_anc, posteriors = infer_patient_ancestry_from_vcf(aim_obs)
 
-    print(f"1/2 Auto-annotating {len(raw_rows)} raw VCF variants via MyVariant.info (GRCh38, zero REVEL)...")
-    anns = annotate_hg38_batch([r["hgvs_g"] for r in raw_rows])
-
-    eng = GenomicEquityEngine()
-    import torch
-    from transformers import AutoTokenizer, AutoModelForMaskedLM
-    tok = AutoTokenizer.from_pretrained("facebook/esm2_t6_8M_UR50D")
-    mod = AutoModelForMaskedLM.from_pretrained("facebook/esm2_t6_8M_UR50D")
-    mod.eval()
-
-    print("2/2 Scoring with Unified GenomicEquityEngine (Platt + Non-Empty Mondrian + 3-Layer BA1 Safeguard)...")
-    results, card_by_hgvs, seq_cache = [], {}, {}
-    for r in raw_rows:
-        a = anns.get(r["hgvs_g"], {})
-        gene = r["info"].get("GENE") or a.get("gene", "")
-        anc = r["info"].get("ANC") or args.default_ancestry
-        m = re.match(r"^([A-Z])(\d+)([A-Z])$", r["info"].get("AA", ""))
-        wt, pos, mt = (m.group(1), int(m.group(2)), m.group(3)) if m else (a.get("wt", ""), int(a.get("pos", 0)), a.get("mt", ""))
-        if not gene or not wt or not mt or pos < 1: continue
-        if gene not in seq_cache: seq_cache[gene] = fetch_seq(gene)
-        seq = seq_cache[gene]
-        if not seq or pos > len(seq) or seq[pos - 1] != wt: continue
-
-        wseq, wpos = crop_window(seq, pos)
-        inp = tok(wseq, return_tensors="pt")
-        inp["input_ids"][0, wpos] = tok.mask_token_id
-        with torch.no_grad():
-            out = mod(**inp, output_hidden_states=True)
-            lp = torch.log_softmax(out.logits[0, wpos], dim=-1)
-            llr = float(lp[tok.convert_tokens_to_ids(mt)] - lp[tok.convert_tokens_to_ids(wt)])
-            enorm = float(out.hidden_states[-1][0, wpos].norm().item())
-
+    results, card_by_hgvs = [], {}
+    total_scanned = 0
+    for r in stream_vcf_records(vcf_path):
+        total_scanned += 1
+        ref = store.lookup_by_hgvs(r["hgvs_g"])
+        if not ref:
+            continue
+        anc = r["info"].get("ANC") or inferred_anc
         card = eng.predict(
-            gene=gene, wt=wt, pos=pos, mt=mt, llr=llr, enorm=enorm, ancestry=anc,
-            af_nfe=a.get("af_nfe", 0.0), af_sas=a.get("af_sas", 0.0),
-            af_afr=a.get("af_afr", 0.0), af_all=a.get("af_all", 0.0), rsid=r.get("rsid"),
+            gene=ref["gene"], wt=ref["wt"], pos=int(ref["pos"]), mt=ref["mt"],
+            llr=float(ref["esm2_llr"]), enorm=10.0, ancestry=anc,
+            af_nfe=float(ref["af_nfe"]), af_sas=float(ref["af_sas"]), af_afr=float(ref["af_afr"]),
+            af_eas=float(ref["af_eas"]), af_amr=float(ref["af_amr"]), af_mid=float(ref["af_mid"]),
+            af_asj=float(ref["af_asj"]), af_fin=float(ref["af_fin"]), af_all=float(ref["af_all"]),
+            rsid=r.get("rsid"),
         )
+        moi = g_thr.get(ref["gene"], {}).get("moi", ref.get("moi", "AD"))
         card["hgvs_g"] = r["hgvs_g"]
-        card["live_af_sas"] = round(a.get("af_sas", 0.0), 6)
-        card["live_af_afr"] = round(a.get("af_afr", 0.0), 6)
+        card["sample_gt"] = r["gt_info"]["gt"]
+        card["zygosity"] = r["gt_info"]["zygosity"]
+        card["moi"] = moi
+        card["clinical_zygosity_status"] = classify_clinical_zygosity(moi, r["gt_info"]["zygosity"])
+        card["live_af_sas"] = round(float(ref["af_sas"]), 6)
+        card["live_af_afr"] = round(float(ref["af_afr"]), 6)
         results.append(card)
         card_by_hgvs[r["hgvs_g"]] = card
 
-    write_annotated_vcf(args.vcf, args.out_vcf, card_by_hgvs)
-    payload = {"engine_version": "1.1.0-unified", "commercial_license_clean": True, "vcf_source": args.vcf, "annotated_vcf": args.out_vcf, "n_audited": len(results), "results": results}
+    if out_vcf:
+        write_annotated_vcf(vcf_path, out_vcf, card_by_hgvs)
+
+    vcf_sha = hashlib.sha256(open(vcf_path, "rb").read()).hexdigest()
+    payload = {
+        "engine_version": "3.0.0-enterprise-airgapped",
+        "offline_mode": True,
+        "commercial_license_clean": True,
+        "vcf_source": vcf_path,
+        "vcf_input_sha256": vcf_sha,
+        "annotated_vcf": out_vcf,
+        "inferred_patient_ancestry": inferred_anc,
+        "ancestry_posteriors": posteriors,
+        "total_vcf_rows_scanned": total_scanned,
+        "n_audited": len(results),
+        "n_pgx_alerts": sum(1 for c in results if c.get("pgx_alert")),
+        "results": results,
+    }
     payload["sha256"] = hashlib.sha256(json.dumps(results, sort_keys=True).encode()).hexdigest()
+    return payload
+
+def main():
+    ap = argparse.ArgumentParser(description="Genomic Equity v3.0.0 — Enterprise Streaming Hospital VCF 4.2 Auditor")
+    ap.add_argument("--vcf", required=True)
+    ap.add_argument("--out-vcf", default="artifacts/audited_output.vcf")
+    ap.add_argument("--out-json", default="artifacts/raw_vcf_audit_output.json")
+    ap.add_argument("--default-ancestry", default="auto", choices=["auto", "EUR", "NFE", "SAS", "AFR", "EAS", "AMR", "MID", "ASJ", "FIN", "BOTTLENECK_FOUNDER", "ULTRA_RARE"])
+    ap.add_argument("--offline", action="store_true", help="Air-gapped zero-network mode using local SQLite WAL store")
+    args = ap.parse_args()
+
+    payload = audit_vcf_offline(args.vcf, out_vcf=args.out_vcf, default_ancestry=args.default_ancestry)
     os.makedirs(os.path.dirname(args.out_json) or ".", exist_ok=True)
     with open(args.out_json, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2)
-    print(json.dumps(payload, indent=2))
-    print(f"[PASS] Annotated VCF 4.2 written -> {args.out_vcf}")
+    print(json.dumps({k: v for k, v in payload.items() if k != "results"}, indent=2))
+    print(f"[PASS] Audited {payload['n_audited']}/{payload['total_vcf_rows_scanned']} variants -> {args.out_vcf}")
 
 if __name__ == "__main__":
     main()

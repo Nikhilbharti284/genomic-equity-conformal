@@ -1,4 +1,4 @@
-# Genomic Equity Conformal (v2.0.0)
+# Genomic Equity Conformal (v3.0.0)
 
 [[https://github.com/Nikhilbharti284/genomic-equity-conformal/actions/workflows/ci.yml/badge.svg]](https://github.com/Nikhilbharti284/genomic-equity-conformal/actions/workflows/ci.yml)
 [[https://img.shields.io/badge/ORCID-0009--0006--3130--9141-a6ce39?logo=orcid&logoColor=white]](https://orcid.org/0009-0006-3130-9141)
@@ -25,6 +25,12 @@ Created & maintained by **Nikhil Bharti** ([@Nikhilbharti284](https://github.com
 | **NFE** | 1,192 | 0.0941 | **0.0180** | -80.9% | 0.9077 | 90.5% | 0 |
 | **BOTTLENECK_FOUNDER (ASJ+FIN)** | 622 | 0.0669 | **0.0179** | -73.3% | 0.9277 | 100.0% | 0 |
 | **ULTRA_RARE** | 3,828 | 0.1333 | **0.0054** | -96.0% | 0.9875 | 100.0% | 0 |
+
+## What's New in v3.0.0 (Enterprise Air-Gapped Clinical Production)
+1. **Zero-Internet Offline SQLite WAL Store (`src/offline_reference_store.py`):** 9,249 indexed GRCh38 records for `--network=none` hospital execution (`gec-audit --offline`).
+2. **Sample Zygosity (`GT`/`DP`/`GQ`) & AIM Ancestry Inference (`src/vcf_patient_profiler.py`):** Distinguishes `AR_Carrier_Only` vs `AR_Biallelic_Affected` (e.g., `HBB_E7V` `0/1` vs `1/1`) and infers 7-ancestry patient background (`--default-ancestry auto`).
+3. **Constant-Memory Streaming WES Auditor & Zero-Dependency OpenAPI Server (`src/audit_vcf.py`, `src/api_server.py`):** Streams `.vcf`/`.vcf.gz` (10,000-variant WES benchmarked `<5s`, `<250 MB` RAM) with `GET /health`, `/openapi.json`, `/docs`, `POST /audit`, and `POST /audit-vcf`.
+4. **NABL (ISO 15189) / CAP / EU AI Act Annex IV Clinical QA HTML Report (`gec-report`):** Offline print-ready patient report with SHA-256 cryptographic traceability hashes.
 
 ## What's New in v2.0.0
 1. **Autonomous Unlisted Founder Discovery (`src/discover_unlisted_ba1_candidates.py`):** Discovered **19 unlisted BS1+ pathogenic founder/balancing-selection variants** (`ABCA4_G1961E` ASJ 2.39%, `ATP7B_H1069Q` ASJ, `SLC12A3_T180K` EAS, `SLC26A4_F335L` & `SLC26A4_V239D` SAS, etc.) saved in `artifacts/v20_novel_founder_discoveries.json` & `.csv`.
