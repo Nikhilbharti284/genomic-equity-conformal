@@ -1,0 +1,527 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "@id": "ro-crate-metadata.json",
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      },
+      "about": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "Genomic Equity Conformal (v0.2.0)",
+      "description": "Ancestry-calibrated missense & cryptic-splicing VUS classifier with Frozen ESM-2, Platt scaling, and Mondrian Conformal Prediction.",
+      "datePublished": "2026-11-20",
+      "license": "MIT",
+      "hasPart": [
+        {
+          "@id": "CITATION.cff"
+        },
+        {
+          "@id": "LICENSE"
+        },
+        {
+          "@id": "artifacts/cards/HBB_E7V_AFR_v11.json"
+        },
+        {
+          "@id": "artifacts/cards/TP53_R175H_SAS.json"
+        },
+        {
+          "@id": "artifacts/hg38_5fold_v2_report.json"
+        },
+        {
+          "@id": "artifacts/mavedb_external_validation.json"
+        },
+        {
+          "@id": "artifacts/raw_vcf_audit_output.json"
+        },
+        {
+          "@id": "artifacts/v02_spliceai_report.json"
+        },
+        {
+          "@id": "artifacts/v04_scientific_proof.json"
+        },
+        {
+          "@id": "artifacts/v10_119genes_final_report.json"
+        },
+        {
+          "@id": "artifacts/v10_clean_audit_report.json"
+        },
+        {
+          "@id": "artifacts/v10_pejaver_ancestry_lr_audit.json"
+        },
+        {
+          "@id": "artifacts/v1_mavedb_5gene_report.json"
+        },
+        {
+          "@id": "artifacts/vcf_audit_output.json"
+        },
+        {
+          "@id": "requirements.txt"
+        },
+        {
+          "@id": "src/alphafold_v6_features.py"
+        },
+        {
+          "@id": "src/api_server.py"
+        },
+        {
+          "@id": "src/audit_vcf.py"
+        },
+        {
+          "@id": "src/calibrate_pejaver_lr.py"
+        },
+        {
+          "@id": "src/calibrated_benchmark_v2.py"
+        },
+        {
+          "@id": "src/data_curate_clinvar.py"
+        },
+        {
+          "@id": "src/enrich_hg38_and_rebench.py"
+        },
+        {
+          "@id": "src/enterprise_audit_engine.py"
+        },
+        {
+          "@id": "src/esm2_scorer.py"
+        },
+        {
+          "@id": "src/generate_rocrate.py"
+        },
+        {
+          "@id": "src/inference_engine.py"
+        },
+        {
+          "@id": "src/localized_conformal.py"
+        },
+        {
+          "@id": "src/mondrian_conformal.py"
+        },
+        {
+          "@id": "src/predict_variant.py"
+        },
+        {
+          "@id": "src/resource_logger.py"
+        },
+        {
+          "@id": "src/run_pilot_benchmark.py"
+        },
+        {
+          "@id": "src/train_v10_clean.py"
+        },
+        {
+          "@id": "src/upgrade_v2_spliceai.py"
+        },
+        {
+          "@id": "src/upgrade_v4_ensemble.py"
+        },
+        {
+          "@id": "src/v1_cluster_genes.py"
+        },
+        {
+          "@id": "src/v1_curate_120genes.py"
+        },
+        {
+          "@id": "src/v1_esm2_35m_poscache.py"
+        },
+        {
+          "@id": "src/v1_ingest_alphamissense_and_gnomad.py"
+        },
+        {
+          "@id": "src/v1_mavedb_5gene_suite.py"
+        },
+        {
+          "@id": "src/v1_train_full_120genes.py"
+        },
+        {
+          "@id": "src/validate_mavedb_dms.py"
+        },
+        {
+          "@id": "tests/test_pipeline.py"
+        },
+        {
+          "@id": "tests/test_v10_regression.py"
+        },
+        {
+          "@id": "artifacts/v20_global_7ancestry_report.json"
+        },
+        {
+          "@id": "artifacts/v20_novel_founder_discoveries.json"
+        },
+        {
+          "@id": "artifacts/v20_novel_founder_discoveries.csv"
+        },
+        {
+          "@id": "artifacts/v20_mavedb_rsa_report.json"
+        },
+        {
+          "@id": "data/pgx_cpic_panel.json"
+        },
+        {
+          "@id": "src/offline_reference_store.py"
+        },
+        {
+          "@id": "src/vcf_patient_profiler.py"
+        },
+        {
+          "@id": "src/clinical_report_generator.py"
+        }
+      ],
+      "version": "3.0.0"
+    },
+    {
+      "@id": "CITATION.cff",
+      "@type": "File",
+      "name": "CITATION.cff",
+      "contentSize": 203,
+      "sha256": "5e4641cf26fc2510b9ac8dcfe5ce88cb905ba33a8ff0a0049b17588fa0eb09f2"
+    },
+    {
+      "@id": "LICENSE",
+      "@type": "File",
+      "name": "LICENSE",
+      "contentSize": 811,
+      "sha256": "577f02387707bc7ad998534f3e2008882d969a901657cf777d6c9f1de3004f92"
+    },
+    {
+      "@id": "artifacts/cards/HBB_E7V_AFR_v11.json",
+      "@type": "File",
+      "name": "HBB_E7V_AFR_v11.json",
+      "contentSize": 726,
+      "sha256": "29e9aaa3059ddc46ed121c47f8ffdb5bce40ab96b1a5bbf57f4596dcff4e36f9"
+    },
+    {
+      "@id": "artifacts/cards/TP53_R175H_SAS.json",
+      "@type": "File",
+      "name": "TP53_R175H_SAS.json",
+      "contentSize": 489,
+      "sha256": "6c481ea18dc804943d2d008c8ad94dea6f6f366fd95cd27cad44991c85122066"
+    },
+    {
+      "@id": "artifacts/hg38_5fold_v2_report.json",
+      "@type": "File",
+      "name": "hg38_5fold_v2_report.json",
+      "contentSize": 1170,
+      "sha256": "306b8ab5b80adcf225344237a7fffbff6ae54c50124695e655fddd7f2f2bde87"
+    },
+    {
+      "@id": "artifacts/mavedb_external_validation.json",
+      "@type": "File",
+      "name": "mavedb_external_validation.json",
+      "contentSize": 273,
+      "sha256": "98e180eb0dde1d2f70374abb31333797c2fd590b0a32c0b2dce4757882017b81"
+    },
+    {
+      "@id": "artifacts/raw_vcf_audit_output.json",
+      "@type": "File",
+      "name": "raw_vcf_audit_output.json",
+      "contentSize": 1087,
+      "sha256": "66c647848d44a5d041e7c9f6a480f476cea11d8136593622014fd5602f12034b"
+    },
+    {
+      "@id": "artifacts/v02_spliceai_report.json",
+      "@type": "File",
+      "name": "v02_spliceai_report.json",
+      "contentSize": 783,
+      "sha256": "7f80bb523d3af13178885e5fab99348f5509c4dc3a9a0dd6d71c0e3832c4deb4"
+    },
+    {
+      "@id": "artifacts/v04_scientific_proof.json",
+      "@type": "File",
+      "name": "v04_scientific_proof.json",
+      "contentSize": 1047,
+      "sha256": "c2fe912cc9d45a206e96eaac8a7d8f9c8924769c88be937ae5044901a39d7ad7"
+    },
+    {
+      "@id": "artifacts/v10_119genes_final_report.json",
+      "@type": "File",
+      "name": "v10_119genes_final_report.json",
+      "contentSize": 1331,
+      "sha256": "81aa2d1e82d2c37c65bf1af53e24e3585d06772f7c97ce4cf332d410997be506"
+    },
+    {
+      "@id": "artifacts/v10_clean_audit_report.json",
+      "@type": "File",
+      "name": "v10_clean_audit_report.json",
+      "contentSize": 776,
+      "sha256": "dc13f52f7d6b4148c0a437d4a60dee97c6e787c0995b4e34290510905107c2fe"
+    },
+    {
+      "@id": "artifacts/v10_pejaver_ancestry_lr_audit.json",
+      "@type": "File",
+      "name": "v10_pejaver_ancestry_lr_audit.json",
+      "contentSize": 5928,
+      "sha256": "3212766138fd10679c755f9608c9e0c2a11f1a3625847fde14d30d087dafd432"
+    },
+    {
+      "@id": "artifacts/v1_mavedb_5gene_report.json",
+      "@type": "File",
+      "name": "v1_mavedb_5gene_report.json",
+      "contentSize": 1410,
+      "sha256": "62d4b76e9344b6f99e96ef8c93e6b82efb5d78301eb18893b24e5c389afed6e0"
+    },
+    {
+      "@id": "artifacts/vcf_audit_output.json",
+      "@type": "File",
+      "name": "vcf_audit_output.json",
+      "contentSize": 871,
+      "sha256": "55da1ebda94cd52e5dab0fa9976f5e3e02a1e549de1b49678eb786f44a6d872d"
+    },
+    {
+      "@id": "requirements.txt",
+      "@type": "File",
+      "name": "requirements.txt",
+      "contentSize": 111,
+      "sha256": "bbd1256a1618f3d4afcd1578456dd373cc486c6b74a2e97c7e01e900a63511f5"
+    },
+    {
+      "@id": "src/alphafold_v6_features.py",
+      "@type": "File",
+      "name": "alphafold_v6_features.py",
+      "contentSize": 1867,
+      "sha256": "5938d6039acae859ed3b4c7da86d89073945fa0beb82a314a3598dfe149fc0c4"
+    },
+    {
+      "@id": "src/audit_vcf.py",
+      "@type": "File",
+      "name": "audit_vcf.py",
+      "contentSize": 8508,
+      "sha256": "0144fdcac262adf0e2beffde5c9fcf97f5506ef849eacd933e6855efd8b32bde"
+    },
+    {
+      "@id": "src/calibrate_pejaver_lr.py",
+      "@type": "File",
+      "name": "calibrate_pejaver_lr.py",
+      "contentSize": 3571,
+      "sha256": "54080148d914bbab4ea30d6953fe792225a8706114798c0302e58c81d2d92c95"
+    },
+    {
+      "@id": "src/calibrated_benchmark_v2.py",
+      "@type": "File",
+      "name": "calibrated_benchmark_v2.py",
+      "contentSize": 5753,
+      "sha256": "106171e7ed7c8b5188c813f73f7af7a8516c85b35bb0998a7101274b2f9036dd"
+    },
+    {
+      "@id": "src/data_curate_clinvar.py",
+      "@type": "File",
+      "name": "data_curate_clinvar.py",
+      "contentSize": 7432,
+      "sha256": "ab4856830bc1a91481cf3a27a1751de2938ce7be929163daf7f00959fb6f0045"
+    },
+    {
+      "@id": "src/enrich_hg38_and_rebench.py",
+      "@type": "File",
+      "name": "enrich_hg38_and_rebench.py",
+      "contentSize": 8621,
+      "sha256": "8c827866b5eb59c53fecc5e33ada59fc36c42910a7633587425d34588c0a4768"
+    },
+    {
+      "@id": "src/enterprise_audit_engine.py",
+      "@type": "File",
+      "name": "enterprise_audit_engine.py",
+      "contentSize": 7442,
+      "sha256": "fe4b46f5fc4a6c343668a5229a1ada895362b61be2ad4ca361b581e8bda323e6"
+    },
+    {
+      "@id": "src/esm2_scorer.py",
+      "@type": "File",
+      "name": "esm2_scorer.py",
+      "contentSize": 5483,
+      "sha256": "78cf1cc18c5985824d29cbebe1946565c9d82bc56f149a80baf3e80c672da8e6"
+    },
+    {
+      "@id": "src/generate_rocrate.py",
+      "@type": "File",
+      "name": "generate_rocrate.py",
+      "contentSize": 1784,
+      "sha256": "1fc716b5ac9c7c7fc8873f047eb02e2758ea06799b56d67d4a4e405e26a51068"
+    },
+    {
+      "@id": "src/inference_engine.py",
+      "@type": "File",
+      "name": "inference_engine.py",
+      "contentSize": 5427,
+      "sha256": "6efa3db7566b438f9ca119654f2aca5e154c7c3e2544ce9fd0a9b3df2f7b6e79"
+    },
+    {
+      "@id": "src/localized_conformal.py",
+      "@type": "File",
+      "name": "localized_conformal.py",
+      "contentSize": 2065,
+      "sha256": "4590391410d0e01b75692e9c9168c2c67b0831f3e635b058bfac77e36055c505"
+    },
+    {
+      "@id": "src/mondrian_conformal.py",
+      "@type": "File",
+      "name": "mondrian_conformal.py",
+      "contentSize": 3277,
+      "sha256": "316df4f85447d4e98fd124360b59227cd3c11a6e0f8fabd4c0a4f893cc4e26e6"
+    },
+    {
+      "@id": "src/predict_variant.py",
+      "@type": "File",
+      "name": "predict_variant.py",
+      "contentSize": 2836,
+      "sha256": "d01235d43bfd36008f457424a2eedcbb0f3be3fd101df7dd2aa53e5358cbecb4"
+    },
+    {
+      "@id": "src/resource_logger.py",
+      "@type": "File",
+      "name": "resource_logger.py",
+      "contentSize": 1133,
+      "sha256": "edd3535668386ad22d091ef5e90354672ee2a4c841a39f7ad695d8d0a9a86d28"
+    },
+    {
+      "@id": "src/run_pilot_benchmark.py",
+      "@type": "File",
+      "name": "run_pilot_benchmark.py",
+      "contentSize": 5944,
+      "sha256": "482dcebf2a017492800e8a4887827a547040bc6086ca3a431175a4a3782e4e9b"
+    },
+    {
+      "@id": "src/train_v10_clean.py",
+      "@type": "File",
+      "name": "train_v10_clean.py",
+      "contentSize": 7365,
+      "sha256": "d5f6c6920729d0160e4e7f84ed7e1c2c48e8009467fc31096be7634da3c6281e"
+    },
+    {
+      "@id": "src/upgrade_v2_spliceai.py",
+      "@type": "File",
+      "name": "upgrade_v2_spliceai.py",
+      "contentSize": 7605,
+      "sha256": "abf134c63296a154a19d24579bfb99c02d3ffbc825dc4582cfd6fd146a40031d"
+    },
+    {
+      "@id": "src/upgrade_v4_ensemble.py",
+      "@type": "File",
+      "name": "upgrade_v4_ensemble.py",
+      "contentSize": 9993,
+      "sha256": "a5984f2b68f9b3ad0e6b2d5a458d70d137ea7adcb33ddbceb46276c818f8ca72"
+    },
+    {
+      "@id": "src/v1_cluster_genes.py",
+      "@type": "File",
+      "name": "v1_cluster_genes.py",
+      "contentSize": 2000,
+      "sha256": "c0a6c23119039a50dbf4427f7e2f62d94dc35d3bb908b6f13b3656980dc8f721"
+    },
+    {
+      "@id": "src/v1_curate_120genes.py",
+      "@type": "File",
+      "name": "v1_curate_120genes.py",
+      "contentSize": 5419,
+      "sha256": "4afbcdcf8fa1abdef61faf66537b4c9f408bdaa0985ec979cce978ca9341ca64"
+    },
+    {
+      "@id": "src/v1_esm2_35m_poscache.py",
+      "@type": "File",
+      "name": "v1_esm2_35m_poscache.py",
+      "contentSize": 3458,
+      "sha256": "efc3f8c02409eaf4757dd88115c1d08ab97b145f41f0a3acefed152dfd564fb8"
+    },
+    {
+      "@id": "src/v1_ingest_alphamissense_and_gnomad.py",
+      "@type": "File",
+      "name": "v1_ingest_alphamissense_and_gnomad.py",
+      "contentSize": 5216,
+      "sha256": "9c5923d0a77d141afa73aac2137d104e9f10b15c35ddfc1686a70dea212fce1e"
+    },
+    {
+      "@id": "src/v1_mavedb_5gene_suite.py",
+      "@type": "File",
+      "name": "v1_mavedb_5gene_suite.py",
+      "contentSize": 5503,
+      "sha256": "ea649efd2e6e0738a9dcaced5368abf708708814f1fb1436b014b5b76db6f495"
+    },
+    {
+      "@id": "src/v1_train_full_120genes.py",
+      "@type": "File",
+      "name": "v1_train_full_120genes.py",
+      "contentSize": 8916,
+      "sha256": "bf90e8f111cbdc386a2c31af6c6437a87512b1df8e81d38f1d616b947ad69d92"
+    },
+    {
+      "@id": "src/validate_mavedb_dms.py",
+      "@type": "File",
+      "name": "validate_mavedb_dms.py",
+      "contentSize": 6600,
+      "sha256": "b28701cc88c7ccf97cf0fe01af5acb9419086929fd21e34b1d9cc98d849437c2"
+    },
+    {
+      "@id": "tests/test_pipeline.py",
+      "@type": "File",
+      "name": "test_pipeline.py",
+      "contentSize": 1648,
+      "sha256": "dd0af56a9352c1549955145d22818b6b73ff77fc883a12f5a63a8663622d0247"
+    },
+    {
+      "@id": "tests/test_v10_regression.py",
+      "@type": "File",
+      "name": "test_v10_regression.py",
+      "contentSize": 1333,
+      "sha256": "6c0e9a65ec5b1999be4f1641ac2092a78ce3e6c54389820a80b3525865ef6a6f"
+    },
+    {
+      "@id": "artifacts/v20_global_7ancestry_report.json",
+      "@type": "File",
+      "sha256": "66e707def3d34b9a45fe657a947e6fc01b79bc07cd0e070f80ae9ae233f5fe45",
+      "encodingFormat": "application/json"
+    },
+    {
+      "@id": "artifacts/v20_novel_founder_discoveries.json",
+      "@type": "File",
+      "sha256": "139ec9d508b41e7fd100bc74d9a0a90a702357a30117883037ae85189a301180",
+      "encodingFormat": "application/json"
+    },
+    {
+      "@id": "artifacts/v20_novel_founder_discoveries.csv",
+      "@type": "File",
+      "sha256": "642f8ff6df37d607370a4f1f37531815138500aaf35dd045df201909fcddcb9b",
+      "encodingFormat": "text/csv"
+    },
+    {
+      "@id": "artifacts/v20_mavedb_rsa_report.json",
+      "@type": "File",
+      "sha256": "a4ffd9e68ca4f048943d490ec2e551b138d0155a58f57d03145bfb58a13939ba",
+      "encodingFormat": "application/json"
+    },
+    {
+      "@id": "data/pgx_cpic_panel.json",
+      "@type": "File",
+      "sha256": "4c955d2057d179436f63d817926d3ff513543bf1fac44bff015ee6c2a970b223",
+      "encodingFormat": "application/json"
+    },
+    {
+      "@id": "src/offline_reference_store.py",
+      "@type": "File",
+      "sha256": "0edf09524fc93afe650e3327d53fe694e8359601d9e791b66f500f9b937999c2",
+      "encodingFormat": "text/x-python"
+    },
+    {
+      "@id": "src/vcf_patient_profiler.py",
+      "@type": "File",
+      "sha256": "a1ed4ddc7e99ffdbba488458b620745093cf5fec2d0cce01eb2b636d15576e6b",
+      "encodingFormat": "text/x-python"
+    },
+    {
+      "@id": "src/clinical_report_generator.py",
+      "@type": "File",
+      "sha256": "94b27f7d2a56f67e1686e80a72793e9f77cd72e6f9a5df723d0fa8bbfafc7560",
+      "encodingFormat": "text/x-python"
+    },
+    {
+      "@id": "src/api_server.py",
+      "@type": "File",
+      "sha256": "216782d62c4934e526686d0d8a7e7a742349c76ad5cc6185ff4f36d47a751090",
+      "encodingFormat": "text/x-python"
+    }
+  ]
+}

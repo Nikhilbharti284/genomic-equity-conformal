@@ -1,0 +1,123 @@
+{
+  "version": "1.0.0",
+  "source": "ClinGen SVI BA1 Exception List (Ghosh et al. 2018) & Hemoglobinopathy VCEP",
+  "exceptions": {
+    "HBB_E7V": {
+      "condition": "Sickle Cell Disease (Balancing Selection)",
+      "moi": "AR",
+      "block_benign": true
+    },
+    "HBB_E7K": {
+      "condition": "Hemoglobin C Disease (Balancing Selection)",
+      "moi": "AR",
+      "block_benign": true
+    },
+    "GJB2_V37I": {
+      "condition": "Autosomal Recessive Deafness (8.345% EAS AF)",
+      "moi": "AR",
+      "block_benign": true
+    },
+    "G6PD_V68M": {
+      "condition": "G6PD Deficiency (Malaria Selection)",
+      "moi": "XL",
+      "block_benign": true
+    },
+    "CFTR_R117H": {
+      "condition": "CFTR-Related Disorder (Variable Penetrance)",
+      "moi": "AR",
+      "block_benign": true
+    },
+    "MEFV_M694V": {
+      "condition": "Familial Mediterranean Fever",
+      "moi": "AR",
+      "block_benign": true
+    },
+    "G6PD_N126D": {
+      "condition": "G6PD A- Deficiency (Cis-Acting Polymorphism)",
+      "moi": "XL",
+      "block_benign": true
+    },
+    "HFE_C282Y": {
+      "condition": "Hereditary Hemochromatosis (Incomplete Penetrance)",
+      "moi": "AR",
+      "block_benign": true
+    },
+    "HFE_H63D": {
+      "condition": "Hereditary Hemochromatosis (Mild Penetrance)",
+      "moi": "AR",
+      "block_benign": true
+    },
+    "BTD_D444H": {
+      "condition": "Partial Biotinidase Deficiency (Hypomorphic Allele)",
+      "moi": "AR",
+      "block_benign": true
+    },
+    "MEFV_E148Q": {
+      "condition": "Familial Mediterranean Fever (High Carrier Frequency)",
+      "moi": "AR",
+      "block_benign": true
+    }
+  },
+  "gene_thresholds": {
+    "MYH7": {
+      "moi": "AD",
+      "ba1": 0.001,
+      "bs1": 0.0002
+    },
+    "BRCA1": {
+      "moi": "AD",
+      "ba1": 0.001,
+      "bs1": 0.0001
+    },
+    "BRCA2": {
+      "moi": "AD",
+      "ba1": 0.001,
+      "bs1": 0.0001
+    },
+    "PTEN": {
+      "moi": "AD",
+      "ba1": 0.01,
+      "bs1": 0.001
+    },
+    "TP53": {
+      "moi": "AD",
+      "ba1": 0.001,
+      "bs1": 0.0003
+    },
+    "PAH": {
+      "moi": "AR",
+      "ba1": 0.015,
+      "bs1": 0.002
+    },
+    "CFTR": {
+      "moi": "AR",
+      "ba1": 0.02,
+      "bs1": 0.005
+    },
+    "HBB": {
+      "moi": "AR",
+      "ba1": 0.05,
+      "bs1": 0.01
+    },
+    "G6PD": {
+      "moi": "XL",
+      "ba1": 0.05,
+      "bs1": 0.01
+    },
+    "HFE": {
+      "moi": "AR",
+      "ba1": 0.05,
+      "bs1": 0.01
+    },
+    "BTD": {
+      "moi": "AR",
+      "ba1": 0.05,
+      "bs1": 0.01
+    },
+    "MEFV": {
+      "moi": "AR",
+      "ba1": 0.05,
+      "bs1": 0.01
+    }
+  }
+}

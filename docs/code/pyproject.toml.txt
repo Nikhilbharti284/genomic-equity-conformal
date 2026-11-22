@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "genomic-equity-conformal"
+version = "3.0.0"
+description = "Enterprise Air-Gapped Pan-Global Clinical Calibration, Zygosity, CPIC PGx & Regulatory QA Sidecar"
+readme = "README.md"
+license = "MIT"
+authors = [{name = "Nikhil Bharti", email = "nikhilbharti594@gmail.com"}]
+requires-python = ">=3.10"
+dependencies = ["numpy", "scikit-learn", "joblib"]
+
+[project.optional-dependencies]
+esm2 = ["torch", "transformers"]
+dev = ["pytest"]
+
+[project.scripts]
+gec-audit = "audit_vcf:main"
+gec-predict = "predict_variant:main"
+gec-report = "clinical_report_generator:main"
+gec-api = "api_server:start_server"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = ["inference_engine", "audit_vcf", "predict_variant", "mondrian_conformal", "localized_conformal", "api_server", "pgx_drug_safety", "discover_unlisted_ba1_candidates", "v2_global_7ancestry_eval", "v2_mavedb_rsa_upgrade", "offline_reference_store", "vcf_patient_profiler", "clinical_report_generator"]
