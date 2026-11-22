@@ -1,84 +1,352 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Genomic Equity Conformal (v3.0.0) — Nikhil Bharti</title>
-<link rel="stylesheet" href="css/style.css?v=9">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Genomic Equity Conformal v3.0.0 — Air-Gapped Pan-Global Clinical QA Portal</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #f8fafc; color: #0f172a; }
+    code, pre, .font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; animation: fadeIn 0.2s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+    .nav-btn.active { background: #0f4c5c; color: #ffffff; }
+    .pill-btn.active { background: #0f4c5c; color: #ffffff; border-color: #0f4c5c; }
+    #toast { transition: opacity 0.25s ease, transform 0.25s ease; }
+  </style>
 </head>
-<body>
-<div class="author-ribbon">Created &amp; Engineered by <strong>Nikhil Bharti</strong> (<span class="author-handle">@Nikhilbharti284</span>) &bull; <a href="https://orcid.org/0009-0006-3130-9141" target="_blank">ORCID 0009-0006-3130-9141</a> &bull; <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub &#8599;</a></div>
-
-<header class="who-header">
-  <a class="brand" href="index.html">
-    <div class="brand-mark">GE</div>
-    <div><div class="brand-title">Genomic Equity</div><div class="brand-sub">CONFORMAL QA V3.0.0</div></div>
-  </a>
-  <button class="menu-btn" onclick="toggleDrawer(true)" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-</header>
-
-<nav id="nav-drawer" class="drawer">
-  <div class="drawer-top"><strong>Genomic Equity v3.0.0</strong><button class="menu-btn" onclick="toggleDrawer(false)">X</button></div>
-  <a href="index.html">Home &amp; 5-Stage Architecture</a>
-  <a href="results.html">7-Ancestry Benchmarks &amp; All 19 Discoveries</a>
-  <a href="lab.html">Live Interactive Lab (PGx + Zygosity + BA1)</a>
-  <a href="whitepaper.html">Printable v3.0.0 Whitepaper (PDF)</a>
-  <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal/tree/main/src" target="_blank">Browse Full v3.0.0 Source Code (GitHub) &#8599;</a>
-  <a href="https://orcid.org/0009-0006-3130-9141" target="_blank">ORCID: 0009-0006-3130-9141 &#8599;</a>
-</nav>
-
-<main class="wrap">
-  <section class="hero">
-    <span class="pill">ENTERPRISE v3.0.0 &bull; MIT CODE + CC BY 4.0 DATA &bull; ZERO-GPU AIR-GAPPED</span>
-    <h1>Pan-Global Clinical Variant Calibration, Zygosity &amp; CPIC PGx Sidecar</h1>
-    <p>Air-gapped clinical QA engine solving probability miscalibration, false-benign BA1 suppression, and pharmacogenomic toxicity across 7 global ancestries — built &amp; live-verified on $0 GitHub Codespaces Free Tier.</p>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
-      <a class="btn btn-gold" href="lab.html">Open Live Testing Lab</a>
-      <a class="btn btn-teal" href="results.html" style="border:1px solid rgba(255,255,255,.35)">View v3.0.0 Benchmarks</a>
-      <a class="btn btn-orcid" href="https://orcid.org/0009-0006-3130-9141" target="_blank">ORCID: 0009-0006-3130-9141</a>
+<body class="antialiased overflow-x-hidden">
+  <div class="bg-[#092c36] text-slate-200 text-xs py-2 px-4 border-b border-teal-900">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+        <span class="font-semibold text-white">Nikhil Bharti</span>
+        <span class="text-teal-300">@Nikhilbharti284</span>
+        <span class="hidden sm:inline text-slate-400">•</span>
+        <a href="https://orcid.org/0009-0006-3130-9141" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">ORCID: 0009-0006-3130-9141</a>
+        <span class="hidden sm:inline text-slate-400">•</span>
+        <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">GitHub Repo</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="toggleChartLoopBtn" type="button" class="px-2.5 py-0.5 rounded-full bg-sky-500/20 hover:bg-sky-500/30 text-sky-200 border border-sky-400/40 font-semibold transition cursor-pointer" title="Toggle continuous chart loop animation">Loop Charts: ON</button>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-900/70 text-emerald-200 border border-emerald-700/60 font-medium">Zero Login • Open Portal</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-900/60 text-amber-200 border border-amber-700/60 font-medium">MIT + CC BY 4.0</span>
+      </div>
     </div>
-    <img src="assets/figures/pipeline_5stage.svg?v=9" alt="5-Stage Air-Gapped Clinical QA Pipeline" style="width:100%;height:auto;display:block;border-radius:10px;background:#fff;padding:4px">
-  </section>
-
-  <section class="kpis">
-    <div class="kpi"><b>0.9844</b><span>118-Gene OOF AUROC (PR-AUC 0.9898)</span></div>
-    <div class="kpi"><b>&#8722;90.4% ECE</b><span>0.0686 &#8594; 0.0066 (0 Empty Sets)</span></div>
-    <div class="kpi"><b>19 Founders</b><span>Unlisted BS1+ Global Founders</span></div>
-    <div class="kpi"><b>9,249 DB</b><span>Offline SQLite WAL (--network=none)</span></div>
-  </section>
-
-  <section class="card">
-    <h2>What's New in Enterprise v3.0.0</h2>
-    <ul>
-      <li><strong>Zero-Internet Offline Store:</strong> 9,249 indexed GRCh38 records in SQLite WAL (<code>gec-audit --offline</code>).</li>
-      <li><strong>VCF Sample Zygosity &amp; AIM Ancestry:</strong> Distinguishes <code>AR_Carrier_Only (0/1)</code> vs <code>AR_Biallelic_Affected (1/1)</code> + automatic 7-ancestry MLE inference.</li>
-      <li><strong>Global CPIC PGx Safety Sidecar:</strong> Life-saving drug-toxicity alerts (<code>DPYD</code>, <code>NUDT15</code>, <code>TPMT</code>, <code>CYP2C19</code>, <code>SLCO1B1</code>, <code>G6PD</code>, <code>HLA-B</code>) via <code>GEC_PGX_ALERT</code>.</li>
-      <li><strong>NABL / CAP / EU AI Act Annex IV Report:</strong> Offline print-ready HTML patient audit report (<code>gec-report</code>) + zero-dependency OpenAPI REST server (<code>gec-api</code>).</li>
-    </ul>
-  </section>
-
-  <section class="card" id="creator">
-    <h2>Created by Nikhil Bharti &bull; Cite This Research</h2>
-    <p>Architected, coded, and live-verified end-to-end by <strong>Nikhil Bharti</strong> (<span class="author-handle">@Nikhilbharti284</span>, ORCID <code>0009-0006-3130-9141</code>). Computational research &amp; clinical-pipeline QA sidecar only — not standalone SaMD.</p>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
-      <a class="btn btn-teal" href="whitepaper.html">Download / Print Whitepaper (PDF)</a>
-      <button class="btn btn-gold" onclick="copyText('bibtex-box', this)">Copy BibTeX</button>
-    </div>
-    <pre id="bibtex-box">@software{bharti2026genomicequity,
-  author = {Bharti, Nikhil},
-  orcid = {0009-0006-3130-9141},
-  title = {Genomic Equity Conformal (v3.0.0): Pan-Global Air-Gapped Clinical Calibration, Zygosity &amp; CPIC PGx QA Sidecar},
-  year = {2026}, version = {3.0.0},
-  url = {https://github.com/Nikhilbharti284/genomic-equity-conformal}
-}</pre>
-  </section>
-</main>
-
-<footer class="footer">
-  <div class="wrap" style="padding:0">
-    <strong>Genomic Equity Conformal (v3.0.0)</strong> &bull; Nikhil Bharti (@Nikhilbharti284) &bull; MIT + CC BY 4.0<br>
-    <a href="index.html">Home</a> <a href="results.html">Benchmarks</a> <a href="lab.html">Live Lab</a> <a href="https://orcid.org/0009-0006-3130-9141" target="_blank">ORCID</a> <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub</a>
   </div>
-</footer>
-<script src="js/main.js?v=9"></script>
+
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <button type="button" id="brandHomeBtn" class="flex items-center gap-2.5 text-left focus:outline-none">
+        <span class="w-9 h-9 rounded-lg bg-[#0f4c5c] flex items-center justify-center shrink-0 shadow-sm">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 3C7 8 17 8 17 12C17 16 7 16 7 21" stroke="#f59e0b" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M17 3C17 8 7 8 7 12C7 16 17 16 17 21" stroke="#e2e8f0" stroke-width="2.4" stroke-linecap="round"/>
+            <line x1="8.5" y1="6.5" x2="15.5" y2="6.5" stroke="#ffffff" stroke-width="1.6"/>
+            <line x1="8.5" y1="17.5" x2="15.5" y2="17.5" stroke="#ffffff" stroke-width="1.6"/>
+          </svg>
+        </span>
+        <div>
+          <div class="text-sm sm:text-base font-extrabold text-slate-900 leading-tight">Genomic Equity Conformal</div>
+          <div class="text-[11px] font-semibold text-[#0f4c5c] tracking-wide">ENTERPRISE v3.0.0 • CLINICAL QA SIDECAR</div>
+        </div>
+      </button>
+      <nav class="hidden lg:flex items-center gap-1" aria-label="Main navigation">
+        <button type="button" class="nav-btn active px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 transition" data-tab="overview">Overview</button>
+        <button type="button" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 transition" data-tab="evolution">Origin &amp; Evolution</button>
+        <button type="button" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 transition" data-tab="algorithms">Algorithms &amp; Audit</button>
+        <button type="button" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 transition" data-tab="benchmarks">Charts &amp; Benchmarks</button>
+        <button type="button" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 transition" data-tab="discoveries">Discoveries &amp; PGx</button>
+        <button type="button" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 transition" data-tab="lab">Live Testing Lab</button>
+        <button type="button" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 transition" data-tab="enterprise">Enterprise &amp; Docs</button>
+      </nav>
+      <button type="button" id="mobileMenuBtn" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-100" aria-label="Toggle Menu" aria-expanded="false">
+        <svg id="menuIconOpen" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="menuIconClose" class="hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="mobileNav" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 py-3">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+        <button type="button" class="nav-btn active px-3 py-2 rounded-lg text-xs font-semibold text-left border border-slate-200" data-tab="overview">Overview</button>
+        <button type="button" class="nav-btn px-3 py-2 rounded-lg text-xs font-semibold text-left border border-slate-200" data-tab="evolution">Origin &amp; Evolution</button>
+        <button type="button" class="nav-btn px-3 py-2 rounded-lg text-xs font-semibold text-left border border-slate-200" data-tab="algorithms">Algorithms &amp; Audit</button>
+        <button type="button" class="nav-btn px-3 py-2 rounded-lg text-xs font-semibold text-left border border-slate-200" data-tab="benchmarks">Charts &amp; Benchmarks</button>
+        <button type="button" class="nav-btn px-3 py-2 rounded-lg text-xs font-semibold text-left border border-slate-200" data-tab="discoveries">Discoveries &amp; PGx</button>
+        <button type="button" class="nav-btn px-3 py-2 rounded-lg text-xs font-semibold text-left border border-slate-200" data-tab="lab">Live Testing Lab</button>
+        <button type="button" class="nav-btn px-3 py-2 rounded-lg text-xs font-semibold text-left border border-slate-200 col-span-2 sm:col-span-3" data-tab="enterprise">Enterprise &amp; Provenance Docs</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-6 sm:py-8 space-y-6">
+    <section id="tab-overview" class="tab-panel active space-y-6">
+      <div class="rounded-2xl bg-gradient-to-br from-[#0b3d4a] via-[#0f4c5c] to-[#135d6e] text-white p-6 sm:p-8 shadow-lg border border-teal-800">
+        <div class="flex flex-wrap items-center gap-2 mb-3">
+          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-400 text-slate-950 tracking-wide">RELEASE v3.0.0 ENTERPRISE</span>
+          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-white/15 text-teal-100">Zero-GPU • $0 Codespaces Free Tier</span>
+          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-400/20 text-emerald-200 border border-emerald-300/30">20/20 Pytest Passing</span>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight max-w-4xl">Air-Gapped Pan-Global 7-Ancestry Clinical Variant Calibration, Zygosity Gating &amp; CPIC PGx Engine</h1>
+        <p class="mt-3 text-sm sm:text-base text-teal-100 max-w-3xl leading-relaxed">Eliminates European-ancestry probability miscalibration and VUS inflation in South Asian (SAS), African (AFR), East Asian (EAS), Admixed American (AMR), Middle Eastern (MID), and founder cohorts—while protecting balancing-selection alleles like Sickle Cell (<code class="text-amber-200">HBB_E7V</code>) and running 100% offline (<code class="text-amber-200">--network=none</code>) under India's DPDP Act and NABL/CAP/EU AI Act workflows.</p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <button type="button" class="cta-nav px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs sm:text-sm shadow transition" data-target="lab">Open Live Testing Lab</button>
+          <button type="button" class="cta-nav px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-white font-semibold text-xs sm:text-sm border border-white/25 transition" data-target="evolution">Read Full v0.1 → v3.0 Story</button>
+          <button type="button" class="cta-nav px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-teal-100 font-semibold text-xs sm:text-sm border border-white/20 transition" data-target="benchmarks">Explore Interactive Charts</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
+        <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Pan-Global AUROC</div><div class="text-2xl sm:text-3xl font-extrabold text-[#0f4c5c] mt-1">0.9844</div><div class="text-xs text-slate-600 mt-1">PR-AUC 0.9898 • 118 Genes, n=9,142</div></div>
+        <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Overall ECE Cut</div><div class="text-2xl sm:text-3xl font-extrabold text-emerald-700 mt-1">−90.4%</div><div class="text-xs text-slate-600 mt-1">0.0686 → 0.0066 • 0 Empty Sets</div></div>
+        <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Novel Founders</div><div class="text-2xl sm:text-3xl font-extrabold text-amber-600 mt-1">19</div><div class="text-xs text-slate-600 mt-1">Unlisted BS1+ Global Candidates</div></div>
+        <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Offline SQLite DB</div><div class="text-2xl sm:text-3xl font-extrabold text-[#0f4c5c] mt-1">9,249</div><div class="text-xs text-slate-600 mt-1">GRCh38 WAL Rows • --network=none</div></div>
+        <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm col-span-2 lg:col-span-1"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">10K WES Streaming</div><div class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">0.917s</div><div class="text-xs text-slate-600 mt-1">181.1 MB Peak RAM • 20/20 Pytest</div></div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+          <div><h2 class="text-lg font-bold text-slate-900">5-Stage Air-Gapped Clinical QA Pipeline (v3.0.0)</h2><p class="text-xs sm:text-sm text-slate-600">End-to-end zero-egress architecture from raw hospital VCF 4.2 to NABL/CAP/EU AI Act Annex IV QA reports.</p></div>
+          <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">Zero GPU • &lt;250 MB Streaming RAM</span>
+        </div>
+        <div class="overflow-x-auto">
+          <svg viewBox="0 0 960 215" class="w-full min-w-[700px] h-auto" role="img" aria-label="Genomic Equity Conformal v3.0.0 5-Stage Architecture">
+            <defs><marker id="arrowHead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#0f4c5c" /></marker></defs>
+            <rect x="0" y="0" width="960" height="215" rx="12" fill="#f8fafc" stroke="#e2e8f0" />
+            <rect x="16" y="34" width="166" height="145" rx="10" fill="#ffffff" stroke="#0284c7" stroke-width="1.6"/><rect x="16" y="34" width="166" height="30" rx="10" fill="#0284c7"/><text x="99" y="54" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">1. VCF 4.2 + GT</text><text x="99" y="84" text-anchor="middle" fill="#0f172a" font-size="10.5" font-weight="600">Streaming .vcf/.vcf.gz</text><text x="99" y="103" text-anchor="middle" fill="#475569" font-size="10">GT/DP/GQ Zygosity</text><text x="99" y="121" text-anchor="middle" fill="#475569" font-size="10">0/1 AR Carrier vs</text><text x="99" y="137" text-anchor="middle" fill="#475569" font-size="10">1/1 Biallelic Affected</text><text x="99" y="162" text-anchor="middle" fill="#0369a1" font-size="10" font-weight="700">AIM 7-Ancestry MLE</text>
+            <line x1="182" y1="106" x2="205" y2="106" stroke="#0f4c5c" stroke-width="2" marker-end="url(#arrowHead)"/>
+            <rect x="208" y="34" width="166" height="145" rx="10" fill="#ffffff" stroke="#0f4c5c" stroke-width="1.6"/><rect x="208" y="34" width="166" height="30" rx="10" fill="#0f4c5c"/><text x="291" y="54" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">2. Offline SQLite WAL</text><text x="291" y="84" text-anchor="middle" fill="#0f172a" font-size="10.5" font-weight="600">9,249 GRCh38 Rows</text><text x="291" y="103" text-anchor="middle" fill="#475569" font-size="10">CC BY 4.0 AlphaMissense</text><text x="291" y="121" text-anchor="middle" fill="#475569" font-size="10">Frozen ESM2-35M LLR</text><text x="291" y="139" text-anchor="middle" fill="#475569" font-size="10">AFDB v6 C-Beta RSA</text><text x="291" y="162" text-anchor="middle" fill="#0f4c5c" font-size="10" font-weight="700">Sub-ms Local Lookup</text>
+            <line x1="374" y1="106" x2="397" y2="106" stroke="#0f4c5c" stroke-width="2" marker-end="url(#arrowHead)"/>
+            <rect x="400" y="34" width="166" height="145" rx="10" fill="#ffffff" stroke="#d97706" stroke-width="1.6"/><rect x="400" y="34" width="166" height="30" rx="10" fill="#d97706"/><text x="483" y="54" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">3. Nested OOF Stack</text><text x="483" y="84" text-anchor="middle" fill="#0f172a" font-size="10.5" font-weight="600">100 Homology Clusters</text><text x="483" y="103" text-anchor="middle" fill="#475569" font-size="10">MLP + HistGBM + LogReg</text><text x="483" y="121" text-anchor="middle" fill="#475569" font-size="10">Inner 3-Fold OOF Platt</text><text x="483" y="139" text-anchor="middle" fill="#475569" font-size="10">AUROC 0.9844</text><text x="483" y="162" text-anchor="middle" fill="#b45309" font-size="10" font-weight="700">ECE −90.4% (0.0066)</text>
+            <line x1="566" y1="106" x2="589" y2="106" stroke="#0f4c5c" stroke-width="2" marker-end="url(#arrowHead)"/>
+            <rect x="592" y="34" width="166" height="145" rx="10" fill="#ffffff" stroke="#059669" stroke-width="1.6"/><rect x="592" y="34" width="166" height="30" rx="10" fill="#059669"/><text x="675" y="54" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">4. Mondrian + Safety</text><text x="675" y="84" text-anchor="middle" fill="#0f172a" font-size="10.5" font-weight="600">7-Ancestry Conformal</text><text x="675" y="103" text-anchor="middle" fill="#475569" font-size="10">0 Empty Prediction Sets</text><text x="675" y="121" text-anchor="middle" fill="#475569" font-size="10">Pejaver PP3/BP4 Tiers</text><text x="675" y="139" text-anchor="middle" fill="#475569" font-size="10">3-Layer BA1 (11 Exc.)</text><text x="675" y="162" text-anchor="middle" fill="#047857" font-size="10" font-weight="700">CPIC Level A PGx Alerts</text>
+            <line x1="758" y1="106" x2="781" y2="106" stroke="#0f4c5c" stroke-width="2" marker-end="url(#arrowHead)"/>
+            <rect x="784" y="34" width="160" height="145" rx="10" fill="#ffffff" stroke="#475569" stroke-width="1.6"/><rect x="784" y="34" width="160" height="30" rx="10" fill="#334155"/><text x="864" y="54" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">5. Hospital QA Output</text><text x="864" y="84" text-anchor="middle" fill="#0f172a" font-size="10.5" font-weight="600">7 GEC_* VCF INFO Tags</text><text x="864" y="103" text-anchor="middle" fill="#475569" font-size="10">NABL/CAP/EU AI Act</text><text x="864" y="121" text-anchor="middle" fill="#475569" font-size="10">HTML QA Report</text><text x="864" y="139" text-anchor="middle" fill="#475569" font-size="10">Stdlib OpenAPI REST</text><text x="864" y="162" text-anchor="middle" fill="#334155" font-size="10" font-weight="700">W3C RO-Crate SHA-256</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-white rounded-2xl p-5 border border-emerald-200 shadow-sm">
+          <div class="flex items-center gap-2 mb-3"><span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span><h3 class="text-base font-bold text-slate-900">What We Built &amp; Live-Verified (Included)</h3></div>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-700 list-disc pl-5">
+            <li><strong>100% Commercial-Safe Stack:</strong> MIT code + CC BY 4.0 data (AlphaMissense, AlphaFold DB v6, ClinVar, gnomAD, CPIC PGx)—zero non-commercial license traps.</li>
+            <li><strong>Zero-Leakage Pan-Global Calibration:</strong> 5-fold outer Homology-Clustered GroupKFold (100 clusters, 45 paralogs merged) + inner 3-fold Nested OOF Platt scaling cutting ECE by 90.4%.</li>
+            <li><strong>Non-Empty Ancestry-Conditional Mondrian CP:</strong> Guaranteed zero empty sets across all 9,142 variants with 90.5%–100% decisive singleton rates.</li>
+            <li><strong>3-Layer Balancing-Selection &amp; Zygosity Safety:</strong> Protects 11 ClinGen BA1 exceptions (<code>HBB_E7V</code>, <code>GJB2_V37I</code>, <code>G6PD_V68M</code>, etc.) and gates <code>0/1</code> AR carriers vs. <code>1/1</code> biallelic affected calls.</li>
+            <li><strong>Enterprise Air-Gapped Deployment:</strong> 9,249-row SQLite WAL store, 10K WES streaming in 0.917s (181.1 MB RAM), stdlib OpenAPI REST API, and NABL/CAP/EU AI Act HTML reports.</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-2xl p-5 border border-amber-200 shadow-sm">
+          <div class="flex items-center gap-2 mb-3"><span class="w-2.5 h-2.5 rounded-full bg-amber-600"></span><h3 class="text-base font-bold text-slate-900">What We Explicitly Did NOT Do (Honest Boundaries)</h3></div>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-700 list-disc pl-5">
+            <li><strong>Not a Standalone Diagnostic SaMD:</strong> Strictly an in-house computational research &amp; clinical-pipeline QA sidecar; every clinical call requires sign-off by a qualified molecular geneticist.</li>
+            <li><strong>No Login Walls or Cloud Egress:</strong> Zero user tracking, zero login gates, and zero patient VCF uploads to third-party SaaS servers (DPDP Act compliant).</li>
+            <li><strong>No REVEL / CADD v1.7 / SpliceAI in Production:</strong> Removed due to non-commercial licensing restrictions and 0/1,206 MyVariant hg38 coverage failures.</li>
+            <li><strong>No Unaudited Wet-Lab Claims:</strong> Transparently disclose <code>LDLR</code> (−0.0002) as an honest miss in v2.0.0 MaveDB C-Beta RSA (4/5 wins) and <code>MID</code> (0.8934 coverage, n=122) as within 1 variant of 0.90.</li>
+            <li><strong>No GPU or Terabyte Downloads:</strong> Explicitly rejected 650M-parameter ESM-2 and raw terabyte gnomAD VCFs so independent labs can reproduce everything on free 2-core CPUs.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-evolution" class="tab-panel space-y-6">
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm">
+        <h2 class="text-xl font-extrabold text-slate-900">Genesis: How We Started &amp; Why Track 7 Beat 7 Competing Blueprints</h2>
+        <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-4xl">The project began with a forensic technical audit of an early Fungal Pma1 molecular-glue draft (catching 8 critical/high flaws). All 8 global-health tracks were scored on <strong>Score = Novelty (N) × Feasibility (F) × Fundability (Fu) × Impact (I)</strong> (max 625). <strong>Track 7 (Genomic Equity)</strong> tied #1 at <strong>500/625</strong> with highest novelty (<strong>5/5</strong>), lowest compute (~10 core-h/mo), and <strong>$0 digital validation</strong> via ClinVar, gnomAD, and MaveDB.</p>
+        <div class="mt-4 relative h-72"><canvas id="chartRubric"></canvas></div>
+      </div>
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div><h2 class="text-xl font-extrabold text-slate-900">Complete Version Evolution: Starting → Scaling → Enterprise v3.0.0</h2><p class="text-xs sm:text-sm text-slate-600">Click any release milestone to inspect what triggered the upgrade, what changed, and the verified quantitative proof.</p></div>
+          <div class="flex flex-wrap gap-1.5" id="versionBtns">
+            <button type="button" class="pill-btn active px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-300" data-ver="genesis">Genesis</button>
+            <button type="button" class="pill-btn px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-300" data-ver="v010">v0.1.0</button>
+            <button type="button" class="pill-btn px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-300" data-ver="v100">v1.0.0</button>
+            <button type="button" class="pill-btn px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-300" data-ver="v110">v1.1.0</button>
+            <button type="button" class="pill-btn px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-300" data-ver="v200">v2.0.0</button>
+            <button type="button" class="pill-btn px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-300" data-ver="v300">v3.0.0</button>
+          </div>
+        </div>
+        <div id="versionDetailCard" class="rounded-xl bg-slate-50 border border-slate-200 p-5"></div>
+      </div>
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm">
+        <h2 class="text-lg font-bold text-slate-900">End-to-End Discrimination Progression (Zero Gene/Paralog Leakage)</h2>
+        <p class="text-xs sm:text-sm text-slate-600 mb-3">Verified progression from Raw Frozen ESM-2 (0.6673) across v0.1.0, v1.0.0 Track B (p &lt; 0.001 vs AlphaMissense 0.9583), Post-2023 Holdout (0.9846), to Pan-Global v2/v3 (0.9844, PR-AUC 0.9898).</p>
+        <div class="relative h-72"><canvas id="chartAuroc"></canvas></div>
+      </div>
+    </section>
+
+    <section id="tab-algorithms" class="tab-panel space-y-6">
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div><h2 class="text-xl font-extrabold text-slate-900">Algorithm Decision Matrix: What Was Used, Upgraded, Rejected &amp; Why</h2><p class="text-xs sm:text-sm text-slate-600">Every modeling, statistical, structural, and engineering choice backed by empirical evidence from live Codespaces audits.</p></div>
+          <div class="flex flex-wrap gap-1.5" id="algoFilters">
+            <button type="button" class="pill-btn active px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-300" data-filter="ALL">All (14)</button>
+            <button type="button" class="pill-btn px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-300" data-filter="ADOPTED">Adopted</button>
+            <button type="button" class="pill-btn px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-300" data-filter="UPGRADED">Upgraded in v2/v3</button>
+            <button type="button" class="pill-btn px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-300" data-filter="REJECTED">Rejected / Forbidden</button>
+          </div>
+        </div>
+        <div class="overflow-x-auto"><table class="w-full text-left border-collapse text-xs sm:text-sm"><thead><tr class="bg-[#0f4c5c] text-white"><th class="p-3 rounded-tl-lg">Algorithm / Method</th><th class="p-3">Stage / Version</th><th class="p-3">Decision</th><th class="p-3 rounded-tr-lg">Empirical &amp; Engineering Rationale</th></tr></thead><tbody id="algoTableBody" class="divide-y divide-slate-200"></tbody></table></div>
+      </div>
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+        <div><h2 class="text-xl font-extrabold text-slate-900">Complete Forensic Bug &amp; Upgrade Audit Log (12 Real Live Fixes)</h2><p class="text-xs sm:text-sm text-slate-600">Every defect surfaced during live execution from v0.1.0 through v3.0.0, documented transparently.</p></div>
+        <div class="overflow-x-auto"><table class="w-full text-left border-collapse text-xs sm:text-sm"><thead><tr class="bg-slate-800 text-white"><th class="p-3 rounded-tl-lg">#</th><th class="p-3">Release</th><th class="p-3">Issue / Defect</th><th class="p-3">Observed Symptom</th><th class="p-3 rounded-tr-lg">Verified Fix Applied</th></tr></thead><tbody id="bugTableBody" class="divide-y divide-slate-200"></tbody></table></div>
+      </div>
+    </section>
+
+    <section id="tab-benchmarks" class="tab-panel space-y-6">
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div><h2 class="text-lg font-extrabold text-slate-900">Chart 1: Expected Calibration Error (ECE) Across Ancestries</h2><p class="text-xs sm:text-sm text-slate-600">Lower is better. Switch between v2/v3 Pan-Global (−90.4%), v1.0.0 4-Cohort (−82.2%), and v0.1.0 Isotonic Overfit proof.</p></div>
+          <div class="flex flex-wrap gap-1.5" id="eceModeBtns">
+            <button type="button" class="pill-btn active px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-300" data-ecemode="v3">v2/v3 Pan-Global (8 Strata)</button>
+            <button type="button" class="pill-btn px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-300" data-ecemode="v1">v1.0.0 Track B (4 Strata)</button>
+            <button type="button" class="pill-btn px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-300" data-ecemode="v01">v0.1.0 Isotonic vs Platt</button>
+          </div>
+        </div>
+        <div class="relative h-72"><canvas id="chartEce"></canvas></div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-3">
+        <div><h2 class="text-lg font-extrabold text-slate-900">Chart 2: Pan-Global Non-Empty Mondrian Coverage &amp; Decisive Singletons</h2><p class="text-xs sm:text-sm text-slate-600">Nominal target 1 − α = 0.90 with 0 empty prediction sets across all 9,142 variants. *Honest finite-sample disclosure: MID has n=122 (0.8934 is within 1 variant of 0.90).</p></div>
+        <div class="relative h-72"><canvas id="chartMondrian"></canvas></div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-6">
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div><h2 class="text-base font-extrabold text-slate-900">Chart 3: Independent Wet-Lab MaveDB DMS (Zero ClinVar Labels)</h2><p class="text-xs text-slate-600">Toggle v1.0.0 pLDDT vs v2.0.0 C-Beta 10Å RSA Burial (flipped TP53 to WIN; 4/5 wins).</p></div>
+            <div class="flex gap-1.5" id="maveModeBtns">
+              <button type="button" class="pill-btn active px-2.5 py-1 rounded-lg text-xs font-bold border border-slate-300" data-mavemode="v2">v2.0.0 C-Beta RSA</button>
+              <button type="button" class="pill-btn px-2.5 py-1 rounded-lg text-xs font-bold border border-slate-300" data-mavemode="v1">v1.0.0 pLDDT</button>
+            </div>
+          </div>
+          <div class="relative h-72"><canvas id="chartMave"></canvas></div>
+          <p id="maveNote" class="text-xs text-slate-600 bg-slate-50 p-2.5 rounded-lg border border-slate-200"></p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-3">
+          <div><h2 class="text-base font-extrabold text-slate-900">Chart 4: $0 Free-Tier Hardware Envelope (Peak RAM vs 8,192 MB)</h2><p class="text-xs text-slate-600">Every pipeline stage runs far below the 8 GB GitHub Codespaces Free Tier ceiling—including 10,000-variant WES streaming in 0.917s.</p></div>
+          <div class="relative h-72"><canvas id="chartRam"></canvas></div>
+          <p class="text-xs text-slate-600 bg-slate-50 p-2.5 rounded-lg border border-slate-200"><strong>Verified Telemetry:</strong> ClinVar Stream 34 MB (90.06s) • AlphaMissense 71M Stream 55.25 MB • 10K WES Audit 181.1 MB (0.917s) • Frozen ESM2-8M 507.06 MB • Frozen ESM2-35M Cache 629 MB (0.34s/pos).</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-3">
+        <h3 class="text-base font-bold text-slate-900">Full Pan-Global 7-Ancestry Nested OOF Table (118 Genes, 100 Clusters, n = 9,142)</h3>
+        <div class="overflow-x-auto"><table class="w-full text-left border-collapse text-xs sm:text-sm"><thead><tr class="bg-[#0f4c5c] text-white"><th class="p-3 rounded-tl-lg">Global Ancestry Cohort</th><th class="p-3">n</th><th class="p-3">Raw AM ECE</th><th class="p-3">v2/v3 ECE</th><th class="p-3">ECE Cut</th><th class="p-3">Mondrian Cov</th><th class="p-3">Singletons</th><th class="p-3 rounded-tr-lg">Empty Sets</th></tr></thead><tbody id="benchTableBody" class="divide-y divide-slate-200"></tbody></table></div>
+      </div>
+    </section>
+
+    <section id="tab-discoveries" class="tab-panel space-y-6">
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div><h2 class="text-xl font-extrabold text-slate-900">Autonomous Unlisted Founder &amp; Balancing-Selection Discoveries (19 Total • Top 10 Ranked)</h2><p class="text-xs sm:text-sm text-slate-600">Scanning 9,142 ≥2-star ClinVar GRCh38 variants against 7-ancestry gnomAD v4.1, AlphaMissense (≥0.85), and AlphaFold DB v6 pLDDT flagged 19 unlisted BS1+ candidates absent from ClinGen's static BA1 list.</p></div>
+          <div class="flex flex-wrap items-center gap-2">
+            <input type="text" id="discSearch" placeholder="Search gene or syndrome..." class="px-3 py-1.5 text-xs border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0f4c5c]" />
+            <select id="discAncFilter" class="px-3 py-1.5 text-xs border border-slate-300 rounded-lg bg-white"><option value="ALL">All Ancestries</option><option value="ASJ">ASJ</option><option value="EAS">EAS</option><option value="AMR">AMR</option><option value="SAS">SAS</option></select>
+          </div>
+        </div>
+        <div class="overflow-x-auto"><table class="w-full text-left border-collapse text-xs sm:text-sm"><thead><tr class="bg-[#0f4c5c] text-white"><th class="p-3 rounded-tl-lg">Rank</th><th class="p-3">Variant ID</th><th class="p-3">Top Ancestry</th><th class="p-3">Ancestry AF</th><th class="p-3">AlphaMissense</th><th class="p-3">AFDB v6 pLDDT</th><th class="p-3 rounded-tr-lg">Clinical / Founder Significance</th></tr></thead><tbody id="discTableBody" class="divide-y divide-slate-200"></tbody></table></div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+        <div><h2 class="text-xl font-extrabold text-slate-900">Global CPIC Level A Pharmacogenomics (PGx) Drug-Safety Sidecar</h2><p class="text-xs sm:text-sm text-slate-600">Integrated directly into <code>GenomicEquityEngine.predict()</code> and <code>gec-audit --out-vcf</code> via the <code>GEC_PGX_ALERT</code> VCF 4.2 INFO tag.</p></div>
+        <div class="overflow-x-auto"><table class="w-full text-left border-collapse text-xs sm:text-sm"><thead><tr class="bg-slate-800 text-white"><th class="p-3 rounded-tl-lg">Gene / Allele</th><th class="p-3">Key Variants / Tag rsIDs</th><th class="p-3">High-Risk Ancestries</th><th class="p-3 rounded-tr-lg">Drug Class &amp; CPIC Level A Action</th></tr></thead><tbody id="pgxTableBody" class="divide-y divide-slate-200"></tbody></table></div>
+      </div>
+    </section>
+
+    <section id="tab-lab" class="tab-panel space-y-6">
+      <div class="grid lg:grid-cols-2 gap-6">
+        <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+          <div><span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">Live v3.0.0 Engine</span><h2 class="text-lg font-extrabold text-slate-900 mt-1">Sample Zygosity (GT), CPIC PGx &amp; BA1 Tester</h2></div>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div><label for="labPreset" class="block text-xs font-semibold text-slate-700 mb-1">Clinical Variant Preset</label><select id="labPreset" class="w-full px-3 py-2 text-xs sm:text-sm border border-slate-300 rounded-lg bg-white"></select></div>
+            <div><label for="labGt" class="block text-xs font-semibold text-slate-700 mb-1">Patient VCF Genotype (GT)</label><select id="labGt" class="w-full px-3 py-2 text-xs sm:text-sm border border-slate-300 rounded-lg bg-white"><option value="0/1">0/1 (Heterozygous)</option><option value="1/1">1/1 (Homozygous Alt)</option><option value="0/0">0/0 (Reference Wildtype)</option></select></div>
+            <div><label for="labAnc" class="block text-xs font-semibold text-slate-700 mb-1">Patient Ancestry Cohort</label><select id="labAnc" class="w-full px-3 py-2 text-xs sm:text-sm border border-slate-300 rounded-lg bg-white"><option value="AFR">AFR (African / African Am.)</option><option value="SAS">SAS (South Asian)</option><option value="EAS">EAS (East Asian)</option><option value="AMR">AMR (Admixed American)</option><option value="MID">MID (Middle Eastern)</option><option value="NFE">NFE (Non-Finnish European)</option><option value="BOTTLENECK_FOUNDER">BOTTLENECK_FOUNDER (ASJ+FIN)</option><option value="ULTRA_RARE">ULTRA_RARE (AF = 0)</option></select></div>
+            <div class="flex items-end gap-2"><button type="button" id="runAuditBtn" class="flex-1 px-4 py-2 rounded-lg bg-[#0f4c5c] hover:bg-[#0b3d4a] text-white font-bold text-xs sm:text-sm transition">Run v3.0.0 Audit</button><button type="button" id="copyAuditBtn" class="px-3 py-2 rounded-lg border border-slate-300 hover:bg-slate-100 text-slate-700 font-semibold text-xs">Copy</button></div>
+          </div>
+          <div id="auditSummaryBadges" class="flex flex-wrap gap-2"></div>
+          <pre id="auditJsonOut" class="bg-slate-950 text-emerald-300 text-xs p-4 rounded-xl overflow-x-auto leading-relaxed max-h-80"></pre>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+          <div><span class="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">Interactive Math Simulator</span><h2 class="text-lg font-extrabold text-slate-900 mt-1">Custom Variant 3-Layer BA1 &amp; Conformal Simulator</h2></div>
+          <div class="grid sm:grid-cols-2 gap-3 text-xs">
+            <div><label for="simProb" class="flex justify-between font-semibold text-slate-700 mb-1"><span>Calibrated Platt Prob</span><span id="simProbVal" class="font-mono text-[#0f4c5c]">0.92</span></label><input type="range" id="simProb" min="0.01" max="0.99" step="0.01" value="0.92" class="w-full accent-[#0f4c5c]" /></div>
+            <div><label for="simLlr" class="flex justify-between font-semibold text-slate-700 mb-1"><span>ESM-2 Zero-Shot LLR</span><span id="simLlrVal" class="font-mono text-[#0f4c5c]">-4.50</span></label><input type="range" id="simLlr" min="-12" max="2" step="0.1" value="-4.5" class="w-full accent-[#0f4c5c]" /></div>
+            <div><label for="simAf" class="block font-semibold text-slate-700 mb-1">gnomAD GrpMax AF</label><input type="number" id="simAf" value="0.0001" step="0.0005" min="0" max="1" class="w-full px-3 py-2 border border-slate-300 rounded-lg font-mono" /></div>
+            <div><label for="simMoi" class="block font-semibold text-slate-700 mb-1">Gene Mode of Inheritance (BS1)</label><select id="simMoi" class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white"><option value="AD">AD (Autosomal Dominant — BS1 0.0003)</option><option value="AR">AR (Autosomal Recessive — BS1 0.0050)</option><option value="XL">XL (X-Linked — BS1 0.0100)</option></select></div>
+          </div>
+          <div class="flex gap-2"><button type="button" id="runSimBtn" class="flex-1 px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs sm:text-sm transition">Simulate Conformal + Pejaver + BA1</button><button type="button" id="copySimBtn" class="px-3 py-2 rounded-lg border border-slate-300 hover:bg-slate-100 text-slate-700 font-semibold text-xs">Copy</button></div>
+          <div id="simBadges" class="flex flex-wrap gap-2"></div>
+          <pre id="simJsonOut" class="bg-slate-950 text-sky-300 text-xs p-4 rounded-xl overflow-x-auto leading-relaxed max-h-80"></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-enterprise" class="tab-panel space-y-6">
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+        <h2 class="text-xl font-extrabold text-slate-900">Enterprise v3.0.0 Air-Gapped Hospital Modules</h2>
+        <div class="overflow-x-auto"><table class="w-full text-left border-collapse text-xs sm:text-sm"><thead><tr class="bg-[#0f4c5c] text-white"><th class="p-3 rounded-tl-lg">Enterprise Module</th><th class="p-3">CLI / Endpoint</th><th class="p-3 rounded-tr-lg">Air-Gapped Capability &amp; Regulatory Role</th></tr></thead><tbody class="divide-y divide-slate-200"><tr><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/offline_reference_store.py</td><td class="p-3 font-mono text-xs">artifacts/v3_offline_clinical_ref.sqlite</td><td class="p-3">9,249 indexed GRCh38 records in SQLite WAL for <code>--network=none</code> sub-ms lookup.</td></tr><tr class="bg-slate-50"><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/vcf_patient_profiler.py</td><td class="p-3 font-mono text-xs">GT/DP/GQ + AIM 7-Ancestry MLE</td><td class="p-3">Distinguishes <code>AR_Carrier_Only</code> (0/1) vs <code>AR_Biallelic_Affected</code> (1/1); automatic ancestry inference.</td></tr><tr><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/audit_vcf.py</td><td class="p-3 font-mono text-xs">gec-audit --offline --vcf</td><td class="p-3">Constant-memory streaming WES auditor (10,000 variants in 0.917s, 181.1 MB RAM) emitting 7 <code>GEC_*</code> INFO tags.</td></tr><tr class="bg-slate-50"><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/api_server.py</td><td class="p-3 font-mono text-xs">gec-api (ThreadingHTTPServer)</td><td class="p-3">Zero-dependency REST API: <code>/health</code>, <code>/openapi.json</code>, <code>/docs</code>, <code>POST /audit</code>, <code>POST /audit-vcf</code>.</td></tr><tr><td class="p-3 font-mono font-semibold text-[#0f4c5c]">src/clinical_report_generator.py</td><td class="p-3 font-mono text-xs">gec-report --audit-json</td><td class="p-3">Offline print-ready NABL (ISO 15189) / CAP / EU AI Act Annex IV HTML report.</td></tr></tbody></table></div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-6">
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-3">
+          <div class="flex items-center justify-between"><h3 class="text-base font-bold text-slate-900">Air-Gapped Quickstart &amp; Verification</h3><button type="button" id="copyQuickstartBtn" class="px-2.5 py-1 rounded-lg border border-slate-300 hover:bg-slate-100 text-xs font-semibold">Copy Commands</button></div>
+          <pre id="quickstartCode" class="bg-slate-950 text-slate-100 text-xs p-4 rounded-xl overflow-x-auto leading-relaxed">pip install -e . --no-deps --no-build-isolation
+gec-audit --offline --default-ancestry auto --vcf sample.vcf.gz --out-vcf audited.vcf
+gec-report --audit-json artifacts/raw_vcf_audit_output.json --out-html report.html
+gec-api   # Air-gapped OpenAPI server at http://127.0.0.1:8000/docs
+pytest -q tests/   # Verified: 20 passed in 23.36s
+
+docker build -t genomic-equity:3.0.0 .
+docker run --network=none -p 8080:8080 genomic-equity:3.0.0</pre>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-3">
+          <div class="flex items-center justify-between"><h3 class="text-base font-bold text-slate-900">Cite This Research (BibTeX)</h3><button type="button" id="copyBibtexBtn" class="px-2.5 py-1 rounded-lg border border-slate-300 hover:bg-slate-100 text-xs font-semibold">Copy BibTeX</button></div>
+          <pre id="bibtexCode" class="bg-slate-950 text-amber-200 text-xs p-4 rounded-xl overflow-x-auto leading-relaxed">@software{bharti2026genomicequity,
+  author       = {Bharti, Nikhil},
+  title        = {{Genomic Equity Conformal (v3.0.0): Air-Gapped Pan-Global 7-Ancestry Clinical Calibration, Zygosity Gating & CPIC PGx Engine}},
+  year         = {2026},
+  version      = {3.0.0},
+  license      = {MIT},
+  url          = {https://github.com/Nikhilbharti284/genomic-equity-conformal},
+  note         = {ORCID: 0009-0006-3130-9141}
+}</pre>
+          <div class="flex flex-wrap gap-2 pt-1">
+            <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-[#0f4c5c] text-white text-xs font-semibold hover:bg-[#0b3d4a]">GitHub Repository ↗</a>
+            <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal/tree/main/src" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-800 border border-slate-300 text-xs font-semibold hover:bg-slate-200">Browse src/ Code ↗</a>
+            <a href="https://orcid.org/0009-0006-3130-9141" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-800 border border-slate-300 text-xs font-semibold hover:bg-slate-200">ORCID Profile ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-3">
+        <h3 class="text-base font-bold text-slate-900">Cryptographic Provenance Ledger (Verified SHA-256 Digests • v0.1.0 → v3.0.0)</h3>
+        <div class="overflow-x-auto"><table class="w-full text-left border-collapse text-xs"><thead><tr class="bg-slate-800 text-white"><th class="p-3 rounded-tl-lg">Verified Artifact</th><th class="p-3">Verified Outcome</th><th class="p-3 rounded-tr-lg">SHA-256 Digest</th></tr></thead><tbody id="shaTableBody" class="divide-y divide-slate-200"></tbody></table></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-10 border-t border-slate-200 bg-white py-6 px-4 text-xs text-slate-600">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <p class="max-w-3xl"><strong>Regulatory Disclaimer:</strong> Genomic Equity Conformal (v3.0.0) is an open-source computational research and clinical-pipeline QA audit sidecar (MIT code + CC BY 4.0 data). It is <strong>not</strong> a standalone diagnostic Software as a Medical Device (SaMD); all clinical variant classifications require review by qualified molecular geneticists under NABL / CAP / ACMG guidelines.</p>
+      <div class="font-semibold text-slate-700 shrink-0">© 2026 Nikhil Bharti • Zero Login Open Science</div>
+    </div>
+  </footer>
+
+  <div id="toast" class="fixed bottom-5 right-5 z-50 pointer-events-none opacity-0 translate-y-2 bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-xl shadow-lg">Copied!</div>
+
+  <script src="js/portal-v3-data-1.js"></script>
+  <script src="js/portal-v3-data-2.js"></script>
+  <script src="js/portal-v3-charts.js"></script>
+  <script src="js/portal-v3-app.js"></script>
 </body>
 </html>
