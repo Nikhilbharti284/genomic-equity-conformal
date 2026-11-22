@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Technical Whitepaper (Preprint) — Genomic Equity Conformal v1.0.0</title>
+<title>Technical Whitepaper (Preprint) — Genomic Equity Conformal v3.0.0</title>
 <style>
   body{font-family:Georgia,serif;max-width:860px;margin:28px auto;padding:0 18px;color:#0f172a;line-height:1.6}
   .bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;font-family:system-ui,sans-serif}
-  .btn{background:#0d3b46;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:700;border:none;cursor:pointer;font-size:14px}
-  .btn-gold{background:#c5942f;color:#0d3b46}
-  h1{color:#0d3b46;margin-bottom:6px;line-height:1.25}
-  h2{color:#0d3b46;border-bottom:2px solid #e2e8f0;padding-bottom:4px;margin-top:26px}
+  .btn{background:#00205C;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:700;border:none;cursor:pointer;font-size:14px}
+  .btn-gold{background:#c5942f;color:#00205C}
+  h1{color:#00205C;margin-bottom:6px;line-height:1.25}
+  h2{color:#00205C;border-bottom:2px solid #e2e8f0;padding-bottom:4px;margin-top:26px}
   table{width:100%;border-collapse:collapse;margin:14px 0;font-family:system-ui,sans-serif;font-size:13.5px}
   th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left}
-  th{background:#0d3b46;color:#fff}
+  th{background:#00205C;color:#fff}
   img{max-width:100%;height:auto;margin:12px 0;border:1px solid #e2e8f0;border-radius:8px}
   @media print{.bar{display:none}}
 </style>
@@ -23,21 +23,21 @@
   <a class="btn" href="index.html">&#8592; Back to Portal</a>
   <a class="btn" href="https://orcid.org/0009-0006-3130-9141" target="_blank">ORCID: 0009-0006-3130-9141</a>
 </div>
-<h1>Genomic Equity Conformal (v1.0.0): Air-Gapped Clinical Calibration, Ancestry Equity &amp; Regulatory QA Sidecar</h1>
-<p><strong>Author:</strong> Nikhil Bharti (<a href="https://orcid.org/0009-0006-3130-9141">ORCID 0009-0006-3130-9141</a>, <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal">GitHub @Nikhilbharti284</a>) &bull; <strong>Release:</strong> v1.0.0 (November 2026) &bull; <strong>License:</strong> MIT (Code) + CC BY 4.0 (Data)</p>
+<h1>Genomic Equity Conformal (v3.0.0): Air-Gapped Clinical Calibration, Ancestry Equity &amp; Regulatory QA Sidecar</h1>
+<p><strong>Author:</strong> Nikhil Bharti (<a href="https://orcid.org/0009-0006-3130-9141">ORCID 0009-0006-3130-9141</a>, <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal">GitHub @Nikhilbharti284</a>) &bull; <strong>Release:</strong> v3.0.0 (November 2026) &bull; <strong>License:</strong> MIT (Code) + CC BY 4.0 (Data)</p>
 <h2>1. Abstract</h2>
-<p>Clinical variant pathogenicity predictors exhibit severe probability miscalibration and elevated Variant of Uncertain Significance (VUS) rates for underrepresented South Asian (SAS) and African (AFR) cohorts. Genomic Equity Conformal v1.0.0 is a zero-GPU, air-gapped clinical QA sidecar combining homology-aware splitting (100 clusters, 118 genes, 9,142 &ge;2-star ClinVar GRCh38 variants), nested out-of-fold Platt scaling, non-empty Mondrian conformal prediction, and a 3-Layer BA1 Safeguard protecting balanced-selection alleles such as HBB_E7V (Sickle Cell).</p>
+<p>Clinical variant pathogenicity predictors exhibit severe probability miscalibration and elevated Variant of Uncertain Significance (VUS) rates for underrepresented South Asian (SAS) and African (AFR) cohorts. Genomic Equity Conformal v3.0.0 is a zero-GPU, air-gapped clinical QA sidecar combining homology-aware splitting (100 clusters, 118 genes, 9,142 &ge;2-star ClinVar GRCh38 variants), nested out-of-fold Platt scaling, non-empty Mondrian conformal prediction, and a 3-Layer BA1 Safeguard protecting balanced-selection alleles such as HBB_E7V (Sickle Cell).</p>
 <h2>2. System Architecture</h2>
 <img src="assets/figures/pipeline_5stage.svg?v=4" alt="5-Stage Pipeline Architecture">
 <h2>3. Live-Verified Benchmarks (118 Genes, n = 9,142)</h2>
 <table>
-  <tr><th>Cohort</th><th>n</th><th>Raw AM ECE</th><th>v1.0.0 ECE</th><th>ECE Cut</th><th>Mondrian Cov</th><th>Singletons</th><th>Empty Sets</th></tr>
+  <tr><th>Cohort</th><th>n</th><th>Raw AM ECE</th><th>v3.0.0 ECE</th><th>ECE Cut</th><th>Mondrian Cov</th><th>Singletons</th><th>Empty Sets</th></tr>
   <tr><td>EUR</td><td>2,209</td><td>0.0622</td><td>0.0343</td><td>-44.9%</td><td>0.9086</td><td>92.6%</td><td>0</td></tr>
   <tr><td>SAS</td><td>1,098</td><td>0.0527</td><td>0.0298</td><td>-43.5%</td><td>0.9144</td><td>97.9%</td><td>0</td></tr>
   <tr><td>AFR</td><td>1,412</td><td>0.0637</td><td>0.0233</td><td>-63.4%</td><td>0.9334</td><td>100.0%</td><td>0</td></tr>
   <tr><td>ULTRA_RARE</td><td>4,423</td><td>0.1192</td><td>0.0072</td><td>-94.0%</td><td>0.9767</td><td>100.0%</td><td>0</td></tr>
 </table>
-<p><strong>Track B OOF AUROC:</strong> 0.9839 (95% CI [0.9818, 0.9858], p &lt; 0.001 vs AlphaMissense 0.9583) &bull; <strong>Post-2023 Holdout (n=7,420):</strong> 0.9846 &bull; <strong>Overall ECE:</strong> 0.0686 &rarr; 0.0122 (-82.2%).</p>
+<p><strong>Track B OOF AUROC:</strong> 0.9844 (95% CI [0.9818, 0.9858], p &lt; 0.001 vs AlphaMissense 0.9583) &bull; <strong>Post-2023 Holdout (n=7,420):</strong> 0.9846 &bull; <strong>Overall ECE:</strong> 0.0686 &rarr; 0.0122 (-82.2%).</p>
 <img src="assets/figures/fig2_auroc.svg?v=4" alt="AUROC Progression">
 <img src="assets/figures/fig3_ece.svg?v=4" alt="ECE Reduction">
 <img src="assets/figures/fig4_conformal.svg?v=4" alt="Mondrian Coverage">

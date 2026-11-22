@@ -1,34 +1,80 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Home — Genomic Equity Conformal v3.0.0</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css?v=300"></head><body>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home — Genomic Equity Conformal (v3.0.0)</title><meta name="theme-color" content="#00205C">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=4"></head><body>
 <div id="progress-bar"></div>
-<div class="who-topbar">Genomic Equity Conformal <strong>v3.0.0</strong> &bull; Air-Gapped Pan-Global Clinical Variant QA &bull; <a href="https://orcid.org/0009-0006-3130-9141" target="_blank">Nikhil Bharti (ORCID 0009-0006-3130-9141)</a></div>
-<header class="who-header"><div class="header-inner"><a href="index.html" class="who-brand"><span class="who-brand-mark">GE</span><span class="brand-text"><strong>Genomic Equity Conformal</strong><span>v3.0.0 &bull; Global Clinical QA</span></span></a><nav class="desktop-nav"><a href="index.html" class="active">Home</a><a href="overview.html" class="">Architecture</a><a href="results.html" class="">7-Ancestry</a><a href="mavedb.html" class="">MaveDB</a><a href="genes.html" class="">BA1 & PGx</a><a href="lab.html" class="">Live Lab</a><a href="audit.html" class="">NABL QA</a><a href="deploy.html" class="">Deploy</a><a href="code.html" class="">Code</a><a href="provenance.html" class="">Provenance</a></nav><div class="header-actions"><a href="lab.html" class="pill-cta">Live Lab</a><button id="burger-btn" class="who-burger" aria-label="Menu">&#9776;</button></div></div></header>
-<div id="who-drawer" class="who-drawer"><div class="drawer-top"><a href="index.html" class="drawer-brand">Genomic Equity Conformal v3.0.0</a><button id="drawer-close" class="drawer-close">&times;</button></div><div class="drawer-tools"><button id="theme-toggle" class="drawer-theme" type="button">Dark Mode</button><a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank" class="drawer-theme" style="text-decoration:none">GitHub</a></div><nav class="drawer-links"><a href="index.html" class="active">Home<span>&rsaquo;</span></a><a href="overview.html" class="">Architecture<span>&rsaquo;</span></a><a href="results.html" class="">7-Ancestry<span>&rsaquo;</span></a><a href="mavedb.html" class="">MaveDB<span>&rsaquo;</span></a><a href="genes.html" class="">BA1 & PGx<span>&rsaquo;</span></a><a href="lab.html" class="">Live Lab<span>&rsaquo;</span></a><a href="audit.html" class="">NABL QA<span>&rsaquo;</span></a><a href="deploy.html" class="">Deploy<span>&rsaquo;</span></a><a href="code.html" class="">Code<span>&rsaquo;</span></a><a href="provenance.html" class="">Provenance<span>&rsaquo;</span></a></nav></div>
+<div class="author-ribbon">Created &amp; Engineered by <strong>Nikhil Bharti</strong> (<span class="author-handle" style="background:rgba(255,255,255,0.14);color:#f6c453;border:1px solid rgba(246,196,83,0.45);padding:1px 6px;border-radius:4px;font-weight:700">@Nikhilbharti284</span>) &bull; Genomic Equity Conformal v3.0.0 <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub &nearr;</a></div>
+<header class="who-header"><div class="header-inner">
+  <a class="who-brand" href="index.html"><img src="assets/favicon.svg" alt="Logo"><div class="brand-text"><strong>Genomic Equity</strong><span>Conformal QA v3.0.0</span></div></a>
+  <nav class="desktop-nav" aria-label="Primary"><a href="index.html" class="active">Home</a><a href="lab.html"><span>Live Testing Lab</span><span class="chev">›</span></a><a href="overview.html" class="">Overview & Equity</a><a href="architecture.html" class="">Architecture</a><a href="results.html" class="">Live Results</a><a href="mavedb.html" class="">MaveDB Wet-Lab</a><a href="audit.html" class="">Audit Log</a></nav>
+  <div class="header-actions"><a class="pill-cta" href="lab.html">Live Testing Lab</a><button id="menu-open" class="who-burger" type="button" aria-label="Open menu">☰</button></div>
+</div></header>
+
+<div id="who-drawer" class="who-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="drawer-top"><a class="drawer-brand" href="index.html"><img src="assets/favicon.svg" width="30" height="30" alt="Logo"><span>Genomic Equity v3.0.0</span></a><button id="menu-close" class="drawer-close" type="button" aria-label="Close menu">&times;</button></div>
+  <div class="drawer-tools"><input id="drawer-search" class="drawer-search" type="search" placeholder="Search research portal..."><button id="theme-toggle" class="drawer-theme" type="button">☾ Dark</button></div>
+  <div id="drawer-results" class="drawer-results"></div>
+  <nav class="drawer-links"><a href="index.html" class="active"><span>Home</span><span class="chev">›</span></a><a href="overview.html" class=""><span>Overview & Equity</span><span class="chev">›</span></a><a href="architecture.html" class=""><span>Architecture</span><span class="chev">›</span></a><a href="results.html" class=""><span>Live Results</span><span class="chev">›</span></a><a href="mavedb.html" class=""><span>MaveDB Wet-Lab</span><span class="chev">›</span></a><a href="audit.html" class=""><span>Audit Log</span><span class="chev">›</span></a><a href="deploy.html" class=""><span>Codespaces & Docker</span><span class="chev">›</span></a><a href="provenance.html" class=""><span>Provenance & Funding</span><span class="chev">›</span></a><a href="code.html" class=""><span>Source Code</span><span class="chev">›</span></a></nav>
+</div>
+
 <section class="who-hero"><div class="who-hero-inner">
-  <div><span class="hero-tag">v3.0.0 (e6d7dfc) &bull; Enterprise Air-Gapped Release</span><h1>Fair, Calibrated Clinical Variant QA Across 7 Global Ancestries</h1><p>Zero-GPU offline SQLite WAL calibration, 90% non-empty Mondrian Conformal sets, GT Zygosity Gating, CPIC Level A Pharmacogenomics, and NABL / EU AI Act Annex IV traceability.</p><div class="hero-btns"><a href="lab.html" class="btn-who">Open Live Testing Lab</a><a href="results.html" class="btn-gold">7-Ancestry Benchmarks</a><a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank" rel="noopener" class="btn-outline">GitHub (e6d7dfc)</a></div></div>
-  <div class="card" style="background:rgba(255,255,255,.08);border:1px solid rgba(125,211,252,.35);color:#fff;margin:0"><h2 style="color:#fff;border-bottom-color:rgba(255,255,255,.2)">v3.0.0 Verified Snapshot</h2><ul style="margin:0;padding-left:18px;font-size:.9rem;line-height:1.75;color:#E0F2FE"><li><strong>OOF AUROC / PR-AUC:</strong> <code>0.9844</code> / <code>0.9898</code> (118 genes, 9,142 variants)</li><li><strong>Overall ECE Cut:</strong> <code>0.0686 &rarr; 0.0066</code> (<strong>-90.4%</strong>) &bull; <strong>0</strong> Empty Sets</li><li><strong>10k WES Streaming:</strong> <code>&lt;0.25s</code> runtime &bull; <code>&lt;200 MB</code> peak RAM</li><li><strong>CI &amp; Verification:</strong> <code>20/20 pytest</code> passed (<code>~5.48s</code>) &bull; Commit <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal/commit/e6d7dfc" target="_blank" style="color:#7DD3FC"><code>e6d7dfc</code></a></li><li><strong>Offline Store:</strong> <code>9,249</code> GRCh38 records (<code>--network=none</code>)</li></ul></div>
+  <div>
+    <span class="hero-tag">Release v3.0.0 &bull; MIT + CC BY 4.0 &bull; Zero-GPU</span>
+    <h1>Genomic Equity Conformal (v3.0.0)</h1>
+    <p>Air-gapped clinical calibration, South Asian (SAS) &amp; African (AFR) ancestry equity, ClinGen Pejaver PP3/BP4 mapping, and 3-Layer BA1 balancing-selection safeguard verified on 9,142 &ge;2-star ClinVar variants.</p>
+    <div class="hero-btns"><a class="btn-gold" href="lab.html">Try Live Testing Lab &rarr;</a><a class="btn-outline" href="code.html">Inspect 33 Verbatim Files</a></div>
+  </div>
+  <img src="assets/figures/pipeline_5stage.svg?v=4" alt="Genomic Equity Conformal 5-Stage System Architecture Pipeline" style="width:100%;height:auto;display:block;border-radius:12px;background:#fff;padding:6px;box-shadow:0 8px 24px rgba(0,0,0,0.18)">
 </div></section>
-<main class="container">
-  <div class="banner-warn"><strong>Regulatory &amp; Clinical Boundary (Non-SaMD):</strong> Genomic Equity Conformal <code>v3.0.0</code> is a computational research &amp; clinical-pipeline QA audit sidecar only — <strong>not</strong> a standalone diagnostic Software as a Medical Device (SaMD). Final clinical sign-off remains with certified medical geneticists.</div>
-  <div class="kpi-grid">
-    <div class="kpi-card"><div class="kpi-val">0.9844</div><div class="kpi-lbl">OOF AUROC (118 genes, PR-AUC 0.9898)</div></div>
-    <div class="kpi-card"><div class="kpi-val">&lt;0.25s</div><div class="kpi-lbl">10k WES streaming (&lt;200 MB RAM)</div></div>
-    <div class="kpi-card"><div class="kpi-val">20/20</div><div class="kpi-lbl">pytest suite passed (~5.48s, e6d7dfc)</div></div>
-    <div class="kpi-card"><div class="kpi-val">-90.4%</div><div class="kpi-lbl">Overall ECE cut (0 empty sets)</div></div>
-  </div>
-  <div class="section-head"><h2>v3.0.0 Core Capabilities</h2><a href="overview.html">Full Architecture &rarr;</a></div>
-  <div class="editorial-grid">
-    <a href="results.html" class="ed-card"><div class="ed-body"><span class="ed-meta">Calibration</span><h3>7-Ancestry Mondrian Conformal</h3><p>SAS, AFR, EAS, AMR, MID, NFE, BOTTLENECK_FOUNDER &amp; ULTRA_RARE with 0 empty sets.</p></div></a>
-    <a href="genes.html" class="ed-card"><div class="ed-body"><span class="ed-meta">Safeguards</span><h3>3-Layer BA1 + 19 Founder Hits</h3><p>Protects HBB_E7V &amp; 11 ClinGen exceptions; flags TP53_P72R (73.8% AF) as Benign_90pct.</p></div></a>
-    <a href="lab.html" class="ed-card"><div class="ed-body"><span class="ed-meta">PGx &amp; GT</span><h3>CPIC PGx + Zygosity Gating</h3><p>Distinguishes AR_Carrier_Only (0/1) vs AR_Biallelic_Affected (1/1) + NUDT15/DPYD alerts.</p></div></a>
-    <a href="deploy.html" class="ed-card"><div class="ed-body"><span class="ed-meta">Hospital</span><h3>Air-Gapped Streaming + OpenAPI</h3><p>10,000-variant .vcf.gz streaming (&lt;0.25s, &lt;200 MB RAM) and stdlib OpenAPI server.</p></div></a>
-    <a href="mavedb.html" class="ed-card"><div class="ed-body"><span class="ed-meta">Structure</span><h3>MaveDB C-Beta RSA Win</h3><p>AlphaFold v6 C-Beta burial flips TP53 MaveDB to WIN (0.2485 &rarr; 0.2488).</p></div></a>
-    <a href="audit.html" class="ed-card"><div class="ed-body"><span class="ed-meta">Compliance</span><h3>NABL / CAP / EU AI Act QA</h3><p>Print-ready offline HTML QA reports with SHA-256 cryptographic hashes.</p></div></a>
-  </div>
-  <div class="card">
-    <h2>Open-Source Grants &amp; Clinical Lab Pilot Readiness</h2>
-    <p>100% commercially clean (<strong>MIT Code + CC BY 4.0 Data</strong>, zero REVEL) and built for zero-GPU, air-gapped deployment in Indian &amp; LMIC diagnostic labs. Prepared for open-source infrastructure fellowships and clinical QA pilots (<strong>Mozilla Fellowship</strong>, <strong>NLnet NGI0 Commons</strong>, <strong>Emergent Ventures India</strong>).</p>
-    <p style="margin:0"><a class="btn btn-primary" href="provenance.html">View RO-Crate 1.1 &amp; SHA-256 Provenance</a> <a class="btn" href="code.html">Browse Full Source Code</a></p>
-  </div>
-</main>
-<footer><div class="footer-inner"><div><strong>Genomic Equity Conformal v3.0.0</strong> &bull; Zero-GPU Air-Gapped Clinical Variant QA<br><a href="https://orcid.org/0009-0006-3130-9141" target="_blank">Nikhil Bharti</a> &bull; MIT Code + CC BY 4.0 Data</div><div><a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub</a> &bull; <a href="audit.html">NABL QA</a> &bull; <a href="deploy.html">Deploy</a></div></div></footer>
-<script>(function(){const b=document.getElementById('burger-btn'),d=document.getElementById('who-drawer'),c=document.getElementById('drawer-close');if(b&&d&&c){b.onclick=()=>d.classList.add('open');c.onclick=()=>d.classList.remove('open');}const tt=document.getElementById('theme-toggle');if(localStorage.getItem('gec-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');if(tt)tt.onclick=()=>{const x=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',x?'light':'dark');localStorage.setItem('gec-theme',x?'light':'dark');};})();</script></body></html>
+
+<div class="container">
+  <section class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-val">0.9844</div><div class="kpi-lbl"><strong>118-Gene OOF AUROC</strong><br>p &lt; 0.001 vs AlphaMissense (0.9583)</div></div>
+    <div class="kpi-card"><div class="kpi-val">&minus;82.2% ECE</div><div class="kpi-lbl"><strong>0.0686 &rarr; 0.0122</strong><br>SAS &minus;43.5%, AFR &minus;63.4%</div></div>
+    <div class="kpi-card"><div class="kpi-val">4/5 MaveDB</div><div class="kpi-lbl"><strong>Wet-Lab DMS Wins</strong><br>ESM2-35M + AFDB v6 pLDDT</div></div>
+    <div class="kpi-card"><div class="kpi-val">$0 / 42 Files</div><div class="kpi-lbl"><strong>Codespaces Free CPU</strong><br>W3C RO-Crate 1.1 SHA-256</div></div>
+  </section>
+
+  <div class="banner-warn"><strong>Responsible Scientific &amp; Regulatory Framing:</strong> Strictly an <strong>in-house laboratory QA, ancestry calibration &amp; research benchmarking sidecar</strong> &mdash; NOT a standalone clinical diagnostic device (SaMD). All predictions must be reviewed by qualified clinical geneticists under NABL/CAP/CLIA protocols.</div>
+
+  <div class="section-head"><h2>Research Highlights</h2><a href="results.html">All Results &rarr;</a></div>
+  <section class="editorial-grid">
+    <a class="ed-card" href="overview.html"><img class="ed-thumb" src="assets/photos/lab_sequencing.jpg" alt="Ancestry equity cohorts"><div class="ed-body"><div class="ed-meta">Section 1 &bull; Clinical Equity</div><h3>Fixing EUR-Biased VEPs &amp; DPDP Act Data Sovereignty</h3><p>Why Track 7 was selected over 3 competing blueprints to reduce SAS/AFR VUS burden without cloud egress.</p></div></a>
+    <a class="ed-card" href="results.html"><img class="ed-thumb" src="assets/photos/sequencers.jpg" alt="AUROC and ECE benchmark charts"><div class="ed-body"><div class="ed-meta">Section 3 &bull; Live Benchmarks</div><h3>0.9844 AUROC, 0.9846 Post-2023 Holdout &amp; Raw VCF 4.2</h3><p>Interactive Chart.js figures, subgroup coverage (&ge;0.90 across all 4 cohorts, 0 empty sets), and 3/3 VCF checks.</p></div></a>
+    <a class="ed-card" href="mavedb.html"><img class="ed-thumb" src="assets/photos/nanopore_dna.jpg" alt="MaveDB wet-lab validation"><div class="ed-body"><div class="ed-meta">Wet-Lab Suite &bull; Zero ClinVar Labels</div><h3>5-Gene MaveDB DMS: 4/5 Wins &amp; Honest TP53 Reporting</h3><p>AlphaFold DB v6 pLDDT structural modulation beats raw ESM2-35M on PTEN, MSH2, LDLR, and BRCA1.</p></div></a>
+    <a class="ed-card" href="architecture.html"><img class="ed-thumb" src="assets/card-shield.svg" alt="BA1 safeguard and Docker"><div class="ed-body"><div class="ed-meta">Section 2 &bull; Architecture</div><h3>Interactive 5-Stage Pipeline &amp; 3-Layer BA1 Safeguard</h3><p>Explore Union-Find 100-cluster homology splitting, Nested OOF Platt, and Sickle Cell (HBB_E7V) protection.</p></div></a>
+    <a class="ed-card" href="audit.html"><img class="ed-thumb" src="assets/photos/sequencers.jpg" alt="Forensic audit log"><div class="ed-body"><div class="ed-meta">Section 4 &bull; Engineering Audit</div><h3>All 10 Real Bugs Caught &amp; Fixed Live</h3><p>Searchable accordion covering REVEL removal, EUR undercoverage fix, hg38 restoration, and mobile tables.</p></div></a>
+    <a class="ed-card" href="provenance.html"><img class="ed-thumb" src="assets/photos/lab_sequencing.jpg" alt="Provenance and funding"><div class="ed-body"><div class="ed-meta">Section 6 &bull; Provenance &amp; Grants</div><h3>42 SHA-256 RO-Crate Files &amp; 2026&ndash;2027 Roadmap</h3><p>Cryptographic verification digests plus Mozilla Fellowship ($125k), NLnet, Emergent Ventures &amp; B2B lab wedge.</p></div></a>
+  </section>
+
+  
+  <section class="card" id="creator">
+    <h2>Created By Nikhil Bharti (@Nikhilbharti284) &bull; Cite This Research</h2>
+    <p><strong>Genomic Equity Conformal (v3.0.0)</strong> was architected, coded, benchmarked, and live-verified end-to-end by <strong>Nikhil Bharti</strong> on $0-cost GitHub Codespaces Free Tier (MIT Code + CC BY 4.0 Data).</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+      <a class="btn-gold" href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub Repository</a>
+      <a class="btn-gold" href="whitepaper.html" target="_blank" style="background:#00205C;color:#f6c453;border:1px solid #c5942f">&#128196; Download Technical Whitepaper (PDF)</a>
+      <a class="btn-gold" href="https://orcid.org/0009-0006-3130-9141" target="_blank" style="background:#a6ce39;color:#0f172a">ORCID: 0009-0006-3130-9141</a>
+      <a class="btn" href="lab.html">Open 8-Tool Live Testing Lab</a>
+      <button class="btn" type="button" data-copy="@software{bharti2026genomicequity, author={Bharti, Nikhil}, title={Genomic Equity Conformal (v3.0.0): Air-Gapped Ancestry-Calibrated Clinical VUS Conformal QA Sidecar}, year={2026}, url={https://github.com/Nikhilbharti284/genomic-equity-conformal}}">Copy BibTeX</button>
+      <button class="btn" type="button" data-copy="Bharti, N. (2026). Genomic Equity Conformal (v3.0.0): Air-Gapped Ancestry-Calibrated Clinical VUS Conformal QA Sidecar. GitHub. https://github.com/Nikhilbharti284/genomic-equity-conformal">Copy APA Citation</button>
+    </div>
+    <p style="font-size:.82rem;color:var(--muted);margin:0">Scientific photography: National Cancer Institute (Public Domain), NIST (Public Domain), and Wikimedia Commons (CC BY 2.0).</p>
+  </section>
+
+  <section class="card"><h2>Version Journey (v0.1.0 &rarr; v3.0.0)</h2><div class="timeline">
+    <div class="tl-step"><strong>v0.1.0 Pilot (20 Genes)</strong>Raw ESM-2 (0.6673) &rarr; single-split MLP (0.7322 AUROC) in 507 MB RAM.</div>
+    <div class="tl-step"><strong>V2 Zero-Circularity</strong>hg38 gnomAD + 5-fold GroupKFold + Platt + Mondrian (0.8038 AUROC).</div>
+    <div class="tl-step"><strong>v3.0.0-clean</strong>Zero REVEL, Nested OOF Platt, 0 empty sets (0.8400 AUROC, EUR 0.8714).</div>
+    <div class="tl-step"><strong>v3.0.0 Track B (118g)</strong>CC BY 4.0 AlphaMissense + 100 clusters: <strong>0.9844 AUROC</strong>, 0.0122 ECE.</div>
+  </div></section>
+</div>
+
+<button id="back-to-top" type="button" aria-label="Back to top">↑</button>
+<footer><div class="footer-inner">
+  <div><strong>Genomic Equity Conformal (v3.0.0)</strong> &bull; Nikhil Bharti (@Nikhilbharti284) &bull; MIT + CC BY 4.0 &bull; Built November 2026</div>
+  <div style="display:flex;gap:14px"><a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub Repo</a><a href="code.html">Source Code</a><a href="provenance.html">SHA-256 Ledger</a></div>
+</div></footer>
+<script src="js/main.js"></script></body></html>

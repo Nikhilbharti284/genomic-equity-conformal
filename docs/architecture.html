@@ -1,29 +1,29 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Architecture — Genomic Equity Conformal (v1.0.0)</title><meta name="theme-color" content="#0b3c49">
+<title>Architecture — Genomic Equity Conformal (v3.0.0)</title><meta name="theme-color" content="#00205C">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css?v=4"></head><body>
 <div id="progress-bar"></div>
-<div class="author-ribbon">Created &amp; Engineered by <strong>Nikhil Bharti</strong> (<span class="author-handle" style="background:rgba(255,255,255,0.14);color:#f6c453;border:1px solid rgba(246,196,83,0.45);padding:1px 6px;border-radius:4px;font-weight:700">@Nikhilbharti284</span>) &bull; Genomic Equity Conformal v1.0.0 <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub &nearr;</a></div>
+<div class="author-ribbon">Created &amp; Engineered by <strong>Nikhil Bharti</strong> (<span class="author-handle" style="background:rgba(255,255,255,0.14);color:#f6c453;border:1px solid rgba(246,196,83,0.45);padding:1px 6px;border-radius:4px;font-weight:700">@Nikhilbharti284</span>) &bull; Genomic Equity Conformal v3.0.0 <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub &nearr;</a></div>
 <header class="who-header"><div class="header-inner">
-  <a class="who-brand" href="index.html"><img src="assets/favicon.svg" alt="Logo"><div class="brand-text"><strong>Genomic Equity</strong><span>Conformal QA v1.0.0</span></div></a>
+  <a class="who-brand" href="index.html"><img src="assets/favicon.svg" alt="Logo"><div class="brand-text"><strong>Genomic Equity</strong><span>Conformal QA v3.0.0</span></div></a>
   <nav class="desktop-nav" aria-label="Primary"><a href="index.html" class="">Home</a><a href="lab.html"><span>Live Testing Lab</span><span class="chev">›</span></a><a href="overview.html" class="">Overview & Equity</a><a href="architecture.html" class="active">Architecture</a><a href="results.html" class="">Live Results</a><a href="mavedb.html" class="">MaveDB Wet-Lab</a><a href="audit.html" class="">Audit Log</a></nav>
   <div class="header-actions"><a class="pill-cta" href="lab.html">Live Testing Lab</a><button id="menu-open" class="who-burger" type="button" aria-label="Open menu">☰</button></div>
 </div></header>
 
 <div id="who-drawer" class="who-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
-  <div class="drawer-top"><a class="drawer-brand" href="index.html"><img src="assets/favicon.svg" width="30" height="30" alt="Logo"><span>Genomic Equity v1.0.0</span></a><button id="menu-close" class="drawer-close" type="button" aria-label="Close menu">&times;</button></div>
+  <div class="drawer-top"><a class="drawer-brand" href="index.html"><img src="assets/favicon.svg" width="30" height="30" alt="Logo"><span>Genomic Equity v3.0.0</span></a><button id="menu-close" class="drawer-close" type="button" aria-label="Close menu">&times;</button></div>
   <div class="drawer-tools"><input id="drawer-search" class="drawer-search" type="search" placeholder="Search research portal..."><button id="theme-toggle" class="drawer-theme" type="button">☾ Dark</button></div>
   <div id="drawer-results" class="drawer-results"></div>
   <nav class="drawer-links"><a href="index.html" class=""><span>Home</span><span class="chev">›</span></a><a href="overview.html" class=""><span>Overview & Equity</span><span class="chev">›</span></a><a href="architecture.html" class="active"><span>Architecture</span><span class="chev">›</span></a><a href="results.html" class=""><span>Live Results</span><span class="chev">›</span></a><a href="mavedb.html" class=""><span>MaveDB Wet-Lab</span><span class="chev">›</span></a><a href="audit.html" class=""><span>Audit Log</span><span class="chev">›</span></a><a href="deploy.html" class=""><span>Codespaces & Docker</span><span class="chev">›</span></a><a href="provenance.html" class=""><span>Provenance & Funding</span><span class="chev">›</span></a><a href="code.html" class=""><span>Source Code</span><span class="chev">›</span></a></nav>
 </div>
 
-<div class="container"><section class="hero"><div class="hero-eyebrow">Section 2 &bull; Architecture &amp; Algorithms</div><h1>Complete v1.0.0 Architecture &amp; Rejected Approaches</h1><p>Click any stage in the 5-stage pipeline to inspect its exact verified metrics and algorithms.</p></section>
-<section id="pipeline" class="card"><h2>Interactive 5-Stage v1.0.0 Pipeline</h2><div class="pipeline">
+<div class="container"><section class="hero"><div class="hero-eyebrow">Section 2 &bull; Architecture &amp; Algorithms</div><h1>Complete v3.0.0 Architecture &amp; Rejected Approaches</h1><p>Click any stage in the 5-stage pipeline to inspect its exact verified metrics and algorithms.</p></section>
+<section id="pipeline" class="card"><h2>Interactive 5-Stage v3.0.0 Pipeline</h2><div class="pipeline">
 <button class="pipe-stage active" type="button" data-detail="<strong>Stage 1 — 118-Gene Ingest:</strong> ClinVar &ge;2-star stream (max_per_gene=85) + 71M-row CC BY 4.0 AlphaMissense gzip stream (55.25 MB RAM) &rarr; 9,142 matched variants (7,420 post-2023)."><strong>1. 118-Gene Ingest</strong><br><small>9,142 Variants</small></button>
 <button class="pipe-stage" type="button" data-detail="<strong>Stage 2 — Anti-Leakage + 3D:</strong> 5-mer + Union-Find clusters 119 genes into 101 homology clusters (45 paralogs merged) + ESM2-35M SQLite WAL (629 MB RAM) + AlphaFold DB v6 pLDDT."><strong>2. Anti-Leakage + 3D</strong><br><small>100 Clusters</small></button>
-<button class="pipe-stage" type="button" data-detail="<strong>Stage 3 — Nested OOF Stack:</strong> 5-Fold Cluster GroupKFold (MLP + HistGBM + LogReg) + Nested OOF Platt Scaling &rarr; <strong>0.9839 AUROC</strong> (p &lt; 0.001 vs AlphaMissense 0.9583), 0.0122 ECE (&minus;82.2%)."><strong>3. Nested OOF Stack</strong><br><small>0.9839 AUROC</small></button>
+<button class="pipe-stage" type="button" data-detail="<strong>Stage 3 — Nested OOF Stack:</strong> 5-Fold Cluster GroupKFold (MLP + HistGBM + LogReg) + Nested OOF Platt Scaling &rarr; <strong>0.9844 AUROC</strong> (p &lt; 0.001 vs AlphaMissense 0.9583), 0.0122 ECE (&minus;82.2%)."><strong>3. Nested OOF Stack</strong><br><small>0.9844 AUROC</small></button>
 <button class="pipe-stage" type="button" data-detail="<strong>Stage 4 — Mondrian + Pejaver + BA1 Guard:</strong> Non-Empty Mondrian (0 empty sets, all 4 cohorts &ge;0.90 cov) + AF-free ClinGen Pejaver PP3/BP4 + 3-Layer BA1 Exception Safeguard (HBB_E7V)."><strong>4. Mondrian + Pejaver</strong><br><small>All &ge;0.90 Cov</small></button>
 <button class="pipe-stage" type="button" data-detail="<strong>Stage 5 — Air-Gapped Deploy:</strong> Unified src/inference_engine.py + Raw VCF 4.2 + CLI + API + Zero-Egress Docker (--network=none) + W3C RO-Crate 1.1 (42 SHA-256 files)."><strong>5. Air-Gapped Deploy</strong><br><small>42 SHA-256</small></button></div>
 <div id="pipe-detail" class="pipe-detail"><strong>Stage 1 — 118-Gene Ingest:</strong> ClinVar &ge;2-star stream (max_per_gene=85) + 71M-row CC BY 4.0 AlphaMissense gzip stream (55.25 MB RAM) &rarr; 9,142 matched variants (7,420 post-2023).</div></section>
@@ -35,7 +35,7 @@
 
 <button id="back-to-top" type="button" aria-label="Back to top">↑</button>
 <footer><div class="footer-inner">
-  <div><strong>Genomic Equity Conformal (v1.0.0)</strong> &bull; Nikhil Bharti (@Nikhilbharti284) &bull; MIT + CC BY 4.0 &bull; Built November 2026</div>
+  <div><strong>Genomic Equity Conformal (v3.0.0)</strong> &bull; Nikhil Bharti (@Nikhilbharti284) &bull; MIT + CC BY 4.0 &bull; Built November 2026</div>
   <div style="display:flex;gap:14px"><a href="https://github.com/Nikhilbharti284/genomic-equity-conformal" target="_blank">GitHub Repo</a><a href="code.html">Source Code</a><a href="provenance.html">SHA-256 Ledger</a></div>
 </div></footer>
 <script src="js/main.js"></script></body></html>
