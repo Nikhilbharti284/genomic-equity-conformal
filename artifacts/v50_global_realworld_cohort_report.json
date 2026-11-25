@@ -1,0 +1,59 @@
+{
+  "version": "5.0.0",
+  "exome_store": {
+    "db_path": "artifacts/v5_panhuman_exome_ref.sqlite",
+    "n_records": 67402,
+    "n_hgnc_genes": 19276,
+    "unique_variant_genes": 7336,
+    "sha256": "d30f06f90be50f51aacd6e6ccc752031bf3951758524cd362d4fe8f292df9efb"
+  },
+  "super_populations": {
+    "SAS": {
+      "variants_evaluated": 5,
+      "tier1_sqlite_hits": 4,
+      "tier2_panhuman_novel_hits": 1,
+      "definitive_non_vus_rate": 0.8,
+      "ba1_safeguard_triggers": 3,
+      "cpic_pgx_alerts": 1
+    },
+    "AFR": {
+      "variants_evaluated": 4,
+      "tier1_sqlite_hits": 3,
+      "tier2_panhuman_novel_hits": 1,
+      "definitive_non_vus_rate": 0.5,
+      "ba1_safeguard_triggers": 3,
+      "cpic_pgx_alerts": 1
+    },
+    "EAS": {
+      "variants_evaluated": 4,
+      "tier1_sqlite_hits": 4,
+      "tier2_panhuman_novel_hits": 0,
+      "definitive_non_vus_rate": 0.75,
+      "ba1_safeguard_triggers": 3,
+      "cpic_pgx_alerts": 1
+    },
+    "AMR": {
+      "variants_evaluated": 4,
+      "tier1_sqlite_hits": 3,
+      "tier2_panhuman_novel_hits": 1,
+      "definitive_non_vus_rate": 0.75,
+      "ba1_safeguard_triggers": 2,
+      "cpic_pgx_alerts": 1
+    },
+    "EUR": {
+      "variants_evaluated": 3,
+      "tier1_sqlite_hits": 2,
+      "tier2_panhuman_novel_hits": 1,
+      "definitive_non_vus_rate": 1.0,
+      "ba1_safeguard_triggers": 1,
+      "cpic_pgx_alerts": 0
+    }
+  },
+  "trio_compound_het_verified": true,
+  "total_variants_evaluated": 20,
+  "elapsed_seconds": 1.4614,
+  "throughput_variants_per_sec": 13.7,
+  "peak_rss_mb": 185.08,
+  "ram_under_250mb": true,
+  "sha256": "5d7d1505d818b76fba5a7bae026813e0b7dee63fc5c6dc8348062d63d4c068cc"
+}
