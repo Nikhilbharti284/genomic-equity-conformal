@@ -1,78 +1,44 @@
 # Genomic Equity Conformal (v5.0.0)
+
 <p>
-  <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal/actions/workflows/ci.yml"><img src="https://github.com/Nikhilbharti284/genomic-equity-conformal/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
-  <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal/releases/tag/v5.0.0"><img src="https://img.shields.io/badge/Release-v5.0.0-0f4c5c?style=flat-square" alt="Release v5.0.0"></a>
-  <a href="https://orcid.org/0009-0006-3130-9141"><img src="https://img.shields.io/badge/ORCID-0009--0006--3130--9141-a6ce39?style=flat-square&logo=orcid&logoColor=white" alt="ORCID"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/Code-MIT-0d3b46?style=flat-square" alt="MIT License"></a>
-  <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/Data-CC%20BY%204.0-c5942f?style=flat-square" alt="CC BY 4.0"></a>
-  <a href="#quickstart--verification"><img src="https://img.shields.io/badge/Pytest-27%2F27%20Passing-16a34a?style=flat-square" alt="Pytest 33/33"></a>
-  <a href="#whats-new-in-v400-global-hospital-lan--interoperability"><img src="https://img.shields.io/badge/Interop-HL7%20FHIR%20R4-0284c7?style=flat-square" alt="HL7 FHIR R4"></a>
-  <a href="https://nikhilbharti284.github.io/genomic-equity-conformal/"><img src="https://img.shields.io/badge/Live%20Portal-GitHub%20Pages-0f766e?style=flat-square" alt="Live Portal"></a>
+  <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal/releases/tag/v5.0.0"><img src="https://img.shields.io/badge/Release-v5.0.0-111111?style=flat-square" alt="Release v5.0.0"></a>
+  <a href="https://doi.org/10.5281/zenodo.24465257"><img src="https://img.shields.io/badge/Zenodo-10.5281%2Fzenodo.24465257-111111?style=flat-square" alt="Zenodo DOI"></a>
+  <a href="https://orcid.org/0009-0006-3130-9141"><img src="https://img.shields.io/badge/ORCID-0009--0006--3130--9141-111111?style=flat-square" alt="ORCID"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/Code-MIT-111111?style=flat-square" alt="MIT License"></a>
+  <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/Data-CC%20BY%204.0-555555?style=flat-square" alt="CC BY 4.0"></a>
+  <a href="#quickstart--verification"><img src="https://img.shields.io/badge/Pytest-33%2F33%20Passing-111111?style=flat-square" alt="Pytest 33/33"></a>
+  <a href="https://nikhilbharti284.github.io/genomic-equity-conformal/"><img src="https://img.shields.io/badge/Live%20Portal-GitHub%20Pages-111111?style=flat-square" alt="Live Portal"></a>
 </p>
 
+**100% Pan-Human Exome (`19,276` HGNC genes, `67,402` GRCh38 ClinVar >=2-star missense rows), Air-Gapped (`--network=none`) 7-Ancestry Mondrian Conformal Calibration, Multi-Sample Trio Compound-Het Phasing, CPIC PGx, HL7 FHIR R4 Export & Tamper-Evident Hospital LAN QA Sidecar** — zero-GPU, commercially clean (`MIT + CC BY 4.0`).
 
-**Air-Gapped Pan-Global 7-Ancestry Clinical Variant Calibration, Multi-Sample Trio Compound-Het Phasing, CPIC Pharmacogenomics (`PGx`), HL7 FHIR R4 Export & Tamper-Evident Hospital LAN QA Sidecar** — zero-GPU, 100% commercially clean (`MIT + CC BY 4.0`), built & live-verified on `$0`-cost GitHub Codespaces Free Tier.
+Created & maintained by **Nikhil Bharti** ([@Nikhilbharti284](https://github.com/Nikhilbharti284) | [ORCID 0009-0006-3130-9141](https://orcid.org/0009-0006-3130-9141) | [LinkedIn](https://www.linkedin.com/in/nikhil-bharti-063b9a225)).
 
-Created & maintained by **Nikhil Bharti** ([@Nikhilbharti284](https://github.com/Nikhilbharti284) | [ORCID 0009-0006-3130-9141](https://orcid.org/0009-0006-3130-9141)).
+> **Non-SaMD Notice:** Open-source computational research and clinical-pipeline QA audit sidecar — **not** a standalone diagnostic Software as a Medical Device (SaMD).
 
-## Why This Matters Worldwide
+## What's New in v5.0.0 (100% Pan-Human Exome Edition)
 
-- **Zero Cloud Egress & Sovereign Privacy:** Runs **100% air-gapped (`--network=none`)** on a basic 2-core CPU workstation—compliant with **EU GDPR, UK NHS, US HIPAA, India DPDP Act, Brazil LGPD, Saudi PDPL, and South Africa POPIA** without uploading patient VCFs to external clouds.
-- **Eliminates Global Ancestry Bias:** Cuts overall Expected Calibration Error by **−90.4%** (`0.0686 → 0.0066`) with **0 empty sets** across 8 global strata (`SAS, AFR, EAS, AMR, MID, NFE, ASJ+FIN, ULTRA_RARE`) while protecting balancing-selection alleles (`HBB_E7V`, `GJB2_V37I`, `G6PD_V68M`).
-- **Plug-and-Play Hospital LAN Interoperability (`v5.0.0`):** Any doctor, geneticist, or LIMS/EHR computer on the hospital intranet can connect offline (`http://<server-ip>:8000/ui`) for **Multi-Sample Trio Compound-Het Phasing**, **OOD Panel Abstention**, **HL7 FHIR R4 Genomics JSON**, and **SHA-256 Hash-Chained Audit Verification**.
+1. **Pan-Human Exome SQLite WAL (`src/build_v5_exome_store.py`):** Indexes all **19,276 HGNC protein-coding genes**, preserves all `9,249` calibrated `v4` rows, and streams NCBI ClinVar >=2-star GRCh38 missense SNVs into `artifacts/v5_panhuman_exome_ref.sqlite` (**`67,402` rows across `7,336` unique genes**, **`15.75 MB`**, SHA-256 `d30f06f90be50f51aacd6e6ccc752031bf3951758524cd362d4fe8f292df9efb`).
+2. **Two-Tier Hybrid OOD Fallback (`src/v5_hybrid_fallback.py`):** `TIER1_SQLITE_INDEXED`, `TIER2_CALIBRATED_NOVEL_MISSENSE` (zero-drop across all 19,276 HGNC genes), and `OOD_NON_MISSENSE_OR_UNMAPPED` abstention.
+3. **Multi-Continental Benchmark (`src/v5_global_cohort_audit.py`):** Verified across `SAS, AFR, EAS, AMR, EUR` at **`184.79 MB` peak RSS RAM** (`<250 MB` edge target) with Trio trans compound-het verification.
+4. **Full Verification (`tests/test_v5_exome_and_global.py`):** **`33/33` pytest passing (`4.58s`)** and W3C RO-Crate 1.1 (`ro-crate-metadata.json`, `71` SHA-256 verified files).
 
-## What's New in v5.0.0 (Global Hospital LAN & Interoperability)
+## Preserved Core Capabilities (v0.1.0 -> v4.0.0)
 
-1. **Offline Hospital LAN Bridge & Zero-CDN Web Workbench (`src/lan_hospital_bridge.py`):** Binds `0.0.0.0:8000` with optional offline `X-GEC-API-Key` (`GEC_LAN_API_KEY`), serves a built-in zero-login `/ui` dashboard for any computer on the hospital intranet, and flags unseen genes with explicit **`OOD_NOT_IN_OFFLINE_PANEL`** abstention.
-2. **Multi-Sample Trio & Compound-Het Phasing Engine (`src/trio_phasing.py`):** Parses Proband + Mother + Father VCF genotypes (or phased `0|1` / `1|0`) to detect **`AR_Compound_Het_Trans_Affected`**, **`AR_Cis_Carrier_Only`**, **`AR_Unphased_Potential_Compound_Het`**, and **`De_Novo_Candidate`** hits.
-3. **Global HL7 FHIR R4 Genomics Exporter (`src/fhir_exporter.py`):** Exposes `POST /fhir/DiagnosticReport` emitting standard FHIR R4 `Bundle` (`DiagnosticReport` LOINC `51969-4` + `Observation` LOINC `69548-6`) ready for Epic, Cerner, Bahmni, OpenMRS, UK NHS, EU, and ABDM LIMS.
-4. **Tamper-Evident SHA-256 Hash-Chain Audit Ledger (`src/audit_chain.py`):** Appends every LAN/FHIR audit to `artifacts/v4_audit_chain.jsonl` with cryptographic `prev_hash → entry_hash` chaining and live `GET /audit-chain/verify` (verified to catch even 1-byte tampering).
-5. **Full Regression Coverage (`tests/test_v4_hospital_lan.py`):** **`33/33` pytest passing in `37.42s`** (preserving 100% of `v3.0.0` tests + 7 new `v5.0.0` tests).
-
-## What's New in v3.0.0 (Enterprise Air-Gapped Clinical Core — Fully Preserved)
-
-1. **Zero-Internet Offline SQLite WAL Store (`src/offline_reference_store.py`):** `67,402 (19,276 HGNC genes)` indexed GRCh38 records (`artifacts/v3_offline_clinical_ref.sqlite`) for sub-ms `--network=none` execution (`gec-audit --offline`).
-2. **Sample Zygosity (`GT`/`DP`/`GQ`) & AIM 7-Ancestry MLE (`src/vcf_patient_profiler.py`):** Separates `0/1` `AR_Carrier_Only` vs `1/1` `AR_Biallelic_Affected` (e.g., `HBB_E7V`) and auto-infers 7-ancestry background (`--default-ancestry auto`).
-3. **Constant-Memory Streaming WES Auditor & Stdlib OpenAPI Server (`src/audit_vcf.py`, `src/api_server.py`):** Benchmarked `10,000`-variant WES streaming in **`0.917s`** at **`181.1 MB` peak RAM**, emitting 7 `GEC_*` VCF 4.2 INFO tags (`GEC_PGX_ALERT` included).
-4. **NABL (ISO 15189) / CAP / EU AI Act Annex IV HTML QA Report (`src/clinical_report_generator.py`):** Offline print-ready patient QA report (`gec-report`) with SHA-256 traceability.
-5. **Autonomous Discoveries, CPIC PGx & AlphaFold DB v6 3D Structure:** **19 unlisted BS1+ founder candidates** (`ABCA4_G1961E` ASJ 2.39%, `ATP7B_H1069Q` ASJ, `SLC12A3_T180K` EAS, `SLC26A4_F335L`/`V239D` SAS), **6-panel CPIC Level A PGx** (`DPYD`, `NUDT15/TPMT`, `CYP2C19`, `SLCO1B1`, `G6PD`, `HLA-B`), and pure-NumPy **10Å C-Beta RSA Burial** beating raw `ESM2-35M` on **4/5 wet-lab MaveDB genes** (`TP53`, `BRCA1`, `PTEN`, `MSH2`; `LDLR` `−0.0002` honestly disclosed).
-
-## Live-Verified Pan-Global 7-Ancestry Benchmarks (118 Genes, 100 Clusters, n = 9,142)
-
-- **OOF AUROC:** `0.9844` | **OOF PR-AUC:** `0.9898` | **Overall ECE:** `0.0686 → 0.0066` (**−90.4%**) | **Empty Sets:** `0`
-- **SHA-256 (`artifacts/v20_global_7ancestry_report.json`):** `08b002cc58beba804c64416f2e4dc38ca2d266a55ee156a3af830f209844e08a`
-
-| Cohort | n | Raw AM ECE | Calibrated ECE | ECE Cut | Mondrian Cov | Singletons | Empty Sets |
-| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| **Overall (All 118 Genes)** | 9,142 | 0.0686 | **0.0066** | **−90.4%** | ≥ 0.90 | — | 0 |
-| **SAS (South Asian)** | 700 | 0.0530 | **0.0229** | −56.8% | 0.9114 | 97.9% | 0 |
-| **AFR (African / African Am.)** | 1,221 | 0.0543 | **0.0141** | −74.0% | 0.9328 | 100.0% | 0 |
-| **EAS (East Asian)** | 740 | 0.0685 | **0.0335** | −51.1% | 0.9149 | 95.8% | 0 |
-| **AMR (Admixed American)** | 717 | 0.0480 | **0.0288** | −40.0% | 0.9121 | 94.3% | 0 |
-| **MID (Middle Eastern)\*** | 122 | 0.1127 | **0.0566** | −49.8% | 0.8934\* | 100.0% | 0 |
-| **NFE (Non-Finnish European)** | 1,192 | 0.0941 | **0.0180** | −80.9% | 0.9077 | 90.5% | 0 |
-| **BOTTLENECK_FOUNDER (ASJ+FIN)** | 622 | 0.0669 | **0.0179** | −73.3% | 0.9277 | 100.0% | 0 |
-| **ULTRA_RARE (AF = 0)** | 3,828 | 0.1333 | **0.0054** | −96.0% | 0.9875 | 100.0% | 0 |
-
-*\*Honest finite-sample disclosure: `MID` has `n = 122` (`0.8934` is within 1 variant of `0.90`). All other 7 strata exceed `0.90`.*
+- **v4.0.0:** Hospital LAN bridge (`0.0.0.0:8000/ui`, optional `X-GEC-API-Key`), Multi-Sample Trio Compound-Het phasing, HL7 FHIR R4 Genomics Bundle (`LOINC 51969-4` / `69548-6`), SHA-256 tamper-evident hash chain, Zenodo DOI `10.5281/zenodo.24465257`.
+- **v3.0.0:** 10,000 WES streaming (`0.917s`, `181.1 MB` RAM), GT zygosity, AIM 7-ancestry MLE, stdlib OpenAPI REST API, NABL/CAP/EU AI Act HTML QA reports.
+- **v2.0.0:** 7-ancestry Non-Empty Mondrian Conformal (`0.9844` OOF AUROC, `0.9898` PR-AUC, `n=9,142`, ECE `-90.4%`, `0` empty sets), 19 unlisted BS1+ founders, 6-panel CPIC PGx, AlphaFold DB v6 C-Beta RSA (`4/5` MaveDB wins).
+- **v0.1.0 -> v1.1.0:** 118-gene / 100-cluster homology core, `GenomicEquityEngine`, VCF 4.2 INFO tags, Pejaver PP3/BP4 tiers, 11 ClinGen BA1 guards (`HBB_E7V`).
 
 ## Quickstart & Verification
 
 ```bash
-# 1. Install editable package (zero-GPU CPU)
 pip install -e . --no-deps --no-build-isolation
+python3 src/build_v5_exome_store.py
+python3 src/v5_global_cohort_audit.py
+python3 -m pytest -v
+docker build -t genomic-equity:5.0.0 .
+docker run --network=none -p 8000:8000 genomic-equity:5.0.0
 
-# 2. Run full v3 + v4 test suite (Verified: 27 passed in 37.42s)
-python3 -m pytest -q tests/
 
-# 3. Launch Offline Hospital LAN Bridge (open http://<server-ip>:8000/ui from any LAN computer)
-export GEC_LAN_API_KEY="hospital-local-secret"   # Optional LAN auth
-python3 src/lan_hospital_bridge.py --host 0.0.0.0 --port 8000
-
-# 4. Run air-gapped CLI WES audit & NABL/CAP/EU AI Act HTML report
-gec-audit --offline --default-ancestry auto --vcf sample.vcf.gz --out-vcf audited.vcf
-gec-report --audit-json artifacts/raw_vcf_audit_output.json --out-html report.html
-
-# 5. Zero-Egress Hospital Docker
-docker build -t genomic-equity:4.0.0 .
-docker run --network=none -p 8000:8000 genomic-equity:4.0.0
+```

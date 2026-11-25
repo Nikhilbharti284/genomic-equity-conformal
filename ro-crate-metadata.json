@@ -252,8 +252,8 @@
       "@id": "README.md",
       "@type": "File",
       "name": "README.md",
-      "contentSize": 8102,
-      "sha256": "880b693d78213e5623fc72c95eee1aea38da07791256ad6864cd85f55ea4393e"
+      "contentSize": 4135,
+      "sha256": "ea9cb628bdf85c6c5eacacbf830962b66fe9a573071a78b35de09b1b1fec3400"
     },
     {
       "@id": "artifacts/cards/HBB_E7V_AFR_v11.json",
