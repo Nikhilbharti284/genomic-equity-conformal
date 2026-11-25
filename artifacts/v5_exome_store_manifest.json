@@ -1,0 +1,11 @@
+{
+  "version": "5.0.0",
+  "db_path": "artifacts/v5_panhuman_exome_ref.sqlite",
+  "hgnc_exome_genes_indexed": 19276,
+  "total_clinical_ref_rows": 67402,
+  "unique_clinvar_genes_with_2star_variants": 7336,
+  "clinvar_2star_streamed_candidates": 67400,
+  "db_size_mb": 15.75,
+  "sha256": "d30f06f90be50f51aacd6e6ccc752031bf3951758524cd362d4fe8f292df9efb",
+  "build_seconds": 79.09
+}

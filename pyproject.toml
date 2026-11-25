@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "genomic-equity-conformal"
-version = "4.0.0"
+version = "5.0.0"
 description = "Enterprise Air-Gapped Pan-Global Clinical Calibration, Zygosity, CPIC PGx & Regulatory QA Sidecar"
 readme = "README.md"
 license = "MIT"

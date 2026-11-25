@@ -16,7 +16,7 @@
       "@type": "Dataset",
       "name": "Genomic Equity Conformal (v0.2.0)",
       "description": "Ancestry-calibrated missense & cryptic-splicing VUS classifier with Frozen ESM-2, Platt scaling, and Mondrian Conformal Prediction.",
-      "datePublished": "2026-11-20",
+      "datePublished": "2026-11-25",
       "license": "MIT",
       "hasPart": [
         {
@@ -24,6 +24,9 @@
         },
         {
           "@id": "LICENSE"
+        },
+        {
+          "@id": "README.md"
         },
         {
           "@id": "artifacts/cards/HBB_E7V_AFR_v11.json"
@@ -59,6 +62,24 @@
           "@id": "artifacts/v1_mavedb_5gene_report.json"
         },
         {
+          "@id": "artifacts/v20_global_7ancestry_report.json"
+        },
+        {
+          "@id": "artifacts/v20_mavedb_rsa_report.json"
+        },
+        {
+          "@id": "artifacts/v20_novel_founder_discoveries.json"
+        },
+        {
+          "@id": "artifacts/v3_wes_sample_audit.json"
+        },
+        {
+          "@id": "artifacts/v50_global_realworld_cohort_report.json"
+        },
+        {
+          "@id": "artifacts/v5_exome_store_manifest.json"
+        },
+        {
           "@id": "artifacts/vcf_audit_output.json"
         },
         {
@@ -71,7 +92,13 @@
           "@id": "src/api_server.py"
         },
         {
+          "@id": "src/audit_chain.py"
+        },
+        {
           "@id": "src/audit_vcf.py"
+        },
+        {
+          "@id": "src/build_v5_exome_store.py"
         },
         {
           "@id": "src/calibrate_pejaver_lr.py"
@@ -80,7 +107,13 @@
           "@id": "src/calibrated_benchmark_v2.py"
         },
         {
+          "@id": "src/clinical_report_generator.py"
+        },
+        {
           "@id": "src/data_curate_clinvar.py"
+        },
+        {
+          "@id": "src/discover_unlisted_ba1_candidates.py"
         },
         {
           "@id": "src/enrich_hg38_and_rebench.py"
@@ -92,16 +125,28 @@
           "@id": "src/esm2_scorer.py"
         },
         {
+          "@id": "src/fhir_exporter.py"
+        },
+        {
           "@id": "src/generate_rocrate.py"
         },
         {
           "@id": "src/inference_engine.py"
         },
         {
+          "@id": "src/lan_hospital_bridge.py"
+        },
+        {
           "@id": "src/localized_conformal.py"
         },
         {
           "@id": "src/mondrian_conformal.py"
+        },
+        {
+          "@id": "src/offline_reference_store.py"
+        },
+        {
+          "@id": "src/pgx_drug_safety.py"
         },
         {
           "@id": "src/predict_variant.py"
@@ -114,6 +159,9 @@
         },
         {
           "@id": "src/train_v10_clean.py"
+        },
+        {
+          "@id": "src/trio_phasing.py"
         },
         {
           "@id": "src/upgrade_v2_spliceai.py"
@@ -140,7 +188,25 @@
           "@id": "src/v1_train_full_120genes.py"
         },
         {
+          "@id": "src/v2_global_7ancestry_eval.py"
+        },
+        {
+          "@id": "src/v2_mavedb_rsa_upgrade.py"
+        },
+        {
+          "@id": "src/v5_global_cohort_audit.py"
+        },
+        {
+          "@id": "src/v5_hybrid_fallback.py"
+        },
+        {
           "@id": "src/validate_mavedb_dms.py"
+        },
+        {
+          "@id": "src/vcf_patient_profiler.py"
+        },
+        {
+          "@id": "tests/benchmark_wes_10k.py"
         },
         {
           "@id": "tests/test_pipeline.py"
@@ -149,31 +215,24 @@
           "@id": "tests/test_v10_regression.py"
         },
         {
-          "@id": "artifacts/v20_global_7ancestry_report.json"
+          "@id": "tests/test_v11_clingen_panel.py"
         },
         {
-          "@id": "artifacts/v20_novel_founder_discoveries.json"
+          "@id": "tests/test_v11_vcf_and_safeguards.py"
         },
         {
-          "@id": "artifacts/v20_novel_founder_discoveries.csv"
+          "@id": "tests/test_v20_global_and_discovery.py"
         },
         {
-          "@id": "artifacts/v20_mavedb_rsa_report.json"
+          "@id": "tests/test_v30_enterprise.py"
         },
         {
-          "@id": "data/pgx_cpic_panel.json"
+          "@id": "tests/test_v4_hospital_lan.py"
         },
         {
-          "@id": "src/offline_reference_store.py"
-        },
-        {
-          "@id": "src/vcf_patient_profiler.py"
-        },
-        {
-          "@id": "src/clinical_report_generator.py"
+          "@id": "tests/test_v5_exome_and_global.py"
         }
-      ],
-      "version": "3.0.0"
+      ]
     },
     {
       "@id": "CITATION.cff",
@@ -188,6 +247,13 @@
       "name": "LICENSE",
       "contentSize": 811,
       "sha256": "577f02387707bc7ad998534f3e2008882d969a901657cf777d6c9f1de3004f92"
+    },
+    {
+      "@id": "README.md",
+      "@type": "File",
+      "name": "README.md",
+      "contentSize": 8102,
+      "sha256": "880b693d78213e5623fc72c95eee1aea38da07791256ad6864cd85f55ea4393e"
     },
     {
       "@id": "artifacts/cards/HBB_E7V_AFR_v11.json",
@@ -221,8 +287,8 @@
       "@id": "artifacts/raw_vcf_audit_output.json",
       "@type": "File",
       "name": "raw_vcf_audit_output.json",
-      "contentSize": 1087,
-      "sha256": "66c647848d44a5d041e7c9f6a480f476cea11d8136593622014fd5602f12034b"
+      "contentSize": 2818,
+      "sha256": "c25661b41a9ee0cb36b778fb7f47cae0db26923a24668440153af501a441e39b"
     },
     {
       "@id": "artifacts/v02_spliceai_report.json",
@@ -267,6 +333,48 @@
       "sha256": "62d4b76e9344b6f99e96ef8c93e6b82efb5d78301eb18893b24e5c389afed6e0"
     },
     {
+      "@id": "artifacts/v20_global_7ancestry_report.json",
+      "@type": "File",
+      "name": "v20_global_7ancestry_report.json",
+      "contentSize": 1951,
+      "sha256": "66e707def3d34b9a45fe657a947e6fc01b79bc07cd0e070f80ae9ae233f5fe45"
+    },
+    {
+      "@id": "artifacts/v20_mavedb_rsa_report.json",
+      "@type": "File",
+      "name": "v20_mavedb_rsa_report.json",
+      "contentSize": 1195,
+      "sha256": "a4ffd9e68ca4f048943d490ec2e551b138d0155a58f57d03145bfb58a13939ba"
+    },
+    {
+      "@id": "artifacts/v20_novel_founder_discoveries.json",
+      "@type": "File",
+      "name": "v20_novel_founder_discoveries.json",
+      "contentSize": 11014,
+      "sha256": "139ec9d508b41e7fd100bc74d9a0a90a702357a30117883037ae85189a301180"
+    },
+    {
+      "@id": "artifacts/v3_wes_sample_audit.json",
+      "@type": "File",
+      "name": "v3_wes_sample_audit.json",
+      "contentSize": 5289,
+      "sha256": "b765dfb94f50f90748f063b0d6bddc25afb54f897994b89eaecca8e2e14fcc90"
+    },
+    {
+      "@id": "artifacts/v50_global_realworld_cohort_report.json",
+      "@type": "File",
+      "name": "v50_global_realworld_cohort_report.json",
+      "contentSize": 1669,
+      "sha256": "e4f313ed1dbf8c16f6fc734b517761f8a462f31d8cb5066cdb768c01d32148e5"
+    },
+    {
+      "@id": "artifacts/v5_exome_store_manifest.json",
+      "@type": "File",
+      "name": "v5_exome_store_manifest.json",
+      "contentSize": 379,
+      "sha256": "4d2bae02fc32cecdec341cd12960b9d0314479f6c83f83bfb11c212218b22ee8"
+    },
+    {
       "@id": "artifacts/vcf_audit_output.json",
       "@type": "File",
       "name": "vcf_audit_output.json",
@@ -288,11 +396,32 @@
       "sha256": "5938d6039acae859ed3b4c7da86d89073945fa0beb82a314a3598dfe149fc0c4"
     },
     {
+      "@id": "src/api_server.py",
+      "@type": "File",
+      "name": "api_server.py",
+      "contentSize": 6000,
+      "sha256": "216782d62c4934e526686d0d8a7e7a742349c76ad5cc6185ff4f36d47a751090"
+    },
+    {
+      "@id": "src/audit_chain.py",
+      "@type": "File",
+      "name": "audit_chain.py",
+      "contentSize": 2794,
+      "sha256": "386e47be9421fcef6e314009c5109dd75d924a3a6de5f265076a97e43bab4beb"
+    },
+    {
       "@id": "src/audit_vcf.py",
       "@type": "File",
       "name": "audit_vcf.py",
-      "contentSize": 8508,
-      "sha256": "0144fdcac262adf0e2beffde5c9fcf97f5506ef849eacd933e6855efd8b32bde"
+      "contentSize": 8191,
+      "sha256": "e0dde082b74227c39bf24a6e244d14edbc95d6d80959c474e90837e961c82f57"
+    },
+    {
+      "@id": "src/build_v5_exome_store.py",
+      "@type": "File",
+      "name": "build_v5_exome_store.py",
+      "contentSize": 8883,
+      "sha256": "576746a20ca74340823bb8791fc50896210fdb028603dd2dab238b43b3e1e40a"
     },
     {
       "@id": "src/calibrate_pejaver_lr.py",
@@ -309,11 +438,25 @@
       "sha256": "106171e7ed7c8b5188c813f73f7af7a8516c85b35bb0998a7101274b2f9036dd"
     },
     {
+      "@id": "src/clinical_report_generator.py",
+      "@type": "File",
+      "name": "clinical_report_generator.py",
+      "contentSize": 5335,
+      "sha256": "94b27f7d2a56f67e1686e80a72793e9f77cd72e6f9a5df723d0fa8bbfafc7560"
+    },
+    {
       "@id": "src/data_curate_clinvar.py",
       "@type": "File",
       "name": "data_curate_clinvar.py",
       "contentSize": 7432,
       "sha256": "ab4856830bc1a91481cf3a27a1751de2938ce7be929163daf7f00959fb6f0045"
+    },
+    {
+      "@id": "src/discover_unlisted_ba1_candidates.py",
+      "@type": "File",
+      "name": "discover_unlisted_ba1_candidates.py",
+      "contentSize": 4525,
+      "sha256": "3bee5ceca41ba49b677ba449ee71b08a06b41f7efbdce5a8b3c390742b3d86eb"
     },
     {
       "@id": "src/enrich_hg38_and_rebench.py",
@@ -337,6 +480,13 @@
       "sha256": "78cf1cc18c5985824d29cbebe1946565c9d82bc56f149a80baf3e80c672da8e6"
     },
     {
+      "@id": "src/fhir_exporter.py",
+      "@type": "File",
+      "name": "fhir_exporter.py",
+      "contentSize": 4316,
+      "sha256": "e5524deb96e669e8c63eb66885efe54de377fe37a7e7c02e663d08ec816d8169"
+    },
+    {
       "@id": "src/generate_rocrate.py",
       "@type": "File",
       "name": "generate_rocrate.py",
@@ -347,8 +497,15 @@
       "@id": "src/inference_engine.py",
       "@type": "File",
       "name": "inference_engine.py",
-      "contentSize": 5427,
-      "sha256": "6efa3db7566b438f9ca119654f2aca5e154c7c3e2544ce9fd0a9b3df2f7b6e79"
+      "contentSize": 6143,
+      "sha256": "e86d1e6ca2c0d49bef6d87291cdfc7359d9ac6dab10bd20cc0a0370c89e75362"
+    },
+    {
+      "@id": "src/lan_hospital_bridge.py",
+      "@type": "File",
+      "name": "lan_hospital_bridge.py",
+      "contentSize": 9395,
+      "sha256": "f5d4c06eb0ddd564b2d7e56c1fa3a042edfe15940657345512647a660de3e817"
     },
     {
       "@id": "src/localized_conformal.py",
@@ -361,15 +518,29 @@
       "@id": "src/mondrian_conformal.py",
       "@type": "File",
       "name": "mondrian_conformal.py",
-      "contentSize": 3277,
-      "sha256": "316df4f85447d4e98fd124360b59227cd3c11a6e0f8fabd4c0a4f893cc4e26e6"
+      "contentSize": 3718,
+      "sha256": "d88064489a541430453ccb0464a9c4fab408ae3e6f0544e56ff9cea5d5c00917"
+    },
+    {
+      "@id": "src/offline_reference_store.py",
+      "@type": "File",
+      "name": "offline_reference_store.py",
+      "contentSize": 6539,
+      "sha256": "b8460c45238a61888a4e284b9d731089cb65c9b935a6abd533cd9212f3fcc3d3"
+    },
+    {
+      "@id": "src/pgx_drug_safety.py",
+      "@type": "File",
+      "name": "pgx_drug_safety.py",
+      "contentSize": 1164,
+      "sha256": "55fc052feca20ab2df0b934337a089d285522782247c75e6a6f6d2ae2aca86ce"
     },
     {
       "@id": "src/predict_variant.py",
       "@type": "File",
       "name": "predict_variant.py",
-      "contentSize": 2836,
-      "sha256": "d01235d43bfd36008f457424a2eedcbb0f3be3fd101df7dd2aa53e5358cbecb4"
+      "contentSize": 2908,
+      "sha256": "ffa53aab264ae10f073607b2d5ef639f0af9c0297a4cf113fa87839db297ee12"
     },
     {
       "@id": "src/resource_logger.py",
@@ -391,6 +562,13 @@
       "name": "train_v10_clean.py",
       "contentSize": 7365,
       "sha256": "d5f6c6920729d0160e4e7f84ed7e1c2c48e8009467fc31096be7634da3c6281e"
+    },
+    {
+      "@id": "src/trio_phasing.py",
+      "@type": "File",
+      "name": "trio_phasing.py",
+      "contentSize": 4430,
+      "sha256": "c0aed37fa5918392c06d04f45e43d26f5a312c5a6f21c39571ab64687ad480aa"
     },
     {
       "@id": "src/upgrade_v2_spliceai.py",
@@ -449,11 +627,53 @@
       "sha256": "bf90e8f111cbdc386a2c31af6c6437a87512b1df8e81d38f1d616b947ad69d92"
     },
     {
+      "@id": "src/v2_global_7ancestry_eval.py",
+      "@type": "File",
+      "name": "v2_global_7ancestry_eval.py",
+      "contentSize": 10309,
+      "sha256": "9372de5b324fb9ce295660a796c03cd2616cfa51aca29b1ff69c5c54fe754340"
+    },
+    {
+      "@id": "src/v2_mavedb_rsa_upgrade.py",
+      "@type": "File",
+      "name": "v2_mavedb_rsa_upgrade.py",
+      "contentSize": 6926,
+      "sha256": "c7e67ee005e8a0ef91b6a286984c08e48449e4b71cea3e78c86032fbc782ed80"
+    },
+    {
+      "@id": "src/v5_global_cohort_audit.py",
+      "@type": "File",
+      "name": "v5_global_cohort_audit.py",
+      "contentSize": 5314,
+      "sha256": "d06df5a2942f209a619a0ad31da30a2e18ce8e5bfb71d0dfcd8831fcf27d4711"
+    },
+    {
+      "@id": "src/v5_hybrid_fallback.py",
+      "@type": "File",
+      "name": "v5_hybrid_fallback.py",
+      "contentSize": 3898,
+      "sha256": "baa1b4a9caf8fdeaa77441c8b1dc99d8a08ce87489f1ae4c174ed6ab033f7a2a"
+    },
+    {
       "@id": "src/validate_mavedb_dms.py",
       "@type": "File",
       "name": "validate_mavedb_dms.py",
       "contentSize": 6600,
       "sha256": "b28701cc88c7ccf97cf0fe01af5acb9419086929fd21e34b1d9cc98d849437c2"
+    },
+    {
+      "@id": "src/vcf_patient_profiler.py",
+      "@type": "File",
+      "name": "vcf_patient_profiler.py",
+      "contentSize": 3337,
+      "sha256": "a1ed4ddc7e99ffdbba488458b620745093cf5fec2d0cce01eb2b636d15576e6b"
+    },
+    {
+      "@id": "tests/benchmark_wes_10k.py",
+      "@type": "File",
+      "name": "benchmark_wes_10k.py",
+      "contentSize": 2568,
+      "sha256": "533749e1a93c7c9c62a3c6fdbc697f8ddfda8405e9ffa82c3f981e665feb3cca"
     },
     {
       "@id": "tests/test_pipeline.py",
@@ -470,58 +690,46 @@
       "sha256": "6c0e9a65ec5b1999be4f1641ac2092a78ce3e6c54389820a80b3525865ef6a6f"
     },
     {
-      "@id": "artifacts/v20_global_7ancestry_report.json",
+      "@id": "tests/test_v11_clingen_panel.py",
       "@type": "File",
-      "sha256": "66e707def3d34b9a45fe657a947e6fc01b79bc07cd0e070f80ae9ae233f5fe45",
-      "encodingFormat": "application/json"
+      "name": "test_v11_clingen_panel.py",
+      "contentSize": 1776,
+      "sha256": "8ca81fae229e83f6a6a3c82baf6fb7311a5662c70da0542f37998cd15009de32"
     },
     {
-      "@id": "artifacts/v20_novel_founder_discoveries.json",
+      "@id": "tests/test_v11_vcf_and_safeguards.py",
       "@type": "File",
-      "sha256": "139ec9d508b41e7fd100bc74d9a0a90a702357a30117883037ae85189a301180",
-      "encodingFormat": "application/json"
+      "name": "test_v11_vcf_and_safeguards.py",
+      "contentSize": 2500,
+      "sha256": "ec01091cec5f058f4698b2ed97189b8e5550b5e6de004be6631746be816169f2"
     },
     {
-      "@id": "artifacts/v20_novel_founder_discoveries.csv",
+      "@id": "tests/test_v20_global_and_discovery.py",
       "@type": "File",
-      "sha256": "642f8ff6df37d607370a4f1f37531815138500aaf35dd045df201909fcddcb9b",
-      "encodingFormat": "text/csv"
+      "name": "test_v20_global_and_discovery.py",
+      "contentSize": 2425,
+      "sha256": "f9bbfd19e25ddb6cc06ef49187c4112e97a94be7807c9819774f8b64d6acb994"
     },
     {
-      "@id": "artifacts/v20_mavedb_rsa_report.json",
+      "@id": "tests/test_v30_enterprise.py",
       "@type": "File",
-      "sha256": "a4ffd9e68ca4f048943d490ec2e551b138d0155a58f57d03145bfb58a13939ba",
-      "encodingFormat": "application/json"
+      "name": "test_v30_enterprise.py",
+      "contentSize": 4834,
+      "sha256": "deda22c2a19bce2c25829a159d946d5b0ddfc81ab72fa4ce8976479553046626"
     },
     {
-      "@id": "data/pgx_cpic_panel.json",
+      "@id": "tests/test_v4_hospital_lan.py",
       "@type": "File",
-      "sha256": "4c955d2057d179436f63d817926d3ff513543bf1fac44bff015ee6c2a970b223",
-      "encodingFormat": "application/json"
+      "name": "test_v4_hospital_lan.py",
+      "contentSize": 3161,
+      "sha256": "f7fc0a82869c44f823598520d9a4c4f65510ad6c47d909a848e2483b685c8929"
     },
     {
-      "@id": "src/offline_reference_store.py",
+      "@id": "tests/test_v5_exome_and_global.py",
       "@type": "File",
-      "sha256": "0edf09524fc93afe650e3327d53fe694e8359601d9e791b66f500f9b937999c2",
-      "encodingFormat": "text/x-python"
-    },
-    {
-      "@id": "src/vcf_patient_profiler.py",
-      "@type": "File",
-      "sha256": "a1ed4ddc7e99ffdbba488458b620745093cf5fec2d0cce01eb2b636d15576e6b",
-      "encodingFormat": "text/x-python"
-    },
-    {
-      "@id": "src/clinical_report_generator.py",
-      "@type": "File",
-      "sha256": "94b27f7d2a56f67e1686e80a72793e9f77cd72e6f9a5df723d0fa8bbfafc7560",
-      "encodingFormat": "text/x-python"
-    },
-    {
-      "@id": "src/api_server.py",
-      "@type": "File",
-      "sha256": "216782d62c4934e526686d0d8a7e7a742349c76ad5cc6185ff4f36d47a751090",
-      "encodingFormat": "text/x-python"
+      "name": "test_v5_exome_and_global.py",
+      "contentSize": 2014,
+      "sha256": "b63d5defeeebf50d794d3cd9bfcf83a2fa0dc3aa57943e13554a84c84305a576"
     }
   ]
 }
