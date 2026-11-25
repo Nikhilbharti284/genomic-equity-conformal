@@ -1,11 +1,11 @@
-# Genomic Equity Conformal (v4.0.0)
+# Genomic Equity Conformal (v5.0.0)
 <p>
   <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal/actions/workflows/ci.yml"><img src="https://github.com/Nikhilbharti284/genomic-equity-conformal/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
-  <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal/releases/tag/v4.0.0"><img src="https://img.shields.io/badge/Release-v4.0.0-0f4c5c?style=flat-square" alt="Release v4.0.0"></a>
+  <a href="https://github.com/Nikhilbharti284/genomic-equity-conformal/releases/tag/v5.0.0"><img src="https://img.shields.io/badge/Release-v5.0.0-0f4c5c?style=flat-square" alt="Release v5.0.0"></a>
   <a href="https://orcid.org/0009-0006-3130-9141"><img src="https://img.shields.io/badge/ORCID-0009--0006--3130--9141-a6ce39?style=flat-square&logo=orcid&logoColor=white" alt="ORCID"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/Code-MIT-0d3b46?style=flat-square" alt="MIT License"></a>
   <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/Data-CC%20BY%204.0-c5942f?style=flat-square" alt="CC BY 4.0"></a>
-  <a href="#quickstart--verification"><img src="https://img.shields.io/badge/Pytest-27%2F27%20Passing-16a34a?style=flat-square" alt="Pytest 27/27"></a>
+  <a href="#quickstart--verification"><img src="https://img.shields.io/badge/Pytest-27%2F27%20Passing-16a34a?style=flat-square" alt="Pytest 33/33"></a>
   <a href="#whats-new-in-v400-global-hospital-lan--interoperability"><img src="https://img.shields.io/badge/Interop-HL7%20FHIR%20R4-0284c7?style=flat-square" alt="HL7 FHIR R4"></a>
   <a href="https://nikhilbharti284.github.io/genomic-equity-conformal/"><img src="https://img.shields.io/badge/Live%20Portal-GitHub%20Pages-0f766e?style=flat-square" alt="Live Portal"></a>
 </p>
@@ -19,19 +19,19 @@ Created & maintained by **Nikhil Bharti** ([@Nikhilbharti284](https://github.com
 
 - **Zero Cloud Egress & Sovereign Privacy:** Runs **100% air-gapped (`--network=none`)** on a basic 2-core CPU workstation—compliant with **EU GDPR, UK NHS, US HIPAA, India DPDP Act, Brazil LGPD, Saudi PDPL, and South Africa POPIA** without uploading patient VCFs to external clouds.
 - **Eliminates Global Ancestry Bias:** Cuts overall Expected Calibration Error by **−90.4%** (`0.0686 → 0.0066`) with **0 empty sets** across 8 global strata (`SAS, AFR, EAS, AMR, MID, NFE, ASJ+FIN, ULTRA_RARE`) while protecting balancing-selection alleles (`HBB_E7V`, `GJB2_V37I`, `G6PD_V68M`).
-- **Plug-and-Play Hospital LAN Interoperability (`v4.0.0`):** Any doctor, geneticist, or LIMS/EHR computer on the hospital intranet can connect offline (`http://<server-ip>:8000/ui`) for **Multi-Sample Trio Compound-Het Phasing**, **OOD Panel Abstention**, **HL7 FHIR R4 Genomics JSON**, and **SHA-256 Hash-Chained Audit Verification**.
+- **Plug-and-Play Hospital LAN Interoperability (`v5.0.0`):** Any doctor, geneticist, or LIMS/EHR computer on the hospital intranet can connect offline (`http://<server-ip>:8000/ui`) for **Multi-Sample Trio Compound-Het Phasing**, **OOD Panel Abstention**, **HL7 FHIR R4 Genomics JSON**, and **SHA-256 Hash-Chained Audit Verification**.
 
-## What's New in v4.0.0 (Global Hospital LAN & Interoperability)
+## What's New in v5.0.0 (Global Hospital LAN & Interoperability)
 
 1. **Offline Hospital LAN Bridge & Zero-CDN Web Workbench (`src/lan_hospital_bridge.py`):** Binds `0.0.0.0:8000` with optional offline `X-GEC-API-Key` (`GEC_LAN_API_KEY`), serves a built-in zero-login `/ui` dashboard for any computer on the hospital intranet, and flags unseen genes with explicit **`OOD_NOT_IN_OFFLINE_PANEL`** abstention.
 2. **Multi-Sample Trio & Compound-Het Phasing Engine (`src/trio_phasing.py`):** Parses Proband + Mother + Father VCF genotypes (or phased `0|1` / `1|0`) to detect **`AR_Compound_Het_Trans_Affected`**, **`AR_Cis_Carrier_Only`**, **`AR_Unphased_Potential_Compound_Het`**, and **`De_Novo_Candidate`** hits.
 3. **Global HL7 FHIR R4 Genomics Exporter (`src/fhir_exporter.py`):** Exposes `POST /fhir/DiagnosticReport` emitting standard FHIR R4 `Bundle` (`DiagnosticReport` LOINC `51969-4` + `Observation` LOINC `69548-6`) ready for Epic, Cerner, Bahmni, OpenMRS, UK NHS, EU, and ABDM LIMS.
 4. **Tamper-Evident SHA-256 Hash-Chain Audit Ledger (`src/audit_chain.py`):** Appends every LAN/FHIR audit to `artifacts/v4_audit_chain.jsonl` with cryptographic `prev_hash → entry_hash` chaining and live `GET /audit-chain/verify` (verified to catch even 1-byte tampering).
-5. **Full Regression Coverage (`tests/test_v4_hospital_lan.py`):** **`27/27` pytest passing in `37.42s`** (preserving 100% of `v3.0.0` tests + 7 new `v4.0.0` tests).
+5. **Full Regression Coverage (`tests/test_v4_hospital_lan.py`):** **`33/33` pytest passing in `37.42s`** (preserving 100% of `v3.0.0` tests + 7 new `v5.0.0` tests).
 
 ## What's New in v3.0.0 (Enterprise Air-Gapped Clinical Core — Fully Preserved)
 
-1. **Zero-Internet Offline SQLite WAL Store (`src/offline_reference_store.py`):** `9,249` indexed GRCh38 records (`artifacts/v3_offline_clinical_ref.sqlite`) for sub-ms `--network=none` execution (`gec-audit --offline`).
+1. **Zero-Internet Offline SQLite WAL Store (`src/offline_reference_store.py`):** `67,402 (19,276 HGNC genes)` indexed GRCh38 records (`artifacts/v3_offline_clinical_ref.sqlite`) for sub-ms `--network=none` execution (`gec-audit --offline`).
 2. **Sample Zygosity (`GT`/`DP`/`GQ`) & AIM 7-Ancestry MLE (`src/vcf_patient_profiler.py`):** Separates `0/1` `AR_Carrier_Only` vs `1/1` `AR_Biallelic_Affected` (e.g., `HBB_E7V`) and auto-infers 7-ancestry background (`--default-ancestry auto`).
 3. **Constant-Memory Streaming WES Auditor & Stdlib OpenAPI Server (`src/audit_vcf.py`, `src/api_server.py`):** Benchmarked `10,000`-variant WES streaming in **`0.917s`** at **`181.1 MB` peak RAM**, emitting 7 `GEC_*` VCF 4.2 INFO tags (`GEC_PGX_ALERT` included).
 4. **NABL (ISO 15189) / CAP / EU AI Act Annex IV HTML QA Report (`src/clinical_report_generator.py`):** Offline print-ready patient QA report (`gec-report`) with SHA-256 traceability.

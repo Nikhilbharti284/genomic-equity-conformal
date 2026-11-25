@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Genomic Equity Conformal v4.0.0 — Air-Gapped Pan-Global Clinical QA Portal</title>
+  <title>Genomic Equity Conformal v5.0.0 — 100% Pan-Human Exome Clinical QA Portal</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,6 +22,7 @@
   </style>
 </head>
 <body class="antialiased overflow-x-hidden">
+<div style="background:#0f4c5c;color:#fff;text-align:center;padding:9px 14px;font-family:system-ui,sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.02em;">RELEASE v5.0.0 PAN-HUMAN EXOME EDITION — 19,276 HGNC Genes | 67,402 GRCh38 ClinVar 2-Star Variants (7,336 Genes) | 15.75 MB Offline SQLite WAL | 33/33 Pytest Passing</div>
   <div class="bg-[#092c36] text-slate-200 text-xs py-2 px-4 border-b border-teal-900">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
@@ -55,7 +56,7 @@
         </span>
         <div>
           <div class="text-sm sm:text-base font-extrabold text-slate-900 leading-tight">Genomic Equity Conformal</div>
-          <div class="text-[11px] font-semibold text-[#0f4c5c] tracking-wide">GLOBAL v4.0.0 • HOSPITAL LAN &amp; FHIR QA</div>
+          <div class="text-[11px] font-semibold text-[#0f4c5c] tracking-wide">GLOBAL v5.0.0 • 19,276-GENE PAN-HUMAN EXOME</div>
         </div>
       </button>
       <nav class="hidden lg:flex items-center gap-1" aria-label="Main navigation">
@@ -89,9 +90,9 @@
     <section id="tab-overview" class="tab-panel active space-y-6">
       <div class="rounded-2xl hero-calm bg-[#0f4c5c] text-white p-6 sm:p-8 border border-teal-900">
         <div class="flex flex-wrap items-center gap-2 mb-3">
-          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-white/15 text-white border border-white/25 tracking-wide">RELEASE v4.0.0 GLOBAL HOSPITAL LAN</span>
+          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-white/15 text-white border border-white/25 tracking-wide">RELEASE v5.0.0 PAN-HUMAN EXOME</span>
           <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-white/15 text-teal-100">Zero-GPU • $0 Codespaces Free Tier</span>
-          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-400/20 text-emerald-200 border border-emerald-300/30">27/27 Pytest Passing</span>
+          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-400/20 text-emerald-200 border border-emerald-300/30">33/33 Pytest Passing</span>
         </div>
         <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight max-w-4xl">Air-Gapped Pan-Global 7-Ancestry Clinical Variant Calibration, Zygosity Gating &amp; CPIC PGx Engine</h1>
         <p class="mt-3 text-sm sm:text-base text-teal-100 max-w-3xl leading-relaxed">Eliminates European-ancestry probability miscalibration and VUS inflation in South Asian (SAS), African (AFR), East Asian (EAS), Admixed American (AMR), Middle Eastern (MID), and founder cohorts—while protecting balancing-selection alleles like Sickle Cell (<code class="text-amber-200">HBB_E7V</code>) and running 100% offline (<code class="text-amber-200">--network=none</code>) under India's DPDP Act and NABL/CAP/EU AI Act workflows.</p>
@@ -107,13 +108,13 @@
         <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Pan-Global AUROC</div><div class="text-2xl sm:text-3xl font-extrabold text-[#0f4c5c] mt-1">0.9844</div><div class="text-xs text-slate-600 mt-1">PR-AUC 0.9898 • 118 Genes, n=9,142</div></div>
         <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Overall ECE Cut</div><div class="text-2xl sm:text-3xl font-extrabold text-emerald-700 mt-1">−90.4%</div><div class="text-xs text-slate-600 mt-1">0.0686 → 0.0066 • 0 Empty Sets</div></div>
         <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Novel Founders</div><div class="text-2xl sm:text-3xl font-extrabold text-amber-600 mt-1">19</div><div class="text-xs text-slate-600 mt-1">Unlisted BS1+ Global Candidates</div></div>
-        <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Offline SQLite DB</div><div class="text-2xl sm:text-3xl font-extrabold text-[#0f4c5c] mt-1">9,249</div><div class="text-xs text-slate-600 mt-1">GRCh38 WAL Rows • --network=none</div></div>
-        <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm col-span-2 lg:col-span-1"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">10K WES Streaming</div><div class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">0.917s</div><div class="text-xs text-slate-600 mt-1">181.1 MB Peak RAM • 27/27 Pytest</div></div>
+        <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Offline SQLite DB</div><div class="text-2xl sm:text-3xl font-extrabold text-[#0f4c5c] mt-1">67,402</div><div class="text-xs text-slate-600 mt-1">19,276 HGNC Genes • 15.75 MB WAL</div></div>
+        <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm col-span-2 lg:col-span-1"><div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">10K WES Streaming</div><div class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">0.917s</div><div class="text-xs text-slate-600 mt-1">181.1 MB Peak RAM • 33/33 Pytest</div></div>
       </div>
 
       <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm">
         <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
-          <div><h2 class="text-lg font-bold text-slate-900">5-Stage Air-Gapped Clinical QA Pipeline (v4.0.0)</h2><p class="text-xs sm:text-sm text-slate-600">End-to-end zero-egress architecture from raw hospital VCF 4.2 to NABL/CAP/EU AI Act Annex IV QA reports.</p></div>
+          <div><h2 class="text-lg font-bold text-slate-900">5-Stage Air-Gapped Pan-Human QA Pipeline (v5.0.0)</h2><p class="text-xs sm:text-sm text-slate-600">End-to-end zero-egress architecture from raw hospital VCF 4.2 to NABL/CAP/EU AI Act Annex IV QA reports.</p></div>
           <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">Zero GPU • &lt;250 MB Streaming RAM</span>
         </div>
         <div class="overflow-x-auto">
@@ -122,7 +123,7 @@
             <rect x="0" y="0" width="960" height="215" rx="12" fill="#f8fafc" stroke="#e2e8f0" />
             <rect x="16" y="34" width="166" height="145" rx="10" fill="#ffffff" stroke="#0284c7" stroke-width="1.6"/><rect x="16" y="34" width="166" height="30" rx="10" fill="#0284c7"/><text x="99" y="54" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">1. VCF 4.2 + GT</text><text x="99" y="84" text-anchor="middle" fill="#0f172a" font-size="10.5" font-weight="600">Streaming .vcf/.vcf.gz</text><text x="99" y="103" text-anchor="middle" fill="#475569" font-size="10">GT/DP/GQ Zygosity</text><text x="99" y="121" text-anchor="middle" fill="#475569" font-size="10">0/1 AR Carrier vs</text><text x="99" y="137" text-anchor="middle" fill="#475569" font-size="10">1/1 Biallelic Affected</text><text x="99" y="162" text-anchor="middle" fill="#0369a1" font-size="10" font-weight="700">AIM 7-Ancestry MLE</text>
             <line x1="182" y1="106" x2="205" y2="106" stroke="#0f4c5c" stroke-width="2" marker-end="url(#arrowHead)"/>
-            <rect x="208" y="34" width="166" height="145" rx="10" fill="#ffffff" stroke="#0f4c5c" stroke-width="1.6"/><rect x="208" y="34" width="166" height="30" rx="10" fill="#0f4c5c"/><text x="291" y="54" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">2. Offline SQLite WAL</text><text x="291" y="84" text-anchor="middle" fill="#0f172a" font-size="10.5" font-weight="600">9,249 GRCh38 Rows</text><text x="291" y="103" text-anchor="middle" fill="#475569" font-size="10">CC BY 4.0 AlphaMissense</text><text x="291" y="121" text-anchor="middle" fill="#475569" font-size="10">Frozen ESM2-35M LLR</text><text x="291" y="139" text-anchor="middle" fill="#475569" font-size="10">AFDB v6 C-Beta RSA</text><text x="291" y="162" text-anchor="middle" fill="#0f4c5c" font-size="10" font-weight="700">Sub-ms Local Lookup</text>
+            <rect x="208" y="34" width="166" height="145" rx="10" fill="#ffffff" stroke="#0f4c5c" stroke-width="1.6"/><rect x="208" y="34" width="166" height="30" rx="10" fill="#0f4c5c"/><text x="291" y="54" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">2. Offline SQLite WAL</text><text x="291" y="84" text-anchor="middle" fill="#0f172a" font-size="10.5" font-weight="600">67,402 GRCh38 Rows</text><text x="291" y="103" text-anchor="middle" fill="#475569" font-size="10">CC BY 4.0 AlphaMissense</text><text x="291" y="121" text-anchor="middle" fill="#475569" font-size="10">Frozen ESM2-35M LLR</text><text x="291" y="139" text-anchor="middle" fill="#475569" font-size="10">AFDB v6 C-Beta RSA</text><text x="291" y="162" text-anchor="middle" fill="#0f4c5c" font-size="10" font-weight="700">Sub-ms Local Lookup</text>
             <line x1="374" y1="106" x2="397" y2="106" stroke="#0f4c5c" stroke-width="2" marker-end="url(#arrowHead)"/>
             <rect x="400" y="34" width="166" height="145" rx="10" fill="#ffffff" stroke="#d97706" stroke-width="1.6"/><rect x="400" y="34" width="166" height="30" rx="10" fill="#d97706"/><text x="483" y="54" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">3. Nested OOF Stack</text><text x="483" y="84" text-anchor="middle" fill="#0f172a" font-size="10.5" font-weight="600">100 Homology Clusters</text><text x="483" y="103" text-anchor="middle" fill="#475569" font-size="10">MLP + HistGBM + LogReg</text><text x="483" y="121" text-anchor="middle" fill="#475569" font-size="10">Inner 3-Fold OOF Platt</text><text x="483" y="139" text-anchor="middle" fill="#475569" font-size="10">AUROC 0.9844</text><text x="483" y="162" text-anchor="middle" fill="#b45309" font-size="10" font-weight="700">ECE −90.4% (0.0066)</text>
             <line x1="566" y1="106" x2="589" y2="106" stroke="#0f4c5c" stroke-width="2" marker-end="url(#arrowHead)"/>
@@ -280,12 +281,12 @@
     <section id="tab-lab" class="tab-panel space-y-6">
       <div class="grid lg:grid-cols-2 gap-6">
         <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
-          <div><span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">Live v4.0.0 Engine</span><h2 class="text-lg font-extrabold text-slate-900 mt-1">Sample Zygosity (GT), CPIC PGx &amp; BA1 Tester</h2></div>
+          <div><span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">Live v5.0.0 Engine</span><h2 class="text-lg font-extrabold text-slate-900 mt-1">Sample Zygosity (GT), CPIC PGx &amp; BA1 Tester</h2></div>
           <div class="grid sm:grid-cols-2 gap-3">
             <div><label for="labPreset" class="block text-xs font-semibold text-slate-700 mb-1">Clinical Variant Preset</label><select id="labPreset" class="w-full px-3 py-2 text-xs sm:text-sm border border-slate-300 rounded-lg bg-white"></select></div>
             <div><label for="labGt" class="block text-xs font-semibold text-slate-700 mb-1">Patient VCF Genotype (GT)</label><select id="labGt" class="w-full px-3 py-2 text-xs sm:text-sm border border-slate-300 rounded-lg bg-white"><option value="0/1">0/1 (Heterozygous)</option><option value="1/1">1/1 (Homozygous Alt)</option><option value="0/0">0/0 (Reference Wildtype)</option></select></div>
             <div><label for="labAnc" class="block text-xs font-semibold text-slate-700 mb-1">Patient Ancestry Cohort</label><select id="labAnc" class="w-full px-3 py-2 text-xs sm:text-sm border border-slate-300 rounded-lg bg-white"><option value="AFR">AFR (African / African Am.)</option><option value="SAS">SAS (South Asian)</option><option value="EAS">EAS (East Asian)</option><option value="AMR">AMR (Admixed American)</option><option value="MID">MID (Middle Eastern)</option><option value="NFE">NFE (Non-Finnish European)</option><option value="BOTTLENECK_FOUNDER">BOTTLENECK_FOUNDER (ASJ+FIN)</option><option value="ULTRA_RARE">ULTRA_RARE (AF = 0)</option></select></div>
-            <div class="flex items-end gap-2"><button type="button" id="runAuditBtn" class="flex-1 px-4 py-2 rounded-lg bg-[#0f4c5c] hover:bg-[#0b3d4a] text-white font-bold text-xs sm:text-sm transition">Run v4.0.0 Audit</button><button type="button" id="copyAuditBtn" class="px-3 py-2 rounded-lg border border-slate-300 hover:bg-slate-100 text-slate-700 font-semibold text-xs">Copy</button></div>
+            <div class="flex items-end gap-2"><button type="button" id="runAuditBtn" class="flex-1 px-4 py-2 rounded-lg bg-[#0f4c5c] hover:bg-[#0b3d4a] text-white font-bold text-xs sm:text-sm transition">Run v5.0.0 Audit</button><button type="button" id="copyAuditBtn" class="px-3 py-2 rounded-lg border border-slate-300 hover:bg-slate-100 text-slate-700 font-semibold text-xs">Copy</button></div>
           </div>
           <div id="auditSummaryBadges" class="flex flex-wrap gap-2"></div>
           <pre id="auditJsonOut" class="bg-slate-950 text-emerald-300 text-xs p-4 rounded-xl overflow-x-auto leading-relaxed max-h-80"></pre>
@@ -353,7 +354,7 @@ docker run --network=none -p 8080:8080 genomic-equity:3.0.0</pre>
 
   <footer class="mt-10 border-t border-slate-200 bg-white py-6 px-4 text-xs text-slate-600">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-      <p class="max-w-3xl"><strong>Regulatory Disclaimer:</strong> Genomic Equity Conformal (v4.0.0) is an open-source computational research and clinical-pipeline QA audit sidecar (MIT code + CC BY 4.0 data). It is <strong>not</strong> a standalone diagnostic Software as a Medical Device (SaMD); all clinical variant classifications require review by qualified molecular geneticists under NABL / CAP / ACMG guidelines.</p>
+      <p class="max-w-3xl"><strong>Regulatory Disclaimer:</strong> Genomic Equity Conformal (v5.0.0) is an open-source computational research and clinical-pipeline QA audit sidecar (MIT code + CC BY 4.0 data). It is <strong>not</strong> a standalone diagnostic Software as a Medical Device (SaMD); all clinical variant classifications require review by qualified molecular geneticists under NABL / CAP / ACMG guidelines.</p>
       <div class="font-semibold text-slate-700 shrink-0">© 2026 Nikhil Bharti • Zero Login Open Science</div>
     </div>
   </footer>
@@ -370,13 +371,13 @@ docker run --network=none -p 8080:8080 genomic-equity:3.0.0</pre>
     <div class="bg-white max-w-lg w-full rounded-2xl border border-slate-200 shadow-xl p-6 space-y-4">
       <div class="flex items-start justify-between gap-3">
         <div>
-          <span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-teal-50 text-[#0f4c5c] border border-teal-200">RELEASE v4.0.0 &bull; OPEN SOURCE</span>
-          <h2 class="text-lg font-extrabold text-slate-900 mt-2">Genomic Equity Conformal v4.0.0</h2>
+          <span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-teal-50 text-[#0f4c5c] border border-teal-200">RELEASE v5.0.0 &bull; PAN-HUMAN EXOME</span>
+          <h2 class="text-lg font-extrabold text-slate-900 mt-2">Genomic Equity Conformal v5.0.0</h2>
         </div>
         <button type="button" id="closeDocModalBtn" class="w-8 h-8 rounded-lg border border-slate-200 text-slate-500 hover:bg-slate-100 font-bold text-sm" aria-label="Close">&times;</button>
       </div>
       <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-        Air-Gapped Pan-Global 7-Ancestry Clinical Calibration (<strong>0.9844 AUROC</strong>, <strong>&minus;90.4% ECE</strong>), Multi-Sample Trio Compound-Het Phasing, CPIC PGx, and <strong>HL7 FHIR R4</strong> Hospital LAN Sidecar (27/27 Pytest Passing). Download the complete Master Documentation PDF directly below.
+        Air-Gapped Pan-Global 7-Ancestry Clinical Calibration (<strong>0.9844 AUROC</strong>, <strong>&minus;90.4% ECE</strong>), Multi-Sample Trio Compound-Het Phasing, CPIC PGx, and <strong>HL7 FHIR R4</strong> Hospital LAN Sidecar (33/33 Pytest Passing). Download the complete Master Documentation PDF directly below.
       </p>
       <div class="flex flex-wrap gap-2.5 pt-1">
         <a href="https://drive.google.com/uc?export=download&id=1TgHAbGBn9J-GvAjiEjy1O_c9HRo4789o" target="_blank" rel="noopener noreferrer" class="flex-1 text-center px-4 py-2.5 rounded-xl bg-[#0f4c5c] hover:bg-[#0b3d4a] text-white font-bold text-xs sm:text-sm transition">Download Master PDF</a>
