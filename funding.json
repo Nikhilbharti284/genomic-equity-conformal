@@ -6,7 +6,7 @@
     "role": "owner",
     "name": "Nikhil Bharti",
     "email": "nikhilbharti594@gmail.com",
-    "phone": "+91 9816799061",
+    "phone": "91-9816799061",
     "description": "I am a final-year B.Tech CSE student in Himachal Pradesh, India, building open-source bioinformatics tools that run locally on low-cost hardware. I started Genomic Equity Conformal after noticing that many genetic variant models are calibrated mostly on European datasets and require cloud uploads that smaller Indian labs cannot easily use.",
     "webpageUrl": {
       "url": "https://nikhilbharti284.github.io/genomic-equity-conformal/"
