@@ -1,0 +1,88 @@
+{
+  "$schema": "https://fundingjson.org/schema/v1.1.0.json",
+  "version": "v1.1.0",
+  "entity": {
+    "type": "individual",
+    "role": "owner",
+    "name": "Nikhil Bharti",
+    "email": "nikhilbharti594@gmail.com",
+    "phone": "+91 9816799061",
+    "description": "I am a final-year B.Tech CSE student in Himachal Pradesh, India, building open-source bioinformatics tools that run locally on low-cost hardware. I started Genomic Equity Conformal after noticing that many genetic variant models are calibrated mostly on European datasets and require cloud uploads that smaller Indian labs cannot easily use.",
+    "webpageUrl": {
+      "url": "https://nikhilbharti284.github.io/genomic-equity-conformal/"
+    }
+  },
+  "projects": [
+    {
+      "guid": "genomic-equity-conformal",
+      "name": "Genomic Equity Conformal",
+      "description": "An open-source, local-first quality-assurance sidecar for clinical variant interpretation pipelines (MIT code, CC BY 4.0 data). Version 5.0.0 indexes all 19,276 HGNC human protein-coding genes and 67,402 ClinVar GRCh38 missense variants (2-star and above) into a single 15.75 MB offline SQLite file. Using 7-ancestry Mondrian conformal calibration, it cuts expected calibration error by 90.4% across South Asian, African, East Asian, Admixed American, Middle Eastern, European, and founder cohorts, while running on a standard CPU in about 1.46 seconds at ~185 MB RAM. Strictly a research and pipeline QA sidecar, not a standalone medical diagnostic device.",
+      "webpageUrl": {
+        "url": "https://nikhilbharti284.github.io/genomic-equity-conformal/"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/Nikhilbharti284/genomic-equity-conformal"
+      },
+      "licenses": [
+        "spdx:MIT",
+        "spdx:CC-BY-4.0"
+      ],
+      "tags": [
+        "bioinformatics",
+        "genomics",
+        "python",
+        "sqlite",
+        "open-science",
+        "machine-learning"
+      ]
+    }
+  ],
+  "funding": {
+    "channels": [
+      {
+        "guid": "indian-bank",
+        "type": "bank",
+        "address": "Available upon grant approval (Indian bank transfer / UPI)",
+        "description": "Direct Indian bank transfer for grant disbursals and verified open-source sponsorships."
+      }
+    ],
+    "plans": [
+      {
+        "guid": "maintainer-stipend",
+        "status": "active",
+        "name": "6-Month Maintainer Stipend and Lab Validation",
+        "description": "Supports full-time open-source maintenance after graduation, adding multi-gene clinical VCF/BCF ingestion, improving South Asian and Middle Eastern sample coverage, and running shadow validation pilots with Indian genomics labs.",
+        "amount": 300000,
+        "currency": "INR",
+        "frequency": "one-time",
+        "channels": [
+          "indian-bank"
+        ]
+      },
+      {
+        "guid": "infra-and-data-updates",
+        "status": "active",
+        "name": "Automated ClinVar, gnomAD and CI Infrastructure",
+        "description": "Covers cloud and CI compute for automated monthly HGNC and ClinVar SQLite store rebuilds, expanded MaveDB wet-lab benchmarking, and reproducible RO-Crate releases.",
+        "amount": 100000,
+        "currency": "INR",
+        "frequency": "one-time",
+        "channels": [
+          "indian-bank"
+        ]
+      },
+      {
+        "guid": "community-support",
+        "status": "active",
+        "name": "General Open-Source Support",
+        "description": "Any amount to help keep Genomic Equity Conformal free, offline-friendly, and actively maintained.",
+        "amount": 0,
+        "currency": "INR",
+        "frequency": "one-time",
+        "channels": [
+          "indian-bank"
+        ]
+      }
+    ]
+  }
+}
