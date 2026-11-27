@@ -1,6 +1,4 @@
 import argparse, os, signal, sqlite3, sys, time
-import torch
-from transformers import AutoTokenizer, AutoModelForMaskedLM
 from resource_logger import ResourceLogger
 
 STOP_REQUESTED = False
@@ -36,6 +34,8 @@ def score_variants(variants, db_path="artifacts/esm2_cache.sqlite", max_wall_min
         return
 
     if not dry_run:
+        import torch
+        from transformers import AutoTokenizer, AutoModelForMaskedLM
         model_name = "facebook/esm2_t6_8M_UR50D"
         tokenizer = AutoTokenizer.from_pretrained(model_name)
         model = AutoModelForMaskedLM.from_pretrained(model_name)

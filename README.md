@@ -33,6 +33,7 @@ Created & maintained by **Nikhil Bharti** ([@Nikhilbharti284](https://github.com
 ## Quickstart & Verification
 
 ```bash
+pip install numpy scikit-learn pandas scipy psutil joblib pytest
 pip install -e . --no-deps --no-build-isolation
 python3 src/build_v5_exome_store.py
 python3 src/v5_global_cohort_audit.py
